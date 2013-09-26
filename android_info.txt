@@ -1,0 +1,23 @@
+ANDROID TUTORIAL:
+---------------------------------
+
+'The New Boston':
+
+http://www.youtube.com/watch?v=SUOWNXGRc6g&list=PL33384E9848C4F55E
+
+omws ta prwta tutorials tou 'The New Boston' (pws na ginei setup to sdk) en ligo palia, twra iparxei to 
+adt-bundle pou exei mesa ta panta etoima (eClipse, SDK kai emulator):
+
+http://developer.android.com/sdk/index.html
+
+-download adt-bundle
+-extract
+-use eClipse from there
+
+Tutorial apo tous developers: (sta epomena mathimata deixnei k pws ginetai setup o emulator, pou deixnei 
+pws fainetai to app se pragmatiki siskevi):
+
+http://developer.android.com/training/basics/firstapp/index.html
+
+
+
