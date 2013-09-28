@@ -19,5 +19,9 @@ pws fainetai to app se pragmatiki siskevi):
 
 http://developer.android.com/training/basics/firstapp/index.html
 
+Alla sites me tutorials gia android development:
+mobile.tutsplus.com
+www.vogella.com/android.html
+
 
 
