@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">stopCancerCyprus</string>
+    <string name="action_settings">Settings</string>
+    <string name="orchis">Καρκίνος των όρχεων\ndfghjk</string>
+    <string name="mastos">Καρκίνος του μαστού</string>
+    <string name="uterus">Καρκίνος της μήτρας</string>
+    <string name="gender">Φύλο</string>
+
+    <string-array name="sex">
+        <item>Αρρεν</item>
+        <item>Θύλη</item>
+    </string-array>
+
+    <string name="age">Ηλικία</string>
+
+    <string-array name="ageCategories">
+        <item>1 έως 12</item>
+        <item>13  έως  17</item>
+        <item>18 έως 20</item>
+        <item>21 έως 24</item>
+        <item>25 έως 30</item>
+        <item>31 έως 40</item>
+        <item>41 έως 50</item>
+        <item>50 έως 70</item>
+    </string-array>
+    
+     <string name="smoke">Κάπνισμα</string>
+
+    <string-array name="smokeCategories">
+        <item>Νυν Καπνιστής</item>
+        <item>Πρόιν καπνιστής</item>
+        <item>Μή καπνιστής</item>
+    </string-array>
+    
+     <string name="prepossession">Προδιάθεση/Ιστορικό Κληρονομικότητας</string>
+
+    <string-array name="prepoCategories">
+        <item>Ναί</item>
+        <item>Όχι</item>
+    </string-array>
+    
+    <string name="alcohol">Υπερβολική κατανάλωση αλκόλ;</string>
+
+    <string-array name="alcoholCategories">
+        <item>Ναί</item>
+        <item>Όχι</item>
+    </string-array>
+
+</resources>

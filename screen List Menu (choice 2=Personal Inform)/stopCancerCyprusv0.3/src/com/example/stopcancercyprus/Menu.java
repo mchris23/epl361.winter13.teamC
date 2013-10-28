@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 public class Menu extends ListActivity {
 
-	String listOfChoices[] = { "MainActivity", "TextPlay", "2", "3", "4", "5", "6" };
+	String listOfChoices[] = { "General Inform", "Personal Inform","3", "4", "5", "6","3", "4", "5", "6" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class Menu extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
-		String choice=listOfChoices[position];
+		String choice=listOfChoices[position].replace(" ", "");
 		super.onListItemClick(l, v, position, id);
 
 		try {

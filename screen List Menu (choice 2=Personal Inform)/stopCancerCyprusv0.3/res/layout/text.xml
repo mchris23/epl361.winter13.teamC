@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <EditText
+        android:id="@+id/instructionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:editable="FALSE"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:paddingBottom="20dp"
+        android:text="Συμπλήρωσε όλα τα στοιχεία για να δεις τις προτεινόμενες εξετάσεις που σου συνιστώνται:"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- gender of user -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100" 
+                android:paddingBottom="10dp">
+
+                <EditText
+                    android:id="@+id/Gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Φύλο:"
+                    android:textSize="12dp" />
+
+                <requestFocus />
+
+                <Spinner
+                    android:id="@+id/selectGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/sex"
+                    android:prompt="@string/gender" />
+
+            </LinearLayout>
+
+            <!-- age of user -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:paddingBottom="10dp" >
+
+                <EditText
+                    android:id="@+id/Age"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="90"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Ηλικία:"
+                    android:textSize="12dp" />
+
+                   <Spinner
+                    android:id="@+id/selectAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/ageCategories"
+                    android:prompt="@string/age" />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <!-- weight of user -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:paddingBottom="10dp" >
+
+                <EditText
+                    android:id="@+id/Weight"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Βάρος(σε kg):"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/CommandWeight"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="20"
+                    android:ems="10"
+                    android:hint="(πχ. 85.5)"
+                    android:textSize="10dp"
+                    android:inputType="numberDecimal" />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <!-- height of user -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100" 
+                android:paddingBottom="10dp">
+
+                <EditText
+                    android:id="@+id/Heigh"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="90"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Υψος(σε εκατοστόμετρα):"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/CommandHeigh"
+                    android:layout_width="99dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:ems="10"
+                    android:hint="(πχ. 169)"
+                    android:inputType="numberDecimal"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <!-- if user is: smoker/ex.smoker/non-smoker -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:paddingBottom="10dp" >
+
+                <EditText
+                    android:id="@+id/Smoke"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="99"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Καπνιστής:"
+                    android:textSize="12dp" />
+
+                <Spinner
+                    android:id="@+id/selectSmoke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/smokeCategories"
+                    android:prompt="@string/smoke" />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <!-- if user is or was an alcoholic -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:paddingBottom="10dp" >
+
+                <EditText
+                    android:id="@+id/alcoholic"
+                    android:layout_width="81dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="99"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Κατανάλωση αλκοόλ (περισσότερο από 5 φορές την εβδομάδα):"
+                    android:textSize="12dp" />
+
+                 <Spinner
+                    android:id="@+id/selectAlcohol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/alcoholCategories"
+                    android:prompt="@string/alcohol"
+                     />
+
+                <requestFocus />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <!-- if user has prepossession of cancer -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:paddingBottom="15dp" >
+
+                <EditText
+                    android:id="@+id/prepossession"
+                    android:layout_width="81dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="99"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Οικογενειακό ιστορικό/Προδιάθεση:"
+                    android:textSize="12dp" />
+
+                     <Spinner
+                    android:id="@+id/selectPreposission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/prepoCategories"
+                    android:prompt="@string/prepossession"
+                  />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <!-- sexual situation of user -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100" 
+                android:paddingBottom="15dp">
+
+                <EditText
+                    android:id="@+id/sexualSituation"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="90"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:text="Σεξουαλική Κατάσταση:"
+                    android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/CommandSexualSituatione"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:ems="10"
+                    android:hint="Κατάσταση"
+                    android:textSize="10dp" />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <!-- submission of user's information -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:paddingTop="10dp" >
+
+                <Button
+                    android:id="@+id/Bsubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="Υποβολή"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/msgSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:text="Δεν υπάρχει καμία υποβολή ακόμα"
+                    android:textSize="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

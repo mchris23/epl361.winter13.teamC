@@ -8,6 +8,13 @@
 package com.example.stopcancercyprus;
 
 public final class R {
+    public static final class array {
+        public static final int ageCategories=0x7f070001;
+        public static final int alcoholCategories=0x7f070004;
+        public static final int prepoCategories=0x7f070003;
+        public static final int sex=0x7f070000;
+        public static final int smokeCategories=0x7f070002;
+    }
     public static final class attr {
     }
     public static final class dimen {
@@ -26,41 +33,56 @@ public final class R {
         public static final int karkinos=0x7f020002;
     }
     public static final class id {
-        public static final int Age=0x7f090009;
-        public static final int Bsubmit=0x7f09000f;
-        public static final int CommandAge=0x7f09000a;
-        public static final int CommandGender=0x7f090005;
-        public static final int CommandHeigh=0x7f09000e;
-        public static final int CommandPrepossession=0x7f090008;
-        public static final int CommandSexualSituatione=0x7f09000c;
-        public static final int CommandSmoke=0x7f090003;
-        public static final int CommandWeight=0x7f090001;
-        public static final int Gender=0x7f090004;
-        public static final int Heigh=0x7f09000d;
-        public static final int Smoke=0x7f090002;
-        public static final int Weight=0x7f090000;
-        public static final int action_settings=0x7f090011;
-        public static final int alcoholic=0x7f090006;
-        public static final int msgSubmit=0x7f090010;
-        public static final int prepossession=0x7f090007;
-        public static final int sexualSituation=0x7f09000b;
+        public static final int Age=0x7f0a000a;
+        public static final int Bactiv=0x7f0a0005;
+        public static final int Bdiet=0x7f0a0007;
+        public static final int Bexam=0x7f0a0003;
+        public static final int Bsubmit=0x7f0a0018;
+        public static final int CommandHeigh=0x7f0a000f;
+        public static final int CommandSexualSituatione=0x7f0a0017;
+        public static final int CommandWeight=0x7f0a000d;
+        public static final int Gender=0x7f0a0008;
+        public static final int Heigh=0x7f0a000e;
+        public static final int Smoke=0x7f0a0010;
+        public static final int Weight=0x7f0a000c;
+        public static final int action_settings=0x7f0a001a;
+        public static final int activitiesText=0x7f0a0004;
+        public static final int alcoholic=0x7f0a0012;
+        public static final int dietText=0x7f0a0006;
+        public static final int examinationText=0x7f0a0002;
+        public static final int instructionText=0x7f0a0000;
+        public static final int msgSubmit=0x7f0a0019;
+        public static final int prepossession=0x7f0a0014;
+        public static final int scrollView2=0x7f0a0001;
+        public static final int selectAge=0x7f0a000b;
+        public static final int selectAlcohol=0x7f0a0013;
+        public static final int selectGender=0x7f0a0009;
+        public static final int selectPreposission=0x7f0a0015;
+        public static final int selectSmoke=0x7f0a0011;
+        public static final int sexualSituation=0x7f0a0016;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int general=0x7f030000;
         public static final int intro=0x7f030001;
         public static final int text=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class raw {
-        public static final int my_music2=0x7f040000;
+        public static final int my_music=0x7f040000;
+        public static final int my_music2=0x7f040001;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
+        public static final int age=0x7f060006;
+        public static final int alcohol=0x7f060009;
         public static final int app_name=0x7f060000;
+        public static final int gender=0x7f060005;
         public static final int mastos=0x7f060003;
         public static final int orchis=0x7f060002;
+        public static final int prepossession=0x7f060008;
+        public static final int smoke=0x7f060007;
         public static final int uterus=0x7f060004;
     }
     public static final class style {
@@ -85,10 +107,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
 }
