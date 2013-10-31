@@ -1,0 +1,193 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="outsideInset"
+    android:scrollbars="vertical"
+    tools:context=".FullscreenActivity" >
+
+    <!--
+         The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc.
+    -->
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/dummy_content"
+        android:textColor="#33b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <!--
+         
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+    -->
+
+   		<FrameLayout
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:layout_gravity="center"
+        	android:fitsSystemWindows="true" >
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent" >
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="115dp"
+            android:layout_marginRight="115dp"
+            android:text="@string/buttonstr" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="306dp"
+            android:layout_height="173dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:contentDescription="@string/imagestr"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="341dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="130dp"
+            android:enabled="false"
+            android:gravity="left"
+            android:scrollHorizontally="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            android:text="Παγκύπριος Σύνδεσμος Καρκινοπαθών και Φίλων (ΠΑΣΥΚΑΦ) -  Φιλανθρωπικό Ίδρυμα αρ. 525
+        	Ιδρύθηκε το 1986 από 21 ασθενείς με καρκίνο και συγγενείς, άτομα με εμπειρία καρκίνου και φίλους
+        	Εξελίχθηκε σε ένα οργανισμό που προσφέρει επαγγελματικές υπηρεσίες υγείας και ανακουφιστικής φροντίδας σε χιλιάδες ασθενείς και στήριξη στους συγγενείς τους καθώς και προγράμματα διαφώτισης για πρόληψη, έγκαιρη διάγνωση και αντιμετώπιση του καρκίνου για το ευρύ κοινό και έχει ένθερμα μέλη και υποστηρικτές
+        	Όραμα του ΠΑΣΥΚΑΦ είναι η Κύπρος απαλλαγμένη από την ασθένεια του καρκίνου και να διασφαλίζεται η Ποιότητα και το Δικαίωμα στη Ζωή για τους ασθενείς με καρκίνο και τις οικογένειες τους 
+        	Φιλοσοφία είναι η ποιότητα στη ζωή των ασθενών με καρκίνο και στις οικογένειές τους
+        	Στόχοι του ΠΑΣΥΚΑΦ είναι Όλοι μαζί, Νικητές στη ζωή με έμφαση                      
+  			    + στην πρόληψη του καρκίνου με τη δημιουργία κουλτούρας για υγιεινή ζωή με σωστή διατροφή και εφαρμογή εμβολιασμών
+  				+ στην έγκαιρη διάγνωση με προληπτικές εξετάσεις και εφαρμογή πληθυσμιακών προγραμμάτων  
+  				+ στη διασφάλιση των δικαιωμάτων των συνανθρώπων μας με εμπειρία καρκίνου
+  				+ στις θεραπείες κατά του καρκίνου μέσω της συνεχούς επαγρύπνησης για τη διασφάλιση αντιμετώπισης και  διαχείρισης του καρκίνου σύμφωνα με τις σύγχρονες αντιλήψεις θεραπείας
+  				+ σε όλα τα στάδια της ασθένειας, στην αποκατάσταση και στο πένθος, διασφαλίζοντας την ποιότητα ζωής των  ασθενών και των οικογενειών τους 
+  		1. Οι Υπηρεσίες και τα Προγράμματα του ΠΑΣΥΚΑΦ ανταποκρίνονται στις ανάγκες των ασθενών και των συγγενών διατηρώντας τη θαλπωρή παρέχοντας:
+  			Υπηρεσίες Κατ’ Οίκον Ανακουφιστικής Φροντίδας
+  				+ Ανακουφιστική Φροντίδα για έλεγχο του πόνου και των συμπτωμάτων
+  				+ Νοσηλευτική Φροντίδα στο σπίτι 
+  				+ Δανεισμό βοηθητικού εξοπλισμού: τροχοκαθίσματα, στρώματα αέρος,συσκευές οξυγόνου, κ.λ.π.
+  				+ Ιατρική παρακολούθηση 
+  				+ Εκπαίδευση Φροντιστών και Οικείων του Ασθενή
+  			Φυσικοθεραπεία
+  				+ Υπηρεσίες Αποκατάστασης
+  				+ Φυσιοθεραπείας και Λεμφοιδήματος
+  				+ Προβλήματα κινητικότητας   
+  				+ Αναπνευστικά προβλήματα 
+  				+ Λεμφοιδήματα  
+  				+ Ομάδες μαστού
+  			Στήριξη
+  				+ Υπηρεσία Ψυχοκοινωνικής Υποστήριξης
+  				+ Ατομική και Ομαδική Στήριξη και Καθοδήγηση  
+  				+ Ομάδα Στήριξης επαγγελματιών υγείας και εθελοντών υποστήριξης
+  				+ Εκπαίδευση – Εποπτεία Εθελοντών Στήριξης
+  				+ Κοινωνική στήριξη και άλλη βοήθεια
+  				+ Κέντρα Υποστήριξης,  Επαφής και Δραστηριοποίησης
+  			Συνοδεία και μεταφορά
+  				+ Υπηρεσία Μεταφοράς Ασθενών και τακτοποίηση συνταγών και αναλύσεων καθημερινά από την Πάφο, Λεμεσό, Ελεύθερη Περιοχή  Αμμοχώστου και Λάρνακα, στη Λευκωσία για:
+  				+ εξετάσεις  
+  				+ χημειοθεραπείες 
+  				+ ακτινοθεραπείες
+  			Παραπομπές για λήψη υπηρεσιών γίνονται για μία ή περισσότερες από τις Υπηρεσίες μας και μπορούν να γίνουν από
+  				+ Ογκολογικά Κέντρα Παγκύπρια
+  				+ Ιδιώτες Ογκολόγους, Γυναικολόγους Χειρούργους, και άλλους γιατρούς
+  				+ Ασθενείς ή μέλη της οικογένειας τους
+  			Προγράμματα διαφώτισης για τον καρκίνο, καλύπτουν μεταξύ  άλλων διαλέξεις και παρουσιάσεις με στόχο τη μείωση των νέων περιστατικών κατά 40% με την πρόληψη και μείωση των θανάτων κατά 30% με την έγκαιρη διάγνωση για τα ακόλουθα:
+  				+ ανδρικό καρκίνο – καρκίνος των όρχεων, του προστάτη, της ουροδόχου κύστεως 
+  				+ γυναικολογικό καρκίνο – καρκίνος του τραχήλου της μήτρας, των οωθηκών 
+  				+ καρκίνο του μαστού
+  				+ καρκίνο του παχέος εντέρου
+  				+ την υγιεινή διατροφή και άσκηση
+  				+ την παχυσαρκία
+  				+ την προστασία από τον καπνό του τσιγάρου
+  				+ την προστασία από τον ήλιο
+  				+ την προστασία από το αλκοόλ 
+  		2. Διεκδίκηση των Δικαιωμάτων Ασθενών με Καρκίνο
+  			Ο ΠΑΣΥΚΑΦ συμμετέχει στο Patients Support Working Group του ECL (Ευρωπαϊκοί Οργανισμοί κατά του Καρκίνου)
+  				+ Συνέδριο ECL/MAC 2011 στις Βρυξέλλες για Δικαιώματα Ασθενών 
+  				+ Επαφές στη Βουλή και στις επιτροπές Υγείας και Ανθρωπίνων Δικαιωμάτων
+  				+ Η Πρόεδρος του ΠΑΣΥΚΑΦ Δρ. Άννα Αχιλλεούδη συμμετέχει στην Εθνική Επιτροπή για τη Στρατηγική του Καρκίνου στην Κύπρο
+  		3. Εξασφάλιση Οικονομικών Πόρων με τη Συλλογή Χρημάτων μέσω
+  				+ Εκστρατεία Οικονομικής Ενίσχυσης
+  				+ Εκδηλώσεις (Μουσικές, τόμπολα, τσάι κτλ.)
+  				+ Χριστουγεννιάτικες Αγορές και Εκδηλώσεις
+  				+ Πασχαλινές Αγορές και Εκδηλώσεις
+  				+ Λαχείο 
+  				+ Κωνσταντινάτα 
+  				+ Charity Shops
+  				+ Χορηγίες σε Εξοπλισμό
+  				+ Συνδρομές Μελών και Εισφορές
+  				+ Κιβώτια Εισφορών 
+  				+ Standing Orders  
+  				+ Δωρεές και Κληροδοτήματα
+  				+ Εισφορές εις μνήμη
+  				
+  			Οι εθελοντές μας 
+  				+ Διοικητικό Συμβούλιο: 14 Μέλη και 3 Αναπληρωματικοί 
+  				+ Επιστημονική Επιτροπή
+  				+ Επαρχιακές Επιτροπές
+  				+ Ομάδες Εθελοντών
+  				+ Patient Support Working Group – Πάφος
+  				+ Coffee Morning Groups – Παραλίμνι
+  				+ Διάφορες ομάδες σε Λάρνακα και Λεμεσό 
+  				+ Grundtvig “Volunteering in Health Care Training Program” 
+  				+ “Εθελοντισμός στην Υγεία – Πρόγραμμα Εκπαίδευσης  και Διαχείρισης Εθελοντών
+  			
+  			Ο ΠΑΣΥΚΑΦ συνδέεται Διεθνώς,με παγκόσμιους και ευρωπαϊκούς Οργανισμούς όπως UICC, ECL, European Cancer Patient Coalition, Middle East Cancer Consortium, European Oncology Nursing Society, European Association for Palliative Care, European Cervical Cancer Association, EuropaColon, IPOS
+Και στην Κύπρο, είναι
+				+ Στο Διοικητικό Συμβούλιο του Ογκολογικού Κέντρου Τράπεζας Κύπρου 
+				+ Στενός συνεργάτης των Υπουργείων Υγείας, Παιδείας και Πολιτισμού, Εργασίας και Κοινωνικών Ασφαλίσεων, Άμυνας και
+				+ Του Πανεπιστήμιου Κύπρου, του ΤΕΠΑΚ και του Ινστιτούτου Νευρολογίας και Γενετικής
+			
+			Ο ΠΑΣΥΚΑΦ συμμετέχει,
+				+ Σε Ευρωπαϊκά Προγράμματα όπως 
+				+ The Norwegian Fund  – “Τα παιδιά του Σήμερα ο Κόσμος του Αύριο”
+				+ Grundtvig -  “Εθελοντισμός στην Υγεία  –  Πρόγραμμα Εκπαίδευσης Εθελοντών
+				+ The Access to Opioid Medication in Europe (ATOME) project  
+				+ Σε Ερευνητικά Προγράμματα στο
+				+ Ινστιτούτο Νευρολογίας και Γενετικής – Επιδημιολογία του Καρκίνου στην Κύπρο
+				+ ΤΕΠΑΚ – Research on Guided Imagery and Relaxation (Ανακουφιστική Φροντίδα – Εναλλακτικές μέθοδοι στον έλεγχο του πόνου)
+				+ Ανοικτό Πανεπιστήμιο Κύπρου – “ Ανακουφιστική Φροντίδα στο Σπίτι  
+		Μπορείς και συ να γίνεις Μέλος της οικογένειας ΠΑΣΥΚΑΦ ως εθελοντής και να συμμετέχεις σε  προγράμματα που πιθανόν να σε ενδιαφέρουν 
+		Για πληροφορίες δες την εφαρμογή και για προσωπική επικοινωνία σημείωσε τα ακόλουθα:
+		Κεντρικά Γραφεία:  Οδός Φωτεινού Πανά 12+14, 1045 Λευκωσία 
+		Τηλ. +357 22 345 444     Φαξ. +357 22 346 116    Email: info@pasykaf.org
+		
+		Λεμεσός: τηλ. +357 25 747 750, φαξ 25 767 668 
+		Λάρνακα: τηλ. +357 24 665 198, φαξ 24 665 193
+		Πάφος: τηλ. +357 26 222 929, φαξ 26 221 986
+		Παραλίμνι: τηλ. +357 23 730 460, φαξ 23 740 399"
+            android:textColor="@color/black_overlay"
+            android:textSize="17sp" />
+
+    </FrameLayout>
+
+</FrameLayout>
