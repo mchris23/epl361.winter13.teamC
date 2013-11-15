@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Nov 15 23:42:11 EET 2013'>
+  <XMI.header>    <XMI.documentation>
+      <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
+      <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
+    </XMI.documentation>
+    <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
+  <XMI.content>
+    <UML:Model xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000865'
+      name = 'untitledModel' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+      isAbstract = 'false'>
+      <UML:Namespace.ownedElement>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000866'
+          name = '&lt;&lt;component&gt;&gt;Intro' isSpecification = 'false' isRoot = 'false'
+          isLeaf = 'false' isAbstract = 'false'/>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000867'
+          name = '&lt;&lt;component&gt;&gt; Menu' isSpecification = 'false' isRoot = 'false'
+          isLeaf = 'false' isAbstract = 'false'/>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000869'
+          name = '&lt;&lt;component&gt;&gt; Persona Information' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+          <UML:ModelElement.clientDependency>
+            <UML:Dependency xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000870'/>
+            <UML:Dependency xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000871'/>
+          </UML:ModelElement.clientDependency>
+        </UML:Component>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086A'
+          name = '&lt;&lt;component&gt;&gt; General Information' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+          <UML:ModelElement.clientDependency>
+            <UML:Dependency xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000873'/>
+          </UML:ModelElement.clientDependency>
+        </UML:Component>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086B'
+          name = '&lt;&lt;component&gt;&gt; User Data and Settings' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false'/>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086C'
+          name = '&lt;&lt;component&gt;&gt; Notification Manager and Settings' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+          <UML:ModelElement.clientDependency>
+            <UML:Dependency xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086F'/>
+          </UML:ModelElement.clientDependency>
+        </UML:Component>
+        <UML:Component xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086D'
+          name = '&lt;&lt;component&gt;&gt; Examination Manager' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false'/>
+        <UML:Dependency xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086F'
+          name = '&lt;&lt;rmi&gt;&gt;' isSpecification = 'false'>
+          <UML:Dependency.client>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086C'/>
+          </UML:Dependency.client>
+          <UML:Dependency.supplier>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086D'/>
+          </UML:Dependency.supplier>
+        </UML:Dependency>
+        <UML:Dependency xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000870'
+          name = '&lt;&lt;rmi&gt;&gt;' isSpecification = 'false'>
+          <UML:Dependency.client>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000869'/>
+          </UML:Dependency.client>
+          <UML:Dependency.supplier>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086B'/>
+          </UML:Dependency.supplier>
+        </UML:Dependency>
+        <UML:Dependency xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000871'
+          name = '&lt;&lt;rmi&gt;&gt;' isSpecification = 'false'>
+          <UML:Dependency.client>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000869'/>
+          </UML:Dependency.client>
+          <UML:Dependency.supplier>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086D'/>
+          </UML:Dependency.supplier>
+        </UML:Dependency>
+        <UML:Dependency xmi.id = '-64--88--61-1-62af6f58:14256538e48:-8000:0000000000000873'
+          name = '&lt;&lt;rmi&gt;&gt;' isSpecification = 'false'>
+          <UML:Dependency.client>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086A'/>
+          </UML:Dependency.client>
+          <UML:Dependency.supplier>
+            <UML:Component xmi.idref = '-64--88--61-1-62af6f58:14256538e48:-8000:000000000000086D'/>
+          </UML:Dependency.supplier>
+        </UML:Dependency>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </XMI.content>
+</XMI>
