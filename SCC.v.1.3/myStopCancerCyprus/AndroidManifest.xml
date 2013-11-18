@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.stopcancercyprus"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.mystopcancercyprus.Intro"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.GeneralInform"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.PasikafInfo"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.stopCancerCyprus.PASIKAFINFO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.PersonalInform"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.Settings"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.Menu"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.ExaminationList"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.ActivityList"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.DietList"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.SpecificExamination"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.mystopcancercyprus.CancerList"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <activity
+            android:name="com.example.mystopcancercyprus.SpecificCancer"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
+
+</manifest>
