@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.stopcancercyprus"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Intro"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GeneralInform"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".PasikafInfo"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.stopCancerCyprus.PASIKAFINFO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PersonalInform"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Menu"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ExaminationList"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ActivityList"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".DietList"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".SpecificExamination"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerList"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <activity
+            android:name=".ActivityNotification"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <service android:name=".ActivityNotificationService">
+             
+         </service>  
+         
+         <activity
+            android:name=".GridViewImageActivity"
+            android:label="@string/app_name" >
+        </activity>
+        
+          <activity
+            android:name=".ImageAdapter"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <activity
+            android:name=".MyImageActivity"
+            android:label="@string/app_name" >
+        </activity>
+        
+           <activity
+            android:name=".CancerBreast"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerProstate"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerUterus"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerRectum"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerSkin"
+            android:label="@string/app_name" >
+        </activity>
+      
+           <activity
+            android:name=".CancerOvarian"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerPangkreas"
+            android:label="@string/app_name" >
+        </activity>
+        
+          <activity
+            android:name=".ActivityBreast"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ActivityKidney"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ActivityRectum"
+            android:label="@string/app_name" >
+        </activity>
+ <activity
+            android:name=".ExamBreast"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ExamColonoscopy"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name=".ExamStool"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ExamTesticles"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name=".ExamBlood"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ExamPap"
+            android:label="@string/app_name" >
+        </activity>
+        
+         <activity
+            android:name=".DietBreast"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name=".DietProstate"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".DietRectum"
+            android:label="@string/app_name" >
+        </activity>
+        </application>
+
+</manifest>

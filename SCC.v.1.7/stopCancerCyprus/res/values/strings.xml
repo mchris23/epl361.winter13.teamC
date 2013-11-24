@@ -1,0 +1,79 @@
+<resources>
+
+    <string name="app_name">stopCancerCyprus</string>
+    <string name="action_settings">Settings</string>
+    <string name="orchis">Καρκίνος των όρχεων\ndfghjk</string>
+    <string name="mastos">Καρκίνος του μαστού</string>
+    <string name="uterus">Καρκίνος της μήτρας</string>
+    <string name="gender">Φύλο</string>
+
+    <string-array name="sex">
+        <item>Αρρεν</item>
+        <item>Θήλυ</item>
+    </string-array>
+
+    <string name="age">Ηλικία</string>
+
+    <string-array name="ageCategories">
+        <item>1 έως 12</item>
+        <item>13  έως  17</item>
+        <item>18 έως 20</item>
+        <item>21 έως 24</item>
+        <item>25 έως 30</item>
+        <item>31 έως 40</item>
+        <item>41 έως 50</item>
+        <item>50 έως 70</item>
+    </string-array>
+    
+     <string name="smoke">Κάπνισμα</string>
+
+    <string-array name="smokeCategories">
+        <item>Νυν Καπνιστής</item>
+        <item>Πρόιν καπνιστής</item>
+        <item>Μή καπνιστής</item>
+    </string-array>
+    
+     <string name="prepossession">Προδιάθεση/Οικογενειακό Ιστορικό</string>
+
+    <string-array name="prepoCategories">
+        <item>Ναί</item>
+        <item>Όχι</item>
+    </string-array>
+    
+    <string name="alcohol">πάνω από 5 φορές την εβδομάδα;</string>
+
+    <string-array name="alcoholCategories">
+        <item>Ναί</item>
+        <item>Όχι</item>
+    </string-array>
+    
+     <string name="sexSituation">Σεξουαλικά ενεργός/ή πάνω από 2 χρόνια;</string>
+
+    <string-array name="sexCategories">
+        <item>Ναί</item>
+        <item>Όχι</item>
+    </string-array>
+    <string name="str1">Παγκύπριος Οργανισμός Καρκινοπαθών και Φίλων - Φιλανθρωπικό Ύδριμα αρ.525</string>
+    
+    <!-- colors -->
+    <color name="light_blue">#8ab8e6</color>
+    <color name="light_pink">#ff99ff</color>
+    <color name="light_orange">#FF9966</color>
+    <color name="tirquage">#66ff99</color>
+     <color name="light_purple">#a292c5</color>
+     <color name="blue">#3366ff</color>
+    <color name="orange">#ff6600</color>
+   <color name="dark_blue">#000066</color>
+  <color name="green"> #006e25</color>
+  <color name="pink_orange">#ffb8b8</color>
+   <!-- text view -->
+   <string name="paragontes"><u><b>Παράγοντες κινδύνου:</b></u></string>
+   <string name="diataraxes"><u><b>Διαταραχές της έμμηνου ρύσης:</b></u></string> 
+    <string name="papTest"><u><b>Το τεστ συνιστάται να γίνεται:\n</b></u></string> 
+    <string name="aerobic"><u><b>Ενδυνάμωση και αερόβια άσκηση:\n</b></u></string> 
+   <string name="paxeoentero"><u><b> Για τον καρκίνο του παχέος εντέρου συνιστάται η εξετάση:\n</b></u></string> 
+   <string name="aima"><u><b>Οι ιατροί συνιστούν τις εξής εξετάσεις:</b></u></string>
+  <string name="simptomata"><u><b> Σημεία και Συμπτώματα:</b></u></string>
+  <string name="diet"><u><b> Οι καλές και οι κακές τροφές:</b></u></string>
+  <string name="sistasis"><u><b>\nΠοιες είναι οι γενικές συστάσεις που θα βοηθήσουν:</b></u></string>
+</resources>
