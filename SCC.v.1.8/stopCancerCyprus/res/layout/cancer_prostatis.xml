@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp" >
+
+                <EditText
+                    android:id="@+id/KarkinosMastou"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:editable="FALSE"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:text="Καρκίνος του προστάτη "
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:background="@color/blue"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/KarkinosMastosView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ο καρκίνος του προστάτη είναι μια νόσος σοβαρή αλλά όχι πάντοτε θανατηφόρος. Έχει αργή εξέλιξη και όσο πρωιμότερη είναι η διάγνωσή τόσο μεγαλύτερες είναι οι πιθανότητες ριζικής θεραπείας.Ο έλεγχος πρέπει να ξεκινά μεταξύ 40 και 50 χρονών."
+                    /> </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                  <ImageView
+                      android:id="@+id/img"
+                      android:layout_width="432dp"
+                      android:layout_height="210dp"
+                      android:layout_gravity="center"
+                      android:focusable="true"
+                      android:focusableInTouchMode="true"
+                      android:src="@drawable/prostatis" />
+                
+            </LinearLayout>  
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" > </LinearLayout>
+
+             <TextView
+                 android:id="@+id/KarkinosMastosView"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/paragontes"
+                 android:textColor="@color/blue" />
+             
+              <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/KarkinosMastosView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • Η προχωρημένη ηλικία.\n • Το οικογενειακό ιστορικό.\n • Η διατροφή πλούσια σε λιπαρά και η παχυσαρκία.\n • Τα υψηλά επίπεδα τεστοστερόνης.\n • Η επαγγελματική έκθεση στο κάδμιο, η εργασία σε βιομηχανία ελαστικών και η ιονίζουσα ακτινοβολία."
+                    android:textStyle="normal"
+                   /> </LinearLayout>
+              
+              <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/KarkinosMastosView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/simptomata"
+                    android:textColor="@color/blue"
+                   /> </LinearLayout>
+              
+              <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/KarkinosMastosView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ο καρκίνος του προστάτη συχνά δεν συνοδεύεται από συμπτώματα στα πρώιμα στάδια. Για αυτό το λόγο, πολλές περιπτώσεις καρκίνου του προστάτη παραμένουν αδιάγνωστες μέχρι την εξάπλωση του καρκίνου, πέρα από την περιοχή του προστάτη.\n "
+                    android:textStyle="normal"
+                   /> </LinearLayout>
+
+	<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/KarkinosMastosView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Όταν εμφανίζονται συμπτώματα, αυτά μπορεί να περιλαμβάνουν τα ακόλουθα:\n"
+                    android:textStyle="bold"/>
+                   	</LinearLayout>
+            
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/KarkinosMastosView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • Διαταραχές ούρησης (δυσουρία, αιματουρία, νυχτερινή συχνοουρία κ.α.).\n • Επώδυνη εκσπερμάτωση.\n • Ασαφής πόνος στην οσφύ, στα ισχία ή στο άνω μέρος των μηρών.\n • Απώλεια όρεξης και βάρους.\n • Επίμονος πόνος στα οστά."
+                   	android:textStyle="normal"/>
+                   	</LinearLayout>    
+	
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
