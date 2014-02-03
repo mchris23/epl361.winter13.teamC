@@ -1,5 +1,5 @@
 package com.example.stopcancercyprus;
-
+//write test egit
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
