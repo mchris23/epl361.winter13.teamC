@@ -14,7 +14,8 @@ public class Intro extends Activity{
 		setContentView(R.layout.intro);
 		ourSong=MediaPlayer.create(Intro.this, R.raw.my_music2);
 		ourSong.start();
-		new SQLConnection().getData();
+			new SQLConnection().doInBackground();
+
 		Thread timer=new Thread(){
 			public void run(){
 				try{
