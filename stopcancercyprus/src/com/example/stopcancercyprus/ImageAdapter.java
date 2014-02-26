@@ -80,17 +80,8 @@ public class ImageAdapter extends BaseAdapter {
 	}
 
 	private Integer [] imageIds={
-			R.drawable.mancancer,
 			R.drawable.cancer_traxilou_mitras,
-			R.drawable.enterou,
-			R.drawable.mastos,
-			R.drawable.mastos2,
-			R.drawable.mastos3,
 			R.drawable.breastself_exam,
-			R.drawable.paxientero,
-			R.drawable.pap_test,
-			R.drawable.piramida,
-			R.drawable.prostatis,
-			R.drawable.pyramideactivity
+			R.drawable.paxientero
 	};
 }

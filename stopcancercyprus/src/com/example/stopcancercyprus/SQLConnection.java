@@ -23,7 +23,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 public class SQLConnection extends AsyncTask{
-
+/* 
+ * Old method using normal HTTP connection
+ 
 	public void getData() {
 		JSONArray jArray = null;
 		String result = null;
@@ -82,7 +84,11 @@ public class SQLConnection extends AsyncTask{
 					"Error parsing data from database " + e1.toString());
 		}
 	}
-	public String getInternetData() {
+	*/
+	/* 
+	 * New method using normal HTTPS connection
+	 */
+	public String getInternetData(String file) {
 
 
 	    BufferedReader in = null;
@@ -92,7 +98,7 @@ public class SQLConnection extends AsyncTask{
 	        HttpClient client = new DefaultHttpClient();
 	        
 
-	        URI website = new URI("https://dione.in.cs.ucy.ac.cy/assignments/stopcancercyprus/api/authenticateUser.php"); 
+	        URI website = new URI("https://dione.in.cs.ucy.ac.cy/assignments/stopcancercyprus/api/"+file); 
 	        HttpGet request = new HttpGet();
 	        request.setURI(website);
 	        HttpResponse response = client.execute(request);
@@ -106,6 +112,7 @@ public class SQLConnection extends AsyncTask{
 	            sb.append(l + nl);
 	        }in.close();
 	        data = sb.toString();
+	        Log.d("DATA_RECEIVED",data);
 	        return data;
 	    } catch (Exception e) {
 	    	System.out.println("Exception " + e.getMessage());
@@ -124,6 +131,6 @@ public class SQLConnection extends AsyncTask{
 	@Override
 	protected Object doInBackground(Object... arg0) {
 		// TODO Auto-generated method stub
-		return this.getInternetData();
+		return this.getInternetData((String)arg0[0]);
 	}
 }

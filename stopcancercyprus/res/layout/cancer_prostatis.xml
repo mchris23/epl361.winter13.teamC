@@ -54,14 +54,7 @@
                 android:orientation="horizontal"
                 android:gravity="center" >
 
-                  <ImageView
-                      android:id="@+id/img"
-                      android:layout_width="432dp"
-                      android:layout_height="210dp"
-                      android:layout_gravity="center"
-                      android:focusable="true"
-                      android:focusableInTouchMode="true"
-                      android:src="@drawable/prostatis" />
+   
                 
             </LinearLayout>  
              <LinearLayout
