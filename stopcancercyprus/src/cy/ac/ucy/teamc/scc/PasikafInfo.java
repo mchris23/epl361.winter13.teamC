@@ -1,4 +1,4 @@
-package com.example.stopcancercyprus;
+package cy.ac.ucy.teamc.scc;
 
 import android.app.Activity;
 import android.content.Intent;

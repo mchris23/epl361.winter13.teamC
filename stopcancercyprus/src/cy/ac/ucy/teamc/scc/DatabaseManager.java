@@ -1,4 +1,4 @@
-package com.example.stopcancercyprus;
+package cy.ac.ucy.teamc.scc;
 
 import java.util.ArrayList;
 
@@ -62,9 +62,11 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		db.close(); // Closing database connection
 		if (relatedExams != null) {
 			Log.d("ADDCANCER","THERE ARE RELATED EXAMS");
+			//works till here
+			//below execute in other thread
 			SQLiteDatabase db2 = this.getReadableDatabase();
 			String query = new String(
-					"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name+"';");
+					"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name+"'");
 			Cursor c = db.rawQuery(query, null);
 			Log.d("ADDCANCER","I HAVE EXECUTED THE QUERY");
 			if (c.moveToFirst()) {

@@ -1,4 +1,4 @@
-package com.example.stopcancercyprus;
+package cy.ac.ucy.teamc.scc;
 //write test egit
 import android.app.Activity;
 import android.graphics.Color;

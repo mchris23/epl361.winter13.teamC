@@ -1,4 +1,4 @@
-package com.example.stopcancercyprus;
+package cy.ac.ucy.teamc.scc;
 
 
 import android.app.TabActivity;
@@ -19,23 +19,23 @@ public class Menu extends TabActivity {
 		setContentView(R.layout.main);
 		menuTabHost=getTabHost();
 		
-		TabSpec generalSpec=menuTabHost.newTabSpec("ÃåíéêÞ\nÅíçìÝñùóç");
-		generalSpec.setIndicator("ÃåíéêÞ ÅíçìÝñùóç",getResources().getDrawable(R.drawable.mytab1));
+		TabSpec generalSpec=menuTabHost.newTabSpec("Ãåíé�?�?\nÅíçì�?ñùóç");
+		generalSpec.setIndicator("Ãåíé�?�? Åíçì�?ñùóç",getResources().getDrawable(R.drawable.mytab1));
 		Intent generalIntent=new Intent(this,GeneralInform.class);
 		generalSpec.setContent(generalIntent);
 		
-		TabSpec personalSpec=menuTabHost.newTabSpec("ÐñïóùðéêÞ\nÅíçìÝñùóç");
-		personalSpec.setIndicator("ÐñïóùðéêÞ ÅíçìÝñùóç",getResources().getDrawable(R.drawable.mytab2));
+		TabSpec personalSpec=menuTabHost.newTabSpec("�?ñïóùðé�?�?\nÅíçì�?ñùóç");
+		personalSpec.setIndicator("�?ñïóùðé�?�? Åíçì�?ñùóç",getResources().getDrawable(R.drawable.mytab2));
 		Intent personallIntent=new Intent(this,PersonalInform.class);
 		personalSpec.setContent(personallIntent);
 		
-		TabSpec settingsSpec=menuTabHost.newTabSpec("Ñõèìßóåéò");
-		settingsSpec.setIndicator("ÑõèìÞóåéò",getResources().getDrawable(R.drawable.mytab3));
+		TabSpec settingsSpec=menuTabHost.newTabSpec("Ñõèì�?óåéò");
+		settingsSpec.setIndicator("Ñõèì�?óåéò",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
 		
-		TabSpec pasikafinfo =menuTabHost.newTabSpec("ΠΛΗΡΟΦΟΡΙΕΣ ΠΑΣΥΚΑΦ");
-		pasikafinfo.setIndicator("ΠΛΗΡΟΦΟΡΙΕΣ ΠΑΣΥΚΑΦ",getResources().getDrawable(R.drawable.pasikaf));
+		TabSpec pasikafinfo =menuTabHost.newTabSpec("ΠΛΗΡ�?Φ�?ΡΙΕΣ ΠΑΣΥ�?ΑΦ");
+		pasikafinfo.setIndicator("ΠΛΗΡ�?Φ�?ΡΙΕΣ ΠΑΣΥ�?ΑΦ",getResources().getDrawable(R.drawable.pasikaf));
 		Intent pasikafinfolIntent=new Intent(this,Settings.class);
 		pasikafinfo.setContent(settingslIntent);
 		
