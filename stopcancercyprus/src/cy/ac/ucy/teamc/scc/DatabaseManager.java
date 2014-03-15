@@ -146,6 +146,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		if (newVersion != oldVersion) {
 			//drop and recreate tables
+			
 			db.execSQL("DROP TABLE IF EXISTS EXAMINATION");
 			db.execSQL("DROP TABLE IF EXISTS CANCER");
 			db.execSQL("DROP TABLE IF EXISTS PREVENTION");
