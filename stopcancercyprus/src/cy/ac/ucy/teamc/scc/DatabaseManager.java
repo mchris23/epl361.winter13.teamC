@@ -11,12 +11,11 @@ import android.util.Log;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 
-	private static DatabaseManager instance = null;
+	private static DatabaseManager instance;
 
 	public static synchronized DatabaseManager getHelper(Context context) {
 		if (instance == null) {
 			instance = new DatabaseManager(context);
-			
 		}
 		return instance;
 	}
@@ -31,26 +30,35 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_weight TEXT,examination_smoker INTEGER,examination_height TEXT,examination_family_history INTEGER,examination_alcohol INTEGER)");
 		String createCancerTable = new String(
 				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT)");
-		String createPreventionTable = new String(
-				"CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT)");
-		String createExamCancerTable = new String(
-				"CREATE TABLE EXAMINATION_CANCER(ID_Examination INTEGER,ID_cancer INTEGER)");
-		String createCancerPreventionTable = new String(
-				"CREATE TABLE CANCER_PREVENTION(ID_cancer INTEGER,ID_prevention INTEGER)");
+		// String createPreventionTable = new String(
+		// "CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT)");
+		// String createExamCancerTable = new String(
+		// "CREATE TABLE EXAMINATION_CANCER(ID_Examination INTEGER,ID_cancer INTEGER)");
+		// String createCancerPreventionTable = new String(
+		// "CREATE TABLE CANCER_PREVENTION(ID_cancer INTEGER,ID_prevention INTEGER)");
 		db.execSQL(createExamTable);
-		Log.d("ONCREATE","CREATED TABLE EXAM");
+
 		db.execSQL(createCancerTable);
-		Log.d("ONCREATE","CREATED TABLE CANCER");
-		db.execSQL(createPreventionTable);
-		Log.d("ONCREATE","CREATED TABLE PREVENTION");
-		db.execSQL(createExamCancerTable);
-		db.execSQL(createCancerPreventionTable);
-		Log.d("ONCREATE","CREATED ALL TABLES");
+		Log.d("ONCREATE", "CREATED TABLES");
+		// db.execSQL(createPreventionTable);
+		addData(db);
+		// db.execSQL(createExamCancerTable);
+		// db.execSQL(createCancerPreventionTable);
 
 	}
 
-	public void addCancer(String name, String description, String[] relatedExams) {
-		SQLiteDatabase db = this.getWritableDatabase();
+	public void addData(SQLiteDatabase db) {
+		// since data is going to be static for now, enter here
+		addCancer(
+				db,
+				"ΚΑΡΚΙΝΟΣ ΤΩΝ ΩΟΘΗΚΩΝ",
+				"Oι ωοθήκες είναι μέρος του γυναικείου συστήματος αναπαραγωγής. Υπάρχει μια ωοθήκη σε κάθε πλευρά της μήτρας.\nΟ καρκίνος των ωοθηκών είναι ένας κακοήθης όγκος στη μία ή και στις δύο ωοθήκες. Υπάρχουν δύο τύποι, ο επιθηλιακός καρκίνος των ωοθηκών, που είναι ο πιο κοινός τύπος καρκίνου των ωοθηκών, και ο μη επιθηλιακός καρκίνος.\nΟι ακόλουθοι παράγοντες αυξάνουν τις πιθανότητες μιας γυναίκας να αναπτύξει καρκίνο στις ωοθήκες:\nηλικία, ιστορικό γέννησης παιδιών, ορμονικοί παράγοντες. Δεν υπάρχει αποδεδειγμένη σχέση μεταξύ του καρκίνου των ωοθηκών και της πλούσιας σε λίπη διατροφής, της χρήσης ταλκ γύρω από την περιοχή των γεννητικών οργάνων, ή του ιού της παρωτίτιδας (μαγουλάδες).",
+				new String[] { "ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125" });
+	}
+
+	public void addCancer(SQLiteDatabase db, String name, String description,
+			String[] relatedExams) {
+		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put("cancer_name", name);
@@ -58,32 +66,43 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		// Inserting Row
 		db.insert("CANCER", null, values);
-		Log.d("ADDCANCER","INSERTED CANCER NAME="+name+" DESCRIPTION="+description);
-		db.close(); // Closing database connection
-		if (relatedExams != null) {
-			Log.d("ADDCANCER","THERE ARE RELATED EXAMS");
-			//works till here
-			//below execute in other thread
-			SQLiteDatabase db2 = this.getReadableDatabase();
-			String query = new String(
-					"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name+"'");
-			Cursor c = db.rawQuery(query, null);
-			Log.d("ADDCANCER","I HAVE EXECUTED THE QUERY");
-			if (c.moveToFirst()) {
-				for (String i : relatedExams) {
-					query = new String(
-							"SELECT ID_Examination FROM EXAMINATION WHERE examination_name='"
-									+ i+"';");
-					db2.rawQuery(query, null);
-				}
-				db2.close();
-			}
+		Log.d("SCC - addCancer", "Added cancer: " + name);
+		// db.close(); // Closing database connection
 
+		if (relatedExams != null)
+			addCancerRelatedExams(db, name, relatedExams);
+	}
+
+	private void addCancerRelatedExams(SQLiteDatabase db, String name,
+			String[] relatedExams) {
+		// SQLiteDatabase db2 = this.getReadableDatabase();
+		// find the cancer just added
+		String query = new String(
+				"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name + "'");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			for (String i : relatedExams) {
+				// find related exam's id
+				query = new String(
+						"SELECT ID_Examination FROM EXAMINATION WHERE examination_name='"
+								+ i + "'");
+				Cursor c2 = db.rawQuery(query, null);
+				if (c2.moveToFirst()) {
+					// add entry to CANCER_EXAM table
+				} else {
+					// add exam
+					addExamination(db, i);
+					Log.d("SCC - addCancer", "Added related exam: " + name);
+				}
+			}
+			// db2.close();
+		} else {
+			Log.e("ADDCANCER", "COULD NOT RETRIEVE CANCER ID");
 		}
 	}
 
-	public void addPrevention(String name, String description) {
-		SQLiteDatabase db = this.getWritableDatabase();
+	public void addPrevention(SQLiteDatabase db, String name, String description) {
+		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put("prevention_name", name);
@@ -91,13 +110,18 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		// Inserting Row
 		db.insert("PREVENTION", null, values);
-		db.close(); // Closing database connection
+		// db.close(); // Closing database connection
 	}
 
-	public void addExamination(String name, String description, int frequency,
-			int sex, String agerange, String weight, int smoker, String height,
-			int familyHistory, int alcohol) {
-		SQLiteDatabase db = this.getWritableDatabase();
+	public void addExamination(SQLiteDatabase db, String name) {
+		addExamination(db, name, null, 0, 0, null, null, 0, null, 0, 0);
+	}
+
+	private void addExamination(SQLiteDatabase db, String name,
+			String description, int frequency, int sex, String agerange,
+			String weight, int smoker, String height, int familyHistory,
+			int alcohol) {
+		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 
@@ -114,20 +138,21 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		// Inserting Row
 		db.insert("EXAMINATION", null, values);
-		db.close(); // Closing database connection
+		Log.d("SCC - addExam", "Added examination: " + name);
+		// db.close(); // Closing database connection
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		
-		db.execSQL("DROP TABLE IF EXISTS EXAMINATION");
-		db.execSQL("DROP TABLE IF EXISTS CANCER");
-		db.execSQL("DROP TABLE IF EXISTS PREVENTION");
-		db.execSQL("DROP TABLE IF EXISTS EXAMINATION_CANCER");
-		db.execSQL("DROP TABLE IF EXISTS CANCER_PREVENTION");
-		 
-        // Create tables again
-        onCreate(db);
+		if (newVersion != oldVersion) {
+			//drop and recreate tables
+			db.execSQL("DROP TABLE IF EXISTS EXAMINATION");
+			db.execSQL("DROP TABLE IF EXISTS CANCER");
+			db.execSQL("DROP TABLE IF EXISTS PREVENTION");
+			db.execSQL("DROP TABLE IF EXISTS EXAMINATION_CANCER");
+			db.execSQL("DROP TABLE IF EXISTS CANCER_PREVENTION");
+			onCreate(db);
+		}
 	}
 
 	public ArrayList<String> getCancerNames() {
@@ -152,7 +177,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		int cID = ca.getId();
 		String query = new String(
 				"SELECT examination_name FROM EXAMINATION JOIN EXAMINATION_CANCER ON EXAMINATION.ID_Examination=EXAMINATION_CANCER.ID_Examination WHERE ID_Cancer="
-						+ cID+";");
+						+ cID + ";");
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
 			do {
@@ -172,7 +197,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		ArrayList<String> eNames = new ArrayList<String>();
 		String query = new String(
 				"SELECT cancer_name,cancer_description FROM CANCER WHERE ID_Cancer="
-						+ cID+";");
+						+ cID + ";");
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
 			eNames.add(c.getString(0));

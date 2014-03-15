@@ -17,12 +17,7 @@ public class Intro extends Activity{
 		ourSong.start();
 		//new SQLConnection().doInBackground("getCancerNames.php");
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
-		// since data is going to be static for now, enter here
 		
-		db.addExamination("PAP TEST", "BLA BLA BLA", 2,
-							1, "BLA BLA BLA", "BLA BLA BLA", 3, "BLA BLA BLA",
-							1, 1);
-		db.addCancer("TEST_MASTOU","BLA BLA BLA",new String[]{"PAP TEST"});
 		Thread timer=new Thread(){
 			public void run(){
 				try{
