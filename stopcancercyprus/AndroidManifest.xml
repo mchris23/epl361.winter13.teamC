@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Intro"
+            android:name="com.example.stopcancercyprus.Intro"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GeneralInform"
+            android:name="com.example.stopcancercyprus.GeneralInform"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".PasikafInfo"
+            android:name="com.example.stopcancercyprus.PasikafInfo"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.stopCancerCyprus.PASIKAFINFO" />
@@ -36,141 +36,166 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PersonalInform"
+            android:name="com.example.stopcancercyprus.PersonalInform"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Settings"
+            android:name="com.example.stopcancercyprus.Settings"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Menu"
+            android:name="com.example.stopcancercyprus.Menu"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ExaminationList"
+            android:name="com.example.stopcancercyprus.ExaminationList"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ActivityList"
+            android:name="com.example.stopcancercyprus.ActivityList"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DietList"
+            android:name="com.example.stopcancercyprus.DietList"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".SpecificExamination"
+            android:name="com.example.stopcancercyprus.SpecificExamination"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CancerList"
-            android:label="@string/app_name" >
-        </activity>
-        
-         <activity
-            android:name=".ActivityNotification"
-            android:label="@string/app_name" >
-        </activity>
-        
-         <service android:name=".ActivityNotificationService">
-             
-         </service>  
-         
-         <activity
-            android:name=".GridViewImageActivity"
-            android:label="@string/app_name" >
-        </activity>
-        
-          <activity
-            android:name=".ImageAdapter"
-            android:label="@string/app_name" >
-        </activity>
-        
-         <activity
-            android:name=".MyImageActivity"
-            android:label="@string/app_name" >
-        </activity>
-        
-           <activity
-            android:name=".CancerBreast"
+            android:name="com.example.stopcancercyprus.CancerList"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CancerProstate"
+            android:name="com.example.stopcancercyprus.ActivityNotification"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.example.stopcancercyprus.ActivityNotificationService" >
+        </service>
+
+        <activity
+            android:name="com.example.stopcancercyprus.GridViewImageActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CancerUterus"
+            android:name="com.example.stopcancercyprus.ImageAdapter"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CancerRectum"
+            android:name="com.example.stopcancercyprus.MyImageActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CancerSkin"
-            android:label="@string/app_name" >
-        </activity>
-      
-           <activity
-            android:name=".CancerOvarian"
+            android:name="com.example.stopcancercyprus.CancerProstate"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CancerPangkreas"
-            android:label="@string/app_name" >
-        </activity>
-        
-          <activity
-            android:name=".ActivityBreast"
+            android:name="com.example.stopcancercyprus.CancerUterus"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ActivityKidney"
+            android:name="com.example.stopcancercyprus.CancerRectum"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ActivityRectum"
-            android:label="@string/app_name" >
-        </activity>
- <activity
-            android:name=".ExamBreast"
+            android:name="com.example.stopcancercyprus.CancerSkin"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ExamColonoscopy"
-            android:label="@string/app_name" >
-        </activity>
-         <activity
-            android:name=".ExamStool"
+            android:name="com.example.stopcancercyprus.CancerOvarian"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ExamTesticles"
-            android:label="@string/app_name" >
-        </activity>
-         <activity
-            android:name=".ExamBlood"
+            android:name="com.example.stopcancercyprus.CancerPangkreas"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ExamPap"
-            android:label="@string/app_name" >
-        </activity>
-        
-         <activity
-            android:name=".DietBreast"
-            android:label="@string/app_name" >
-        </activity>
-         <activity
-            android:name=".DietProstate"
+            android:name="com.example.stopcancercyprus.ActivityBreast"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DietRectum"
+            android:name="com.example.stopcancercyprus.ActivityKidney"
             android:label="@string/app_name" >
         </activity>
-        </application>
+        <activity
+            android:name="com.example.stopcancercyprus.ActivityRectum"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ExamBreast"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ExamColonoscopy"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ExamStool"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ExamTesticles"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ExamBlood"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ExamPap"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.DietBreast"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.DietProstate"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.DietRectum"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.SendPhoto"
+            android:label="@string/title_activity_send_photo" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.TouchImageActivity"
+            android:label="@string/title_activity_touch_image" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.CancerActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.TouchImageViewActivity"
+            android:label="@string/title_activity_cancer_breast_" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.Cancer_noImage"
+            android:label="@string/title_activity_cancer_no_image" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.ActivityPersonalInform"
+            android:label="@string/title_activity_activity_personal_inform" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.Personal_information"
+            android:label="@string/title_activity_personal_information" >
+        </activity>
+        <activity
+            android:name="com.example.stopcancercyprus.Exam"
+            android:label="@string/title_activity_exam" >
+        </activity>
+    </application>
 
 </manifest>
