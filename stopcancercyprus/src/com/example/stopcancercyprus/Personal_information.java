@@ -76,7 +76,6 @@ public class Personal_information extends Activity {
         //check if for this exam there is an image
         
         int checkExistence = getResources().getIdentifier(img_name, "drawable","com.example.stopcancercyprus");
-        Log.w("CHECK EXXXXXXXXXXXXXXXXXXXXXXXXXX"," "+checkExistence);
         boolean result;
         
         
@@ -89,14 +88,6 @@ public class Personal_information extends Activity {
    
             Bimage.setScaleType(ScaleType.FIT_XY);
             
-            
-           // Bimage.setLayoutParams(new LinearLayout.LayoutParams(400, 200));
-            
-           
-            /*Bitmap image = BitmapFactory.decodeResource(R.drawable.prostatis);  
-            myButton.setBitmap(image);  
-            myButton.setMinimumWidth(image.getWidth());  
-            myButton.setMinimumHeight(image.getHeight());*/
             
             ll.addView(Bimage);
             
