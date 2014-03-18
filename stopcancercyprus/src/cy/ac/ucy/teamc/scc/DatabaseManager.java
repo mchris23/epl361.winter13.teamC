@@ -26,24 +26,32 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		// create query strings
 		String createExamTable = new String(
 				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_weight TEXT,examination_smoker INTEGER,examination_height TEXT,examination_family_history INTEGER,examination_alcohol INTEGER)");
 		String createCancerTable = new String(
 				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT)");
-		// String createPreventionTable = new String(
-		// "CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT)");
-		// String createExamCancerTable = new String(
-		// "CREATE TABLE EXAMINATION_CANCER(ID_Examination INTEGER,ID_cancer INTEGER)");
-		// String createCancerPreventionTable = new String(
-		// "CREATE TABLE CANCER_PREVENTION(ID_cancer INTEGER,ID_prevention INTEGER)");
-		db.execSQL(createExamTable);
+		String createPreventionTable = new String(
+				"CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT)");
+		String createExamCancerTable = new String(
+				"CREATE TABLE EXAMINATION_CANCER(ID_Examination INTEGER,ID_cancer INTEGER)");
+		String createCancerPreventionTable = new String(
+				"CREATE TABLE CANCER_PREVENTION(ID_cancer INTEGER,ID_prevention INTEGER)");
 
+		// execute creation queries
+		db.execSQL(createExamTable);
+		Log.d("SCC - DBCreate", "Created table EXAMINATION");
 		db.execSQL(createCancerTable);
-		Log.d("ONCREATE", "CREATED TABLES");
-		// db.execSQL(createPreventionTable);
+		Log.d("SCC - DBCreate", "Created table CANCER");
+		db.execSQL(createPreventionTable);
+		Log.d("SCC - DBCreate", "Created table PREVENTION");
+		db.execSQL(createExamCancerTable);
+		Log.d("SCC - DBCreate", "Created table EXAMINATION_CANCER");
+		db.execSQL(createCancerPreventionTable);
+		Log.d("SCC - DBCreate", "Created table CANCER_PREVENTION");
+
+		// initialise table data
 		addData(db);
-		// db.execSQL(createExamCancerTable);
-		// db.execSQL(createCancerPreventionTable);
 
 	}
 
@@ -125,6 +133,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		ContentValues values = new ContentValues();
 
+		//change to dms
 		values.put("examination_name", name);
 		values.put("examination_description", description);
 		values.put("examination_frequency", frequency);
@@ -145,8 +154,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		if (newVersion != oldVersion) {
-			//drop and recreate tables
-			
+			// drop and recreate tables
 			db.execSQL("DROP TABLE IF EXISTS EXAMINATION");
 			db.execSQL("DROP TABLE IF EXISTS CANCER");
 			db.execSQL("DROP TABLE IF EXISTS PREVENTION");

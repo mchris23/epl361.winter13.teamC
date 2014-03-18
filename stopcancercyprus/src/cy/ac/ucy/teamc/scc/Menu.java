@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
+
 @SuppressWarnings("deprecation")
 public class Menu extends TabActivity {
 
@@ -19,23 +20,23 @@ public class Menu extends TabActivity {
 		setContentView(R.layout.main);
 		menuTabHost=getTabHost();
 		
-		TabSpec generalSpec=menuTabHost.newTabSpec("√É√•√≠√©√?√?\n√Ö√≠√ß√¨√?√±√π√≥√ß");
-		generalSpec.setIndicator("√É√•√≠√©√?√? √Ö√≠√ß√¨√?√±√π√≥√ß",getResources().getDrawable(R.drawable.mytab1));
+		TabSpec generalSpec=menuTabHost.newTabSpec("√≈Õ… ¡");
+		generalSpec.setIndicator("√≈Õ… ¡",getResources().getDrawable(R.drawable.mytab1));
 		Intent generalIntent=new Intent(this,GeneralInform.class);
 		generalSpec.setContent(generalIntent);
 		
-		TabSpec personalSpec=menuTabHost.newTabSpec("√?√±√Ø√≥√π√∞√©√?√?\n√Ö√≠√ß√¨√?√±√π√≥√ß");
-		personalSpec.setIndicator("√?√±√Ø√≥√π√∞√©√?√? √Ö√≠√ß√¨√?√±√π√≥√ß",getResources().getDrawable(R.drawable.mytab2));
+		TabSpec personalSpec=menuTabHost.newTabSpec("√…¡ ≈Ã≈Õ¡");
+		personalSpec.setIndicator("√…¡ ≈Ã≈Õ¡",getResources().getDrawable(R.drawable.mytab2));
 		Intent personallIntent=new Intent(this,PersonalInform.class);
 		personalSpec.setContent(personallIntent);
 		
-		TabSpec settingsSpec=menuTabHost.newTabSpec("√ë√µ√®√¨√?√≥√•√©√≤");
-		settingsSpec.setIndicator("√ë√µ√®√¨√?√≥√•√©√≤",getResources().getDrawable(R.drawable.mytab3));
+		TabSpec settingsSpec=menuTabHost.newTabSpec("—’»Ã…”≈…”");
+		settingsSpec.setIndicator("—’»Ã…”≈…”",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
 		
-		TabSpec pasikafinfo =menuTabHost.newTabSpec("Œ†ŒõŒóŒ°Œ?Œ¶Œ?Œ°ŒôŒïŒ£ Œ†ŒëŒ£Œ•Œ?ŒëŒ¶");
-		pasikafinfo.setIndicator("Œ†ŒõŒóŒ°Œ?Œ¶Œ?Œ°ŒôŒïŒ£ Œ†ŒëŒ£Œ•Œ?ŒëŒ¶",getResources().getDrawable(R.drawable.pasikaf));
+		TabSpec pasikafinfo =menuTabHost.newTabSpec("–¡”’ ¡÷");
+		pasikafinfo.setIndicator("–¡”’ ¡÷",getResources().getDrawable(R.drawable.pasikaf));
 		Intent pasikafinfolIntent=new Intent(this,Settings.class);
 		pasikafinfo.setContent(settingslIntent);
 		
