@@ -28,7 +28,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// create query strings
 		String createExamTable = new String(
-				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_weight TEXT,examination_smoker INTEGER,examination_height TEXT,examination_family_history INTEGER,examination_alcohol INTEGER)");
+				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_dms REAL,examination_smoker INTEGER,examination_family_history INTEGER,examination_alcohol INTEGER)");
 		String createCancerTable = new String(
 				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT)");
 		String createPreventionTable = new String(
@@ -122,12 +122,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	}
 
 	public void addExamination(SQLiteDatabase db, String name) {
-		addExamination(db, name, null, 0, 0, null, null, 0, null, 0, 0);
+		addExamination(db, name, null, 0, 0, null, 0, 0, 0, 0);
 	}
 
 	private void addExamination(SQLiteDatabase db, String name,
 			String description, int frequency, int sex, String agerange,
-			String weight, int smoker, String height, int familyHistory,
+			int smoker, double dms, int familyHistory,
 			int alcohol) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 
@@ -139,9 +139,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		values.put("examination_frequency", frequency);
 		values.put("examination_sex", sex);
 		values.put("examination_agerange", agerange);
-		values.put("examination_weight", weight);
+		values.put("examination_dms", dms);
 		values.put("examination_smoker", smoker);
-		values.put("examination_height", height);
 		values.put("examination_family_history", familyHistory);
 		values.put("examination_alcohol", alcohol);
 
@@ -179,7 +178,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.close();
 		return null;
 	}
-
+/*
 	public ArrayList<String> getRelatedExamsFromCancer(Cancer ca) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		ArrayList<String> eNames = new ArrayList<String>();
@@ -218,6 +217,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			return null;
 		}
 
-	}
+	}*/
 
 }
