@@ -11,8 +11,9 @@ private String inheritance;
 private String SexualSituation;
 private String description;
 private String image_name;
+private String frequency;
 
-public Exam(String name,String age_range,String smoker,String alcohol,String deiktis_mazas_range,String gender,String inheritance, String SexualSituation, String  description, String image_name)
+public Exam(String name,String age_range,String smoker,String alcohol,String deiktis_mazas_range,String gender,String inheritance, String SexualSituation, String  description, String image_name, String frequency)
 {
 	this.name=name;
 	this.age_range=age_range;
@@ -24,8 +25,13 @@ public Exam(String name,String age_range,String smoker,String alcohol,String dei
 	this.description=description;
 	this.SexualSituation=SexualSituation;
 	this.image_name=image_name;
+	this.frequency=frequency;
 }
 
+public String get_frequency()
+{
+	return this.frequency;
+}
 public String get_image_name()
 {
 	return this.image_name;
@@ -121,5 +127,10 @@ public void set_SexualSituation(String SexualSituation)
 public void set_image_name(String image_name)
 {
 	this.image_name=image_name;
+}
+
+public void set_frequency(String frequency)
+{
+	this.frequency=frequency;
 }
 }

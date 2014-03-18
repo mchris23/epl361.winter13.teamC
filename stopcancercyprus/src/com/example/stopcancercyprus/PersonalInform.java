@@ -20,6 +20,7 @@ public class PersonalInform extends Activity {
 	public final static String EXTRA_NAME = "com.example.stopcancercyprus.MESSAGE";
 	public final static String EXTRA_DESCRIPTION = "com.example.stopcancercyprus.MESSAGE";
 	public final static String EXTRA_IMAGE_NAME= "com.example.stopcancercyprus.MESSAGE";
+	public final static String EXTRA_FREQUENCY= "com.example.stopcancercyprus.MESSAGE";
 	Button checkSubmition;
 	TextView displaySubmit;
 	EditText Tweight;
@@ -91,7 +92,7 @@ public class PersonalInform extends Activity {
 								 int Preposission= selectPreposission.getSelectedItemPosition();
 								 int SexualSituation= selectSexualSituation.getSelectedItemPosition();
 								maza_somatos=Float.parseFloat(Tweight.getText().toString())/ (((Float.parseFloat(Theight.getText().toString()))*(Float.parseFloat(Theight.getText().toString())))/10000);
-								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!\n Ο δείκτης μάζας σώματος σας είναι:"+maza_somatos+"\n Η ηλικία σας είναι:"+age+" smoker "+smoker);
+								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!\n Ο δείκτης μάζας σώματος σας είναι:"+maza_somatos);
 								
 								displaySubmit.setTextColor(Color.GREEN);
 								
@@ -99,6 +100,7 @@ public class PersonalInform extends Activity {
 								String exam_description=exam_selected.get_description();
 								String exam_name=exam_selected.get_name();
 								String image_name=exam_selected.get_image_name();
+								String frequency=exam_selected.get_frequency();
 								if(!(exam_description==null))
 								{
 									try{
@@ -111,6 +113,7 @@ public class PersonalInform extends Activity {
 										extras.putString("EXTRA_NAME",exam_name);
 										extras.putString("EXTRA_DESCRIPTION",exam_description);
 										extras.putString("EXTRA_IMAGE_NAME",image_name);
+										extras.putString("EXTRA_FREQUENCY",frequency);
 										ourIntent.putExtras(extras);
 										startActivity(ourIntent);
 									}catch(ClassNotFoundException e){
@@ -128,7 +131,7 @@ public class PersonalInform extends Activity {
 		{
 			Exam selected_exam = null;
 			String descr=null;
-			Exam a =new Exam("εξεταση","18-40","3","2","18-45","2","2","2","My descriptionn!","prostatis");
+			Exam a =new Exam("εξεταση","18-40","3","2","18-45","2","2","2","My descriptionn!","prostatis","3 fores ton mina");
 			exams.add(a);
 			for(int i=0;i<exams.size();i++)
 			{

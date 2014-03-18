@@ -36,6 +36,7 @@ public class Personal_information extends Activity {
 		String name = extras.getString("EXTRA_NAME");
 	    String description = extras.getString("EXTRA_DESCRIPTION");
 	    String img_name = extras.getString("EXTRA_IMAGE_NAME");
+	    String frequency = extras.getString("EXTRA_FREQUENCY");
 	 // Create the text view
 	    
 	    
@@ -58,6 +59,20 @@ public class Personal_information extends Activity {
         tv_name.setGravity(Gravity.CENTER);
         ll.addView(tv_name);
 	    
+     // add text view for the frequency of the exam
+        EditText tv_freq = new EditText(this);
+        tv_freq.setText(frequency);
+        tv_freq.setBackgroundColor(color.holo_green_light);
+        tv_freq.setTextSize(20);
+        tv_freq.setGravity(Gravity.CENTER);
+        tv_freq.setClickable(false);
+        tv_freq.setKeyListener(null);
+        tv_freq.setCursorVisible(false);
+        tv_freq.setPressed(false);
+        tv_freq.setFocusable(false);
+        ll.addView(tv_freq);
+	    
+        
      // add text view for the description of the exam
         EditText tv_descr = new EditText(this);
         tv_descr.setText(description);
