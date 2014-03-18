@@ -178,7 +178,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.close();
 		return null;
 	}
-/*
+
 	public ArrayList<String> getRelatedExamsFromCancer(Cancer ca) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		ArrayList<String> eNames = new ArrayList<String>();
@@ -217,6 +217,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			return null;
 		}
 
-	}*/
+	}
 
 }
