@@ -297,7 +297,7 @@
                 android:weightSum="50" >
 
                 <Button
-                    android:id="@+id/Bsubmit"
+                    android:id="@+id/Brecreate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
