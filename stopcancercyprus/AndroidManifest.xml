@@ -39,8 +39,8 @@
             android:name="com.example.stopcancercyprus.PersonalInform"
             android:label="@string/app_name" >
         </activity>
-        <activity
-            android:name="com.example.stopcancercyprus.Settings"
+         <activity
+            android:name=".Settings"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -65,6 +65,10 @@
         </activity>
         <activity
             android:name="com.example.stopcancercyprus.CancerList"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name="com.example.stopcancercyprus.Personal_settings"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -132,10 +136,6 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.example.stopcancercyprus.ExamStool"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.example.stopcancercyprus.ExamTesticles"
             android:label="@string/app_name" >
         </activity>
@@ -148,15 +148,15 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name="com.example.stopcancercyprus.DietRectum"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name="com.example.stopcancercyprus.DietBreast"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.stopcancercyprus.DietProstate"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.example.stopcancercyprus.DietRectum"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -196,6 +196,7 @@
             android:name="com.example.stopcancercyprus.Exam"
             android:label="@string/title_activity_exam" >
         </activity>
+
     </application>
 
 </manifest>
