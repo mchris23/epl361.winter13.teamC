@@ -76,14 +76,7 @@
                 android:orientation="horizontal"
                 android:gravity="center" >
 
-                  <ImageView
-                      android:id="@+id/img"
-                      android:layout_width="359dp"
-                      android:layout_height="142dp"
-                      android:layout_gravity="center"
-                      android:focusable="true"
-                      android:focusableInTouchMode="true"
-                      android:src="@drawable/askisi_mastou1" />
+                
                 
             </LinearLayout>    
 	

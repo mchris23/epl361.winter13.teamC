@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.ImageView;
-
+/*
 public class GridViewImageActivity extends Activity{
 
 	GridView gridView;
@@ -19,3 +19,4 @@ public class GridViewImageActivity extends Activity{
 	}
 
 }
+*/

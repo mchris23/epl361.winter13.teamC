@@ -1,5 +1,5 @@
 package com.example.stopcancercyprus;
-
+/*
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -38,10 +38,10 @@ public class ImageAdapter extends BaseAdapter {
 	@Override
 	public View getView(final int position, View convertView, ViewGroup arg2) {
 		// TODO Auto-generated method stub
-		ImageView imageView;
+		TouchImageView imageView;
 		
 		if(convertView==null){
-			imageView=new ImageView(context);
+			imageView=new TouchImageView(context);
 			imageView.setPadding(8, 8, 8, 8);
 			imageView.setLayoutParams(new GridView.LayoutParams(90,90));
 			imageView.setOnClickListener(new View.OnClickListener() {
@@ -72,12 +72,14 @@ public class ImageAdapter extends BaseAdapter {
 			});
 		}
 		else{
-			imageView=(ImageView)convertView;
+			imageView=(TouchImageView)convertView;
 		}
 		
 		imageView.setImageResource(imageIds[position]);
 		return imageView;
 	}
+	
+	
 
 	private Integer [] imageIds={
 			R.drawable.mancancer,
@@ -94,3 +96,4 @@ public class ImageAdapter extends BaseAdapter {
 			R.drawable.pyramideactivity
 	};
 }
+*/

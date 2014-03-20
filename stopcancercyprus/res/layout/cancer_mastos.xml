@@ -54,14 +54,14 @@
                 android:orientation="horizontal"
                 android:gravity="center" >
 
-                  <ImageView
-                      android:id="@+id/img"
-                      android:layout_width="400dp"
-                      android:layout_height="140dp"
-                      android:layout_gravity="center"
-                      android:focusable="true"
-                      android:focusableInTouchMode="true"
-                      android:src="@drawable/mastos" />
+                  <Button
+                    android:id="@+id/BimageBreast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="Δες εικονα!"
+                    android:textSize="13dp"
+                    android:textStyle="bold" /> 
                 
             </LinearLayout>  
              <LinearLayout

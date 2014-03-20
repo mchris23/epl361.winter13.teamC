@@ -1,5 +1,5 @@
 package com.example.stopcancercyprus;
-
+/*
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
@@ -18,9 +18,10 @@ public class MyImageActivity extends Activity {
 		setContentView(R.layout.fullscreen_image);
 		Bundle bundle=getIntent().getExtras();
 		int imageId=bundle.getInt("imgId");
-		ImageView imgView=(ImageView) findViewById(R.id.myImage);
+		TouchImageView imgView=(TouchImageView) findViewById(R.id.myImage);
 		imgView.setImageResource(imageId);
 		
 	}
 
 }
+*/

@@ -28,7 +28,9 @@ public class CancerList extends ListActivity{
 				if (position==0) {
 					try{
 						Class<?> ourClass=Class.forName("com.example.stopcancercyprus.CancerProstate");
-						Intent ourIntent=new Intent(CancerList.this, ourClass);
+						Intent ourIntent=new Intent(CancerList.this, ourClass);;
+						String key = null;
+						ourIntent.putExtra("CancerActivity.ctitle[0]",key);
 						startActivity(ourIntent);
 					}catch(ClassNotFoundException e){
 						e.printStackTrace();
@@ -37,8 +39,10 @@ public class CancerList extends ListActivity{
 				else
 					if (position==1){
 						try{
-							Class<?> ourClass=Class.forName("com.example.stopcancercyprus.CancerBreast");
-							Intent ourIntent=new Intent(CancerList.this, ourClass);
+							Class<?> ourClass=Class.forName("com.example.stopcancercyprus.CancerActivity");
+							Intent ourIntent=new Intent(CancerList.this, ourClass);;
+							String key = null;
+							ourIntent.putExtra("CancerActivity.ctitle[0]",key);
 							startActivity(ourIntent);
 						}catch(ClassNotFoundException e){
 							e.printStackTrace();
