@@ -277,6 +277,38 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.close();
 		return null;
 	}
+	
+	public ArrayList<String> getExamNames() {
+		SQLiteDatabase db = this.getReadableDatabase();
+		ArrayList<String> names = new ArrayList<String>();
+		String getNamesQuery = new String("SELECT examination_name FROM EXAMINATION;");
+		Cursor c = db.rawQuery(getNamesQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				names.add(c.getString(0));
+			} while (c.moveToNext());
+			db.close();
+			return names;
+		} else
+			db.close();
+		return null;
+	}
+	
+	public ArrayList<String> getPreventionNames() {
+		SQLiteDatabase db = this.getReadableDatabase();
+		ArrayList<String> names = new ArrayList<String>();
+		String getNamesQuery = new String("SELECT prevention_name FROM PREVENTION;");
+		Cursor c = db.rawQuery(getNamesQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				names.add(c.getString(0));
+			} while (c.moveToNext());
+			db.close();
+			return names;
+		} else
+			db.close();
+		return null;
+	}
 
 	public ArrayList<String> getRelatedExamsFromCancer(Cancer ca) {
 		SQLiteDatabase db = this.getReadableDatabase();
