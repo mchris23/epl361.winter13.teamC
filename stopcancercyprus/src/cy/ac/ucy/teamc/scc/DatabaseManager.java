@@ -61,11 +61,34 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				db,
 				"ΚΑΡΚΙΝΟΣ ΤΩΝ ΩΟΘΗΚΩΝ",
 				"Oι ωοθήκες είναι μέρος του γυναικείου συστήματος αναπαραγωγής. Υπάρχει μια ωοθήκη σε κάθε πλευρά της μήτρας.\nΟ καρκίνος των ωοθηκών είναι ένας κακοήθης όγκος στη μία ή και στις δύο ωοθήκες. Υπάρχουν δύο τύποι, ο επιθηλιακός καρκίνος των ωοθηκών, που είναι ο πιο κοινός τύπος καρκίνου των ωοθηκών, και ο μη επιθηλιακός καρκίνος.\nΟι ακόλουθοι παράγοντες αυξάνουν τις πιθανότητες μιας γυναίκας να αναπτύξει καρκίνο στις ωοθήκες:\nηλικία, ιστορικό γέννησης παιδιών, ορμονικοί παράγοντες. Δεν υπάρχει αποδεδειγμένη σχέση μεταξύ του καρκίνου των ωοθηκών και της πλούσιας σε λίπη διατροφής, της χρήσης ταλκ γύρω από την περιοχή των γεννητικών οργάνων, ή του ιού της παρωτίτιδας (μαγουλάδες).",
-				new String[] { "ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125" });
+				new String[] { "ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125" },
+				new String[] { "ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ" });
+
+		addCancer(
+				db,
+				"ΚΑΡΚΙΝΟΣ ΤΟΥ ΠΡΟΣΤΑΤΗ",
+				"Ο καρκίνος του προστάτη είναι μια νόσος σοβαρή αλλά όχι πάντοτε θανατηφόρος. Έχει αργή εξέλιξη και όσο πρωιμότερη είναι η διάγνωσή τόσο μεγαλύτερες είναι οι πιθανότητες ριζικής θεραπείας.\nΠαράγοντες κινδύνου:\n•	Η προχωρημένη ηλικία.\n•	Το οικογενειακό ιστορικό.\n•	Η διατροφή πλούσια σε λιπαρά και η παχυσαρκία.\n•	Τα υψηλά επίπεδα τεστοστερόνης.\n•	Η επαγγελματική έκθεση στο κάδμιο, η εργασία σε βιομηχανία ελαστικών και η ιονίζουσα ακτινοβολία.",
+				new String[] { "ΜΕΤΡΗΣΗ ΠΡΟΣΤΑΤΙΚΟΥ ΑΝΤΙΓΟΝΟΥ (PSA)",
+						"ΔΑΚΤΥΛΙΚΗ ΕΞΕΤΑΣΗ", "ΒΙΟΨΙΑ ΠΡΟΣΤΑΤΗ" },
+				new String[] { "ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ" });
+
+		addExamination(db, "ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125",
+				"ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125 για τον καρκίνο των ωοθηκών.", 12, 1,
+				"50-90", 3, 0.0, 0, 0);
+		addExamination(
+				db,
+				"ΜΕΤΡΗΣΗ ΠΡΟΣΤΑΤΙΚΟΥ ΑΝΤΙΓΟΝΟΥ (PSA)",
+				"ΜΕΤΡΗΣΗ ΠΡΟΣΤΑΤΙΚΟΥ ΑΝΤΙΓΟΝΟΥ (PSA) για τον καρκίνο του προστάτη.",
+				12, 0, "40-50", 3, 0.0, 0, 0);
+		addPrevention(
+				db,
+				"ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ",
+				"Μειώστε την κατανάλωση τροφών υψηλής περιεκτικότητας σε λίπος, δίνοντας έμφαση στα φρούτα, στα λαχανικά και στις φυτικές ίνες ολικής αλέσεως. Επιπλέον, προτιμήστε τροφές που είναι πλούσιες σε λυκοπένη, μια αντιοξειδωτική ουσία, όπως ωμές ή μαγειρεμένες ντομάτες, προϊόντα ντομάτας, γκρέιπ φρουτ και καρπούζι. Το σκόρδο και τα λαχανικά, όπως το μπρόκολο, τα λαχανάκια Βρυξελλών, το λάχανο και το κουνουπίδι έχουν επίσης αντικαρκινική δράση. Προστασία πιθανόν παρέχουν και τα προϊόντα σόγιας που περιέχουν ισοφλαβονοειδή και η βιταμίνη E.");
+
 	}
 
 	public void addCancer(SQLiteDatabase db, String name, String description,
-			String[] relatedExams) {
+			String[] relatedExams, String[] relatedPreventions) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -79,6 +102,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		if (relatedExams != null)
 			addCancerRelatedExams(db, name, relatedExams);
+
+		if (relatedPreventions != null)
+			addCancerRelatedPreventions(db, name, relatedPreventions);
 	}
 
 	private void addCancerRelatedExams(SQLiteDatabase db, String name,
@@ -97,6 +123,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				Cursor c2 = db.rawQuery(query, null);
 				if (c2.moveToFirst()) {
 					// add entry to CANCER_EXAM table
+					addCancerExam(db, c.getInt(0), c2.getInt(0));
 				} else {
 					// add exam
 					addExamination(db, i);
@@ -105,19 +132,80 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			}
 			// db2.close();
 		} else {
-			Log.e("ADDCANCER", "COULD NOT RETRIEVE CANCER ID");
+			Log.e("SCC - addCancerRelatedExams", "COULD NOT RETRIEVE CANCER ID");
 		}
+	}
+
+	private void addCancerExam(SQLiteDatabase db, int cid, int eid) {
+		ContentValues values = new ContentValues();
+		values.put("ID_Examination", eid);
+		values.put("ID_cancer", cid);
+
+		// Inserting Row
+		db.insert("EXAMINATION_CANCER", null, values);
+		Log.d("SCC - addCancer", "Added examination-cancer rel: " + eid + "-"
+				+ cid);
+	}
+
+	private void addCancerRelatedPreventions(SQLiteDatabase db, String name,
+			String[] relatedPreventions) {
+		// find the cancer just added
+		String query = new String(
+				"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name + "'");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			for (String i : relatedPreventions) {
+				// find related exam's id
+				query = new String(
+						"SELECT ID_Prevention FROM PREVENTION WHERE prevention_name='"
+								+ i + "'");
+				Cursor c2 = db.rawQuery(query, null);
+				if (c2.moveToFirst()) {
+					// add entry to CANCER_PREVENTION table
+					addCancerPrevention(db, c.getInt(0), c2.getInt(0));
+				} else {
+					// add exam
+					addPrevention(db, i, null);
+					Log.d("SCC - addCancer", "Added related prevention: "
+							+ name);
+				}
+			}
+			// db2.close();
+		}
+	}
+
+	private void addCancerPrevention(SQLiteDatabase db, int cid, int pid) {
+		ContentValues values = new ContentValues();
+		values.put("ID_cancer", cid);
+		values.put("ID_prevention", pid);
+
+		// Inserting Row
+		db.insert("CANCER_PREVENTION", null, values);
+		Log.d("SCC - addCancer", "Added prevention-cancer rel: " + pid + "-"
+				+ cid);
 	}
 
 	public void addPrevention(SQLiteDatabase db, String name, String description) {
 		// SQLiteDatabase db = this.getWritableDatabase();
-
 		ContentValues values = new ContentValues();
 		values.put("prevention_name", name);
 		values.put("prevention_description", description);
+		String query = new String(
+				"SELECT ID_prevention FROM PREVENTION WHERE prevention_name='"
+						+ name + "'");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			// if prevention already exists by name, update description
+			db.update("PREVENTION", values, "ID_prevention=" + c.getInt(0),
+					null);
+			Log.d("SCC - addPrevention", "Updated prevention: " + name);
 
-		// Inserting Row
-		db.insert("PREVENTION", null, values);
+		} else {
+
+			// Inserting Row
+			db.insert("PREVENTION", null, values);
+			Log.d("SCC - addPrevention", "Added prevention: " + name);
+		}
 		// db.close(); // Closing database connection
 	}
 
@@ -125,15 +213,14 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		addExamination(db, name, null, 0, 0, null, 0, 0, 0, 0);
 	}
 
-	private void addExamination(SQLiteDatabase db, String name,
+	public void addExamination(SQLiteDatabase db, String name,
 			String description, int frequency, int sex, String agerange,
-			int smoker, double dms, int familyHistory,
-			int alcohol) {
+			int smoker, double dms, int familyHistory, int alcohol) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 
-		//change to dms
+		// change to dms
 		values.put("examination_name", name);
 		values.put("examination_description", description);
 		values.put("examination_frequency", frequency);
@@ -144,9 +231,21 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		values.put("examination_family_history", familyHistory);
 		values.put("examination_alcohol", alcohol);
 
-		// Inserting Row
-		db.insert("EXAMINATION", null, values);
-		Log.d("SCC - addExam", "Added examination: " + name);
+		String query = new String(
+				"SELECT ID_Examination FROM EXAMINATION WHERE examination_name='"
+						+ name + "'");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			// if prevention already exists by name, update description
+			db.update("EXAMINATION", values, "ID_Examination=" + c.getInt(0),
+					null);
+			Log.d("SCC - addExamination", "Updated examination: " + name);
+
+		} else {
+			// Inserting Row
+			db.insert("EXAMINATION", null, values);
+			Log.d("SCC - addExam", "Added examination: " + name);
+		}
 		// db.close(); // Closing database connection
 	}
 
