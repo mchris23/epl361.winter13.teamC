@@ -29,7 +29,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// create query strings
 		String createExamTable = new String(
-				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_dms TEXT,examination_smoker INTEGER,examination_family_history INTEGER,examination_alcohol INTEGER, image_name TEXT)");
+				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_dms TEXT,examination_smoker INTEGER,examination_family_history INTEGER,examination_alcohol INTEGER, image_name TEXT, examination_gender INTEGER)");
 		String createCancerTable = new String(
 				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT,image_name TEXT)");
 		String createPreventionTable = new String(
@@ -75,12 +75,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		addExamination(db, "≈Œ≈‘¡”« ¡…Ã¡‘œ” CA125",
 				"≈Œ≈‘¡”« ¡…Ã¡‘œ” CA125 „È· ÙÔÌ Í·ÒÍﬂÌÔ Ù˘Ì ˘ÔËÁÍ˛Ì.", 12, 1,
-				"50-90", 3, "0-40", 0, 0, null);
+				"50-90", 3, "0-40", 0, 0, null,1);
 		addExamination(
 				db,
 				"Ã≈‘—«”« –—œ”‘¡‘… œ’ ¡Õ‘…√œÕœ’ (PSA)",
 				"Ã≈‘—«”« –—œ”‘¡‘… œ’ ¡Õ‘…√œÕœ’ (PSA) „È· ÙÔÌ Í·ÒÍﬂÌÔ ÙÔı ÒÔÛÙ‹ÙÁ.",
-				12, 0, "40-50", 3, "0-40", 0, 0, null);
+				12, 0, "40-50", 3, "0-40", 0, 0, null,0);
 		addPrevention(
 				db,
 				"’√…≈…Õ« ƒ…¡‘—œ÷«",
@@ -215,12 +215,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	}
 
 	public void addExamination(SQLiteDatabase db, String name) {
-		addExamination(db, name, null, 0, 0, null, 0, null, 0, 0, null);
+		addExamination(db, name, null, 0, 0, null, 0, null, 0, 0, null, 0);
 	}
 
 	public void addExamination(SQLiteDatabase db, String name,
 			String description, int frequency, int sex, String agerange,
-			int smoker, String dms, int familyHistory, int alcohol, String img) {
+			int smoker, String dms, int familyHistory, int alcohol, String img, int gender) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -236,6 +236,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		values.put("examination_family_history", familyHistory);
 		values.put("examination_alcohol", alcohol);
 		values.put("image_name", img);
+		values.put("examination_gender", gender);
 
 		String query = new String(
 				"SELECT ID_Examination FROM EXAMINATION WHERE examination_name='"
@@ -365,7 +366,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
 			exams.add(new Exam(c.getString(1), c.getString(5), c.getInt(7), c
-					.getInt(9), c.getString(6), c.getInt(5), c.getInt(8), c
+					.getInt(9), c.getString(6), c.getInt(11), c.getInt(8), c
 					.getInt(4), c.getString(2), c.getString(10), c.getInt(3)));
 			db.close();
 			return exams;
@@ -402,7 +403,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		if (c.moveToFirst()) {
 			do {
 				exams.add(new Exam(c.getString(1), c.getString(5), c.getInt(7),
-						c.getInt(9), c.getString(6), c.getInt(5), c.getInt(8),
+						c.getInt(9), c.getString(6), c.getInt(11), c.getInt(8),
 						c.getInt(4), c.getString(2), c.getString(10), c
 								.getInt(3)));
 			} while (c.moveToNext());
