@@ -49,26 +49,26 @@ public class PersonalInform extends Activity {
 				
 				// TODO Auto-generated method stub
 				int curyear = Calendar.getInstance().get(Calendar.YEAR);
-				//showDialog(DATE_DIALOG_ID);
+			showDialog(DATE_DIALOG_ID);
 
 				
 				if (Tweight.getText().toString().equalsIgnoreCase(""))
 				{
-					displaySubmit.setText("ÄÝí Ý÷åé ãßíåé åéóáãùãÞ ôïõ âÜñïõò");
+					displaySubmit.setText("Γ„Γ�Γ­ Γ�Γ·Γ¥Γ© Γ£Γ�Γ­Γ¥Γ© Γ¥Γ©Γ³Γ΅Γ£ΓΉΓ£Γ� Γ΄Γ―Γµ ΓΆΓ�Γ±Γ―ΓµΓ²");
 					displaySubmit.setTextColor(Color.RED);
 				} else if (Float.parseFloat(Tweight.getText().toString()) > (float) 350.00
 							|| Float.parseFloat(Tweight.getText().toString()) < (float) 20) 
 					{
-					displaySubmit.setText("ËáíèåóìÝíç åßóïäï âÜñïõò:\nÐñÝðåé íá åßíáé óôï äéÜóôçìá [20-350]");
+					displaySubmit.setText("Γ‹Γ΅Γ­Γ¨Γ¥Γ³Γ¬Γ�Γ­Γ§ Γ¥Γ�Γ³Γ―Γ¤Γ― ΓΆΓ�Γ±Γ―ΓµΓ²:\nΓ�Γ±Γ�Γ°Γ¥Γ© Γ­Γ΅ Γ¥Γ�Γ­Γ΅Γ© Γ³Γ΄Γ― Γ¤Γ©Γ�Γ³Γ΄Γ§Γ¬Γ΅ [20-350]");
 					displaySubmit.setTextColor(Color.RED);
 					} else if (Theight.getText().toString().equalsIgnoreCase(""))
 						{
-						displaySubmit.setText("ÄÝí Ý÷åé ãßíåé åéóáãùãÞ ôïõ ýøïõò");
+						displaySubmit.setText("Γ„Γ�Γ­ Γ�Γ·Γ¥Γ© Γ£Γ�Γ­Γ¥Γ© Γ¥Γ©Γ³Γ΅Γ£ΓΉΓ£Γ� Γ΄Γ―Γµ Γ½ΓΈΓ―ΓµΓ²");
 						displaySubmit.setTextColor(Color.RED);
 						} else if (Float.parseFloat(Theight.getText().toString()) > (float) 250.00
 								|| Float.parseFloat(Theight.getText().toString()) < (float) 40)
 							{
-							displaySubmit.setText("ËáíèåóìÝíç åßóïäï ýøïõò:\nÐñÝðåé íá åßíáé óôï äéÜóôçìá [40-250]");
+							displaySubmit.setText("Γ‹Γ΅Γ­Γ¨Γ¥Γ³Γ¬Γ�Γ­Γ§ Γ¥Γ�Γ³Γ―Γ¤Γ― Γ½ΓΈΓ―ΓµΓ²:\nΓ�Γ±Γ�Γ°Γ¥Γ© Γ­Γ΅ Γ¥Γ�Γ­Γ΅Γ© Γ³Γ΄Γ― Γ¤Γ©Γ�Γ³Γ΄Γ§Γ¬Γ΅ [40-250]");
 							displaySubmit.setTextColor(Color.RED);
 							}
 							else if (dpResult.getYear()>=(curyear) || dpResult.getYear()<(curyear-120))
@@ -88,11 +88,11 @@ public class PersonalInform extends Activity {
 								
 								 int smoker= selectsmoke.getSelectedItemPosition();
 								 int Gender= selectGender.getSelectedItemPosition();
-								 int alcoholic= selectalcoholic.getSelectedItemPosition();
-								 int Preposission= selectPreposission.getSelectedItemPosition();
+							 int alcoholic= selectalcoholic.getSelectedItemPosition();
+							 int Preposission= selectPreposission.getSelectedItemPosition();
 								 int SexualSituation= selectSexualSituation.getSelectedItemPosition();
 								maza_somatos=Float.parseFloat(Tweight.getText().toString())/ (((Float.parseFloat(Theight.getText().toString()))*(Float.parseFloat(Theight.getText().toString())))/10000);
-								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!\n Ο δείκτης μάζας σώματος σας είναι:"+maza_somatos);
+								displaySubmit.setText("Ξ¤Ξ± Ξ΄ΞµΞ΄ΞΏΞΌΞ­Ξ½Ξ± ΞµΞΉΟƒΞ¬Ο‡ΞΈΞ·ΞΊΞ±Ξ½ ΞΌΞµ ΞµΟ€ΞΉΟ„Ο…Ο‡Ξ―Ξ±!\n Ξ� Ξ΄ΞµΞ―ΞΊΟ„Ξ·Ο‚ ΞΌΞ¬Ξ¶Ξ±Ο‚ ΟƒΟ�ΞΌΞ±Ο„ΞΏΟ‚ ΟƒΞ±Ο‚ ΞµΞ―Ξ½Ξ±ΞΉ:"+maza_somatos);
 								
 								displaySubmit.setTextColor(Color.GREEN);
 								
@@ -100,7 +100,7 @@ public class PersonalInform extends Activity {
 								String exam_description=exam_selected.get_description();
 								String exam_name=exam_selected.get_name();
 								String image_name=exam_selected.get_image_name();
-								String frequency=exam_selected.get_frequency();
+								int frequency=exam_selected.get_frequency();
 								if(!(exam_description==null))
 								{
 									try{
@@ -110,10 +110,10 @@ public class PersonalInform extends Activity {
 										
 										
 										Bundle extras = new Bundle();
-										extras.putString("EXTRA_NAME",exam_name);
+									extras.putString("EXTRA_NAME",exam_name);
 										extras.putString("EXTRA_DESCRIPTION",exam_description);
 										extras.putString("EXTRA_IMAGE_NAME",image_name);
-										extras.putString("EXTRA_FREQUENCY",frequency);
+										extras.putInt("EXTRA_FREQUENCY",frequency);
 										ourIntent.putExtras(extras);
 										startActivity(ourIntent);
 									}catch(ClassNotFoundException e){
@@ -131,7 +131,7 @@ public class PersonalInform extends Activity {
 		{
 			Exam selected_exam = null;
 			String descr=null;
-			Exam a =new Exam("εξεταση","18-40","3","2","18-45","2","2","2","My descriptionn!","prostatis","3 fores ton mina");
+			Exam a =new Exam("ΞµΞΎΞµΟ„Ξ±ΟƒΞ·","18-40",3,2,"18-45",2,2,2,"My descriptionn!","prostatis",3);
 			exams.add(a);
 			for(int i=0;i<exams.size();i++)
 			{
@@ -147,11 +147,11 @@ public class PersonalInform extends Activity {
 				int start_deiktis_mazas=Integer.parseInt(deiktis_mazas[0]);
 				int end_deiktis_mazas=Integer.parseInt(deiktis_mazas[1]);
 				
-				int smoker_in=Integer.parseInt(exams.get(i).get_smoker());
-				int gender_in=Integer.parseInt(exams.get(i).get_gender());
-				int alcoholic_in=Integer.parseInt(exams.get(i).get_alcohol());
-				int prepos_in=Integer.parseInt(exams.get(i).get_inheritance());
-				int sexual_situation_in=Integer.parseInt(exams.get(i).get_SexualSituation());
+				int smoker_in=(exams.get(i).get_smoker());
+				int gender_in=(exams.get(i).get_gender());
+				int alcoholic_in=(exams.get(i).get_alcohol());
+				int prepos_in=(exams.get(i).get_inheritance());
+				int sexual_situation_in=(exams.get(i).get_SexualSituation());
 				
 				//Log.w("---->", "ag "+age_r[0]);
 				

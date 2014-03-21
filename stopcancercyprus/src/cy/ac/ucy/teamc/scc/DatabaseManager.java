@@ -28,11 +28,11 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// create query strings
 		String createExamTable = new String(
-				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_dms REAL,examination_smoker INTEGER,examination_family_history INTEGER,examination_alcohol INTEGER)");
+				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_dms TEXT,examination_smoker INTEGER,examination_family_history INTEGER,examination_alcohol INTEGER, image_name TEXT)");
 		String createCancerTable = new String(
-				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT)");
+				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT,image_name TEXT)");
 		String createPreventionTable = new String(
-				"CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT)");
+				"CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT,image_name TEXT)");
 		String createExamCancerTable = new String(
 				"CREATE TABLE EXAMINATION_CANCER(ID_Examination INTEGER,ID_cancer INTEGER)");
 		String createCancerPreventionTable = new String(
@@ -62,7 +62,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				"ΚΑΡΚΙΝΟΣ ΤΩΝ ΩΟΘΗΚΩΝ",
 				"Oι ωοθήκες είναι μέρος του γυναικείου συστήματος αναπαραγωγής. Υπάρχει μια ωοθήκη σε κάθε πλευρά της μήτρας.\nΟ καρκίνος των ωοθηκών είναι ένας κακοήθης όγκος στη μία ή και στις δύο ωοθήκες. Υπάρχουν δύο τύποι, ο επιθηλιακός καρκίνος των ωοθηκών, που είναι ο πιο κοινός τύπος καρκίνου των ωοθηκών, και ο μη επιθηλιακός καρκίνος.\nΟι ακόλουθοι παράγοντες αυξάνουν τις πιθανότητες μιας γυναίκας να αναπτύξει καρκίνο στις ωοθήκες:\nηλικία, ιστορικό γέννησης παιδιών, ορμονικοί παράγοντες. Δεν υπάρχει αποδεδειγμένη σχέση μεταξύ του καρκίνου των ωοθηκών και της πλούσιας σε λίπη διατροφής, της χρήσης ταλκ γύρω από την περιοχή των γεννητικών οργάνων, ή του ιού της παρωτίτιδας (μαγουλάδες).",
 				new String[] { "ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125" },
-				new String[] { "ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ" });
+				new String[] { "ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ" }, null);
 
 		addCancer(
 				db,
@@ -70,30 +70,32 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				"Ο καρκίνος του προστάτη είναι μια νόσος σοβαρή αλλά όχι πάντοτε θανατηφόρος. Έχει αργή εξέλιξη και όσο πρωιμότερη είναι η διάγνωσή τόσο μεγαλύτερες είναι οι πιθανότητες ριζικής θεραπείας.\nΠαράγοντες κινδύνου:\n•	Η προχωρημένη ηλικία.\n•	Το οικογενειακό ιστορικό.\n•	Η διατροφή πλούσια σε λιπαρά και η παχυσαρκία.\n•	Τα υψηλά επίπεδα τεστοστερόνης.\n•	Η επαγγελματική έκθεση στο κάδμιο, η εργασία σε βιομηχανία ελαστικών και η ιονίζουσα ακτινοβολία.",
 				new String[] { "ΜΕΤΡΗΣΗ ΠΡΟΣΤΑΤΙΚΟΥ ΑΝΤΙΓΟΝΟΥ (PSA)",
 						"ΔΑΚΤΥΛΙΚΗ ΕΞΕΤΑΣΗ", "ΒΙΟΨΙΑ ΠΡΟΣΤΑΤΗ" },
-				new String[] { "ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ" });
+				new String[] { "ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ" }, null);
 
 		addExamination(db, "ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125",
 				"ΕΞΕΤΑΣΗ ΑΙΜΑΤΟΣ CA125 για τον καρκίνο των ωοθηκών.", 12, 1,
-				"50-90", 3, 0.0, 0, 0);
+				"50-90", 3, "0-40", 0, 0, null);
 		addExamination(
 				db,
 				"ΜΕΤΡΗΣΗ ΠΡΟΣΤΑΤΙΚΟΥ ΑΝΤΙΓΟΝΟΥ (PSA)",
 				"ΜΕΤΡΗΣΗ ΠΡΟΣΤΑΤΙΚΟΥ ΑΝΤΙΓΟΝΟΥ (PSA) για τον καρκίνο του προστάτη.",
-				12, 0, "40-50", 3, 0.0, 0, 0);
+				12, 0, "40-50", 3, "0-40", 0, 0, null);
 		addPrevention(
 				db,
 				"ΥΓΙΕΙΝΗ ΔΙΑΤΡΟΦΗ",
-				"Μειώστε την κατανάλωση τροφών υψηλής περιεκτικότητας σε λίπος, δίνοντας έμφαση στα φρούτα, στα λαχανικά και στις φυτικές ίνες ολικής αλέσεως. Επιπλέον, προτιμήστε τροφές που είναι πλούσιες σε λυκοπένη, μια αντιοξειδωτική ουσία, όπως ωμές ή μαγειρεμένες ντομάτες, προϊόντα ντομάτας, γκρέιπ φρουτ και καρπούζι. Το σκόρδο και τα λαχανικά, όπως το μπρόκολο, τα λαχανάκια Βρυξελλών, το λάχανο και το κουνουπίδι έχουν επίσης αντικαρκινική δράση. Προστασία πιθανόν παρέχουν και τα προϊόντα σόγιας που περιέχουν ισοφλαβονοειδή και η βιταμίνη E.");
+				"Μειώστε την κατανάλωση τροφών υψηλής περιεκτικότητας σε λίπος, δίνοντας έμφαση στα φρούτα, στα λαχανικά και στις φυτικές ίνες ολικής αλέσεως. Επιπλέον, προτιμήστε τροφές που είναι πλούσιες σε λυκοπένη, μια αντιοξειδωτική ουσία, όπως ωμές ή μαγειρεμένες ντομάτες, προϊόντα ντομάτας, γκρέιπ φρουτ και καρπούζι. Το σκόρδο και τα λαχανικά, όπως το μπρόκολο, τα λαχανάκια Βρυξελλών, το λάχανο και το κουνουπίδι έχουν επίσης αντικαρκινική δράση. Προστασία πιθανόν παρέχουν και τα προϊόντα σόγιας που περιέχουν ισοφλαβονοειδή και η βιταμίνη E.",
+				null);
 
 	}
 
 	public void addCancer(SQLiteDatabase db, String name, String description,
-			String[] relatedExams, String[] relatedPreventions) {
+			String[] relatedExams, String[] relatedPreventions, String img) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put("cancer_name", name);
 		values.put("cancer_description", description);
+		values.put("image_name", img);
 
 		// Inserting Row
 		db.insert("CANCER", null, values);
@@ -164,8 +166,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
 					// add entry to CANCER_PREVENTION table
 					addCancerPrevention(db, c.getInt(0), c2.getInt(0));
 				} else {
-					// add exam
-					addPrevention(db, i, null);
+					// add prevention
+					addPrevention(db, i, null, null);
 					Log.d("SCC - addCancer", "Added related prevention: "
 							+ name);
 				}
@@ -185,11 +187,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				+ cid);
 	}
 
-	public void addPrevention(SQLiteDatabase db, String name, String description) {
+	public void addPrevention(SQLiteDatabase db, String name,
+			String description, String img) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put("prevention_name", name);
 		values.put("prevention_description", description);
+		values.put("image_name", img);
 		String query = new String(
 				"SELECT ID_prevention FROM PREVENTION WHERE prevention_name='"
 						+ name + "'");
@@ -210,12 +214,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	}
 
 	public void addExamination(SQLiteDatabase db, String name) {
-		addExamination(db, name, null, 0, 0, null, 0, 0, 0, 0);
+		addExamination(db, name, null, 0, 0, null, 0, null, 0, 0, null);
 	}
 
 	public void addExamination(SQLiteDatabase db, String name,
 			String description, int frequency, int sex, String agerange,
-			int smoker, double dms, int familyHistory, int alcohol) {
+			int smoker, String dms, int familyHistory, int alcohol, String img) {
 		// SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -230,6 +234,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		values.put("examination_smoker", smoker);
 		values.put("examination_family_history", familyHistory);
 		values.put("examination_alcohol", alcohol);
+		values.put("image_name", img);
 
 		String query = new String(
 				"SELECT ID_Examination FROM EXAMINATION WHERE examination_name='"
@@ -277,11 +282,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.close();
 		return null;
 	}
-	
+
 	public ArrayList<String> getExamNames() {
 		SQLiteDatabase db = this.getReadableDatabase();
 		ArrayList<String> names = new ArrayList<String>();
-		String getNamesQuery = new String("SELECT examination_name FROM EXAMINATION;");
+		String getNamesQuery = new String(
+				"SELECT examination_name FROM EXAMINATION;");
 		Cursor c = db.rawQuery(getNamesQuery, null);
 		if (c.moveToFirst()) {
 			do {
@@ -293,11 +299,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.close();
 		return null;
 	}
-	
+
 	public ArrayList<String> getPreventionNames() {
 		SQLiteDatabase db = this.getReadableDatabase();
 		ArrayList<String> names = new ArrayList<String>();
-		String getNamesQuery = new String("SELECT prevention_name FROM PREVENTION;");
+		String getNamesQuery = new String(
+				"SELECT prevention_name FROM PREVENTION;");
 		Cursor c = db.rawQuery(getNamesQuery, null);
 		if (c.moveToFirst()) {
 			do {
@@ -342,6 +349,63 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			cancers.add(new Cancer(c.getInt(0), c.getString(1), c.getString(2)));
 			db.close();
 			return cancers;
+		} else {
+			db.close();
+			return null;
+		}
+
+	}
+
+	public ArrayList<Exam> getExam(int eID) {
+		SQLiteDatabase db = this.getReadableDatabase();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		String query = new String("SELECT * FROM CANCER WHERE ID_Examination="
+				+ eID + ";");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			exams.add(new Exam(c.getString(1), c.getString(5), c.getInt(7), c
+					.getInt(9), c.getString(6), c.getInt(5), c.getInt(8), c
+					.getInt(4), c.getString(2), c.getString(10), c.getInt(3)));
+			db.close();
+			return exams;
+		} else {
+			db.close();
+			return null;
+		}
+
+	}
+
+	public ArrayList<Prevention> getPrevention(int pID) {
+		SQLiteDatabase db = this.getReadableDatabase();
+		ArrayList<Prevention> preventions = new ArrayList<Prevention>();
+		String query = new String(
+				"SELECT * FROM PREVENTION WHERE ID_prevention=" + pID + ";");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			preventions.add(new Prevention(c.getInt(0), c.getString(1), c
+					.getString(2)));
+			db.close();
+			return preventions;
+		} else {
+			db.close();
+			return null;
+		}
+
+	}
+
+	public ArrayList<Exam> getAllExams() {
+		SQLiteDatabase db = this.getReadableDatabase();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		String query = new String("SELECT * FROM EXAMINATION;");
+		Cursor c = db.rawQuery(query, null);
+		if (c.moveToFirst()) {
+			do {
+				exams.add(new Exam(c.getString(1), c.getString(5), c.getInt(7),
+						c.getInt(9), c.getString(6), c.getInt(5), c.getInt(8),
+						c.getInt(4), c.getString(2), c.getString(10), c
+								.getInt(3)));
+			} while (c.moveToNext());
+			return exams;
 		} else {
 			db.close();
 			return null;

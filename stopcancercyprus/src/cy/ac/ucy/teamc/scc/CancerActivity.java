@@ -9,39 +9,35 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class CancerActivity extends Activity{
-	
+public class CancerActivity extends Activity {
+
 	TextView name;
 	TextView description;
 	ListView relatedExams;
-	ArrayList<String>cNameDescr;
-	ArrayList<String>relEx;
-	
+	ArrayList<Cancer> cNameDescr;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle b = getIntent().getExtras();
 		int id = b.getInt("position");
 		id++;
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-		cNameDescr=db.getCancerNameDescription(id);
-		relEx=db.getRelatedExamsFromCancer(new Cancer(id,null,null));
-		
-setContentView(R.layout.cancer_view);
-		
+		cNameDescr = db.getCancer(id);
+
+		setContentView(R.layout.cancer_view);
+
 		createAllObjects();
-		name.setText(cNameDescr.get(0));
-		description.setText(cNameDescr.get(1));
-		relatedExams.setAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, relEx));
-		//Add contents accordingly,get from database
-		//setContentView(R.layout.cancer_mastos);
-		
+		name.setText(cNameDescr.get(0).getName());
+		description.setText(cNameDescr.get(0).getDescription());
+		// Add contents accordingly,get from database
+		// setContentView(R.layout.cancer_mastos);
+
 	}
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		name= (TextView) findViewById(R.id.CancerName);
-		description= (TextView) findViewById(R.id.CancerDescription);
-		relatedExams= (ListView) findViewById(R.id.RelatedExams);
+		name = (TextView) findViewById(R.id.CancerName);
+		description = (TextView) findViewById(R.id.CancerDescription);
+
 	}
 }

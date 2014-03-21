@@ -17,10 +17,10 @@ import android.widget.TextView;
 
 public class Personal_settings extends Activity {
 	
-	public final static String EXTRA_NAME = "com.example.stopcancercyprus.MESSAGE";
-	public final static String EXTRA_DESCRIPTION = "com.example.stopcancercyprus.MESSAGE";
-	public final static String EXTRA_IMAGE_NAME= "com.example.stopcancercyprus.MESSAGE";
-	public final static String EXTRA_FREQUENCY= "com.example.stopcancercyprus.MESSAGE";
+	public final static String EXTRA_NAME = "cy.ac.ucy.teamc.scc.MESSAGE";
+	public final static String EXTRA_DESCRIPTION = "cy.ac.ucy.teamc.scc..MESSAGE";
+	public final static String EXTRA_IMAGE_NAME= "cy.ac.ucy.teamc.scc.MESSAGE";
+	public final static String EXTRA_FREQUENCY= "cy.ac.ucy.teamc.scc.MESSAGE";
 	Button checkSubmition;
 	Button recreate;
 	TextView displaySubmit;
@@ -51,7 +51,7 @@ public class Personal_settings extends Activity {
 				
 				// TODO Auto-generated method stub
 				int curyear = Calendar.getInstance().get(Calendar.YEAR);
-				//showDialog(DATE_DIALOG_ID);
+				showDialog(DATE_DIALOG_ID);
 
 				
 				if (Tweight.getText().toString().equalsIgnoreCase(""))
@@ -87,7 +87,7 @@ public class Personal_settings extends Activity {
 								 final Spinner selectalcoholic = (Spinner) findViewById(R.id.selectAlcohol);
 								 final Spinner selectPreposission = (Spinner) findViewById(R.id.selectPreposission);
 								 final Spinner selectSexualSituation = (Spinner) findViewById(R.id.selectSexualSituation);
-								
+							
 								 int smoker= selectsmoke.getSelectedItemPosition();
 								 int Gender= selectGender.getSelectedItemPosition();
 								 int alcoholic= selectalcoholic.getSelectedItemPosition();
@@ -102,7 +102,7 @@ public class Personal_settings extends Activity {
 								String exam_description=exam_selected.get_description();
 								String exam_name=exam_selected.get_name();
 								String image_name=exam_selected.get_image_name();
-								String frequency=exam_selected.get_frequency();
+								int frequency=exam_selected.get_frequency();
 								if(!(exam_description==null))
 								{
 									try{
@@ -115,7 +115,7 @@ public class Personal_settings extends Activity {
 										extras.putString("EXTRA_NAME",exam_name);
 										extras.putString("EXTRA_DESCRIPTION",exam_description);
 										extras.putString("EXTRA_IMAGE_NAME",image_name);
-										extras.putString("EXTRA_FREQUENCY",frequency);
+										extras.putInt("EXTRA_FREQUENCY",frequency);
 										ourIntent.putExtras(extras);
 										startActivity(ourIntent);
 									}catch(ClassNotFoundException e){
@@ -140,7 +140,7 @@ public class Personal_settings extends Activity {
 				 final Spinner selectalcoholic = (Spinner) findViewById(R.id.selectAlcohol);
 				 final Spinner selectPreposission = (Spinner) findViewById(R.id.selectPreposission);
 				 final Spinner selectSexualSituation = (Spinner) findViewById(R.id.selectSexualSituation);
-				
+		
 				 selectsmoke.setSelection(0);
 				 selectGender.setSelection(0);
 				 selectalcoholic.setSelection(0);
@@ -170,7 +170,7 @@ public class Personal_settings extends Activity {
 		{
 			Exam selected_exam = null;
 			String descr=null;
-			Exam a =new Exam("εξεταση","18-40","3","2","18-45","2","2","2","My descriptionn!","prostatis","3 fores ton mina");
+			Exam a =new Exam("εξεταση","18-40",3,2,"18-45",2,2,2,"My descriptionn!","prostatis",3);
 			exams.add(a);
 			for(int i=0;i<exams.size();i++)
 			{
@@ -186,11 +186,11 @@ public class Personal_settings extends Activity {
 				int start_deiktis_mazas=Integer.parseInt(deiktis_mazas[0]);
 				int end_deiktis_mazas=Integer.parseInt(deiktis_mazas[1]);
 				
-				int smoker_in=Integer.parseInt(exams.get(i).get_smoker());
-				int gender_in=Integer.parseInt(exams.get(i).get_gender());
-				int alcoholic_in=Integer.parseInt(exams.get(i).get_alcohol());
-				int prepos_in=Integer.parseInt(exams.get(i).get_inheritance());
-				int sexual_situation_in=Integer.parseInt(exams.get(i).get_SexualSituation());
+				int smoker_in=(exams.get(i).get_smoker());
+				int gender_in=(exams.get(i).get_gender());
+				int alcoholic_in=(exams.get(i).get_alcohol());
+				int prepos_in=(exams.get(i).get_inheritance());
+				int sexual_situation_in=(exams.get(i).get_SexualSituation());
 				
 				//Log.w("---->", "ag "+age_r[0]);
 				
@@ -229,11 +229,11 @@ public class Personal_settings extends Activity {
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		checkSubmition = (Button) findViewById(R.id.Bsubmit);
-		recreate = (Button) findViewById(R.id.Brecreate);
-		displaySubmit = (TextView) findViewById(R.id.msgSubmit);
-		Tweight = (EditText) findViewById(R.id.CommandWeight);
-		Theight=(EditText) findViewById(R.id.CommandHeigh);
+	//	checkSubmition = (Button) findViewById(R.id.Bsubmit);
+	//	recreate = (Button) findViewById(R.id.Brecreate);
+	//	displaySubmit = (TextView) findViewById(R.id.msgSubmit);
+	//	Tweight = (EditText) findViewById(R.id.CommandWeight);
+	//	Theight=(EditText) findViewById(R.id.CommandHeigh);
 		setCurrentDateOnView();
 	}
 
