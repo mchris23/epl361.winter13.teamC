@@ -1,62 +1,53 @@
-package cy.ac.ucy.teamc.scc;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.app.Activity;
-import android.app.ListActivity;
+	package cy.ac.ucy.teamc.scc;
 
-public class ActivityList extends ListActivity{
+	import java.util.ArrayList;
 
-	private String[] listOfChoise = { "Προληπτική άσκηση για το καρκίνο του μαστού", "Προληπτική άσκηση για το καρκίνο των νεφρών",
-	"Προληπτική άσκηση για το καρκίνο του παχέως εντέρου"};
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listOfChoise));
+	import android.os.Bundle;
+	import android.view.Menu;
+	import android.view.View;
+	import android.widget.ArrayAdapter;
+	import android.widget.ListView;
+	import android.app.ListActivity;
+	import android.content.Intent;
 
-	}
-	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
-		super.onListItemClick(l, v, position, id);
-			if (position==0) {
-				try{
-					Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ActivityBreast");
-					Intent ourIntent=new Intent(ActivityList.this, ourClass);
+	public class ActivityList extends ListActivity {
+
+		//
+		// private ListView listView;
+		// private ArrayAdapter<String> adapter;
+
+
+
+
+		@Override
+		protected void onCreate(Bundle savedInstanceState) {
+			// TODO Auto-generated method stub
+			super.onCreate(savedInstanceState);
+			DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
+			ArrayList<String> listOfChoices = db.getPreventionNames();
+			setListAdapter(new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, listOfChoices));
+		}
+
+		@Override
+		protected void onListItemClick(ListView l, View v, int position, long id) {
+			// TODO Auto-generated method stub
+			super.onListItemClick(l, v, position, id);
+				try {
+					Class<?> ourClass = Class
+							.forName("cy.ac.ucy.teamc.scc.PreventionActivity");
+					Intent ourIntent = new Intent(ActivityList.this, ourClass);
+					Bundle b = new Bundle();
+					b.putInt("position", position); //Your id
+					ourIntent.putExtras(b); //Put your id to your next Intent
 					startActivity(ourIntent);
-				}catch(ClassNotFoundException e){
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
-			}
-			else
-				if (position==1){
-					try{
-						Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ActivityKidney");
-						Intent ourIntent=new Intent(ActivityList.this, ourClass);
-						startActivity(ourIntent);
-					}catch(ClassNotFoundException e){
-						e.printStackTrace();
-					}
-				}
-				else
-					if (position==2){
-						try{
-							Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ActivityRectum");
-							Intent ourIntent=new Intent(ActivityList.this, ourClass);
-							startActivity(ourIntent);
-						}catch(ClassNotFoundException e){
-							e.printStackTrace();
-						}
-					}
-				}
+			
+			
 
-}
+		}
+
+	}

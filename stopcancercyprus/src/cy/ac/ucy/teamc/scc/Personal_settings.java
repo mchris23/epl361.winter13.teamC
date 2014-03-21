@@ -33,7 +33,7 @@ public class Personal_settings extends Activity {
 	private int day;
 	public float maza_somatos;
 
-	static ArrayList<Exam> exams=new ArrayList<Exam>();
+	static ArrayList<Exam> elist=new ArrayList<Exam>();
 	static final int DATE_DIALOG_ID = 999;
 
 	@Override
@@ -56,26 +56,26 @@ public class Personal_settings extends Activity {
 				
 				if (Tweight.getText().toString().equalsIgnoreCase(""))
 				{
-					displaySubmit.setText("ÄÝí Ý÷åé ãßíåé åéóáãùãÞ ôïõ âÜñïõò");
+					displaySubmit.setText("Δεν έχετε εισάγει όλα τα δεδομένα");
 					displaySubmit.setTextColor(Color.RED);
 				} else if (Float.parseFloat(Tweight.getText().toString()) > (float) 350.00
 							|| Float.parseFloat(Tweight.getText().toString()) < (float) 20) 
 					{
-					displaySubmit.setText("ËáíèåóìÝíç åßóïäï âÜñïõò:\nÐñÝðåé íá åßíáé óôï äéÜóôçìá [20-350]");
+					displaySubmit.setText("Εισάγατε λάθος όριο βάρους. Το όριο βάρους είναι [20-350]");
 					displaySubmit.setTextColor(Color.RED);
 					} else if (Theight.getText().toString().equalsIgnoreCase(""))
 						{
-						displaySubmit.setText("ÄÝí Ý÷åé ãßíåé åéóáãùãÞ ôïõ ýøïõò");
+						displaySubmit.setText("Δεν έχετε εισάγει όλα τα δεδομένα");
 						displaySubmit.setTextColor(Color.RED);
 						} else if (Float.parseFloat(Theight.getText().toString()) > (float) 250.00
 								|| Float.parseFloat(Theight.getText().toString()) < (float) 40)
 							{
-							displaySubmit.setText("ËáíèåóìÝíç åßóïäï ýøïõò:\nÐñÝðåé íá åßíáé óôï äéÜóôçìá [40-250]");
+							displaySubmit.setText("Εισάγατε λάθος όριο ύψους. Το όριο ύψους είναι[40-250]");
 							displaySubmit.setTextColor(Color.RED);
 							}
 							else if (dpResult.getYear()>=(curyear) || dpResult.getYear()<(curyear-120))
 									{
-										displaySubmit.setText("Not a valid date");
+										displaySubmit.setText("Εισάγαται λάθος ημερομηνία Γέννησης");
 										displaySubmit.setTextColor(Color.RED);
 									}
 							else 
@@ -165,38 +165,39 @@ public class Personal_settings extends Activity {
 			
 			
 			
-	//Inform personal the user about the exams that he/she should do
+	//Inform personal the user about the elist that he/she should do
 		public Exam informUser(int age,int smoker, int gender,float deiktis_mazas_somatos,int alcoholic,int preposission, int sexual_situation)
 		{
 			Exam selected_exam = null;
 			String descr=null;
-			Exam a =new Exam("εξεταση","18-40",3,2,"18-45",2,2,2,"My descriptionn!","prostatis",3);
-			exams.add(a);
-			for(int i=0;i<exams.size();i++)
+			elist.add(new Exam("ΑΥΤΟΕΞΕΤΑΣΗ ΟΡΧΕΩΝ","18-50",3,2,"0-50",0,0,2,"Η καλύτερη ίσως ώρα να αυτοεξετάζεστε είναι  όταν παίρνετε το μπάνιο σας, διότι λόγω του χλιαρού νερού οι μύες της περιοχής είναι πιο χαλαροί. Ελέγχετε οπτικά το όσχεο πριν από την ψηλάφηση για τυχόν αλλαγή του χρώματος ή του σχήματός του. Συγκρατείτε τους όρχεις με το ένα χέρι ενώ ψηλαφείτε με το άλλο τον κάθε όρχι ξεχωριστά.  Με ήπιες κινήσεις ψηλαφήστε τον όρχι ανάμεσα στα δάχτυλά σας. Ο ένας όρχις μπορεί να έχει από την εφηβεία διαφορετικό μέγεθος ή να βρίσκεται ψηλότερα ή χαμηλότερα από τον άλλο. Δεν είναι κάτι το ανησυχητικό, εφόσον δεν έχει συμβεί ξαφνικά. Μάθετε να ξεχωρίζετε τον όρχι από την επιδιδυμίδα κατά τη διάρκεια της ψηλάφησης. Η επιδιδυμίδα βρίσκεται πίσω και πάνω από τον όρχι και έχει σωληνώδη και πιο σκληρή -σαν \"σχοινί\"- υφή.","-",6));
+			elist.add(new Exam("ΑΥΤΟΕΞΕΤΑΣΗ ΜΑΣΤΩΝ","0-120",3,2,"0-50",2,2,2,"Η ψηλάφηση πρέπει να γίνεται με την επιφάνεια των δακτύλων με κυκλικές κινήσεις σε όλη την επιφάνεια του μαστού. Αρχίζοντας από την κλείδα μέχρι τη βάση του μαστού και από τη μασχάλη μέχρι το στέρνο. Οι κινήσεις αυτές πρέπει στην αρχή να γίνονται με μικρή πίεση και στη συνέχεια με αρκετή πίεση. Σαπουνίστε καλά κάθε μαστό. Με το δεξί χέρι ψηλά, εξετάστε το δεξιό σας μαστό με το αριστερό σας χέρι. Στην συνέχεια κάντε το ίδιο για τον αριστερό σας μαστό με το δεξί σας χέρι. Παρατηρήστε αν υπάρχουν αλλαγές στους μαστούς σας (σχήμα, μέγεθος, δέρμα, συμμετρία, θηλές): 1) με τα χέρια κάτω, 2) με τα χέρια ψηλά πίσω από το κεφάλι, 3) με τα χέρια ενωμένα κάτω από το πηγούνι σας και σφίγγοντας συγχρόνως τους μυς του στήθους, και 4) σκύβοντας εμπρός με τους μαστούς να κρέμονται.Ξαπλώστε και τοποθετήστε μια διπλωμένη πετσέτα κάτω από την πλάτη σας και επαναλάβετε με κυκλικές κινήσεις και με την επιφάνεια των δακτύλων την εξέταση κάθε μαστού. Συμβουλευτείτε το γιατρό σας αν διαπιστώσετε οποιαδήποτε ανωμαλία.","askisi_nefro",6));
+			elist.add(new Exam("ΜΑΣΤΟΓΡΑΦΙΑ","0-50",3,2,"0-50",1,1,1,"Είναι μια εξέταση των μαστών με ακτίνες Χ και η οποία σώζει ζωές! Μαζί με την κλινική εξέταση του μαστού, αποτελεί τον πιο αποτελεσματικό τρόπο για την ανίχνευση καρκίνου του μαστού ενώ τα τελευταία χρόνια έχει πετύχει τη μείωση της θνησιμότητας από τον καρκίνο του στήθους κατά 30 με 40%. Με ειδικό ακτινολογικό μηχάνημα μπορεί να εντοπίσει τον καρκίνο του μαστού σε πρώιμο στάδιο, πολύ πριν υπάρξει κλινικό εύρημα. Η εξέταση μπορεί να δείξει τις αλλαγές, όπως για παράδειγμα μικρούς όγκους, στο στήθος μιας γυναίκας πολύ πριν η ίδια ή ή το γιατρό της το καταλάβουν με την ψηλάφηση.","-",12));
+			for(int i=0;i<elist.size();i++)
 			{
 				// get age range (split)
-				String  age_range=exams.get(i).get_age_range();
+				String  age_range=elist.get(i).get_age_range();
 				String [] age_r=age_range.split("-");
 				int start_age=Integer.parseInt(age_r[0]);
 				int end_age=Integer.parseInt(age_r[1]);
 				
 				//get deiktis mazas somatos (split)
-				String  deiktis_mazas_range=exams.get(i).get_deiktis_mazas_range();
+				String  deiktis_mazas_range=elist.get(i).get_deiktis_mazas_range();
 				String [] deiktis_mazas=deiktis_mazas_range.split("-");
 				int start_deiktis_mazas=Integer.parseInt(deiktis_mazas[0]);
 				int end_deiktis_mazas=Integer.parseInt(deiktis_mazas[1]);
 				
-				int smoker_in=(exams.get(i).get_smoker());
-				int gender_in=(exams.get(i).get_gender());
-				int alcoholic_in=(exams.get(i).get_alcohol());
-				int prepos_in=(exams.get(i).get_inheritance());
-				int sexual_situation_in=(exams.get(i).get_SexualSituation());
+				int smoker_in=(elist.get(i).get_smoker());
+				int gender_in=(elist.get(i).get_gender());
+				int alcoholic_in=(elist.get(i).get_alcohol());
+				int prepos_in=(elist.get(i).get_inheritance());
+				int sexual_situation_in=(elist.get(i).get_SexualSituation());
 				
 				//Log.w("---->", "ag "+age_r[0]);
 				
 				if(deiktis_mazas_somatos>=start_deiktis_mazas && deiktis_mazas_somatos<=end_deiktis_mazas && age>=start_age && age<=end_age && (smoker_in==3 ||smoker_in==smoker) && (gender_in==2 || gender_in==gender) && (sexual_situation_in==2 || sexual_situation_in==sexual_situation) && (alcoholic_in==2 || alcoholic_in==alcoholic) && (prepos_in==2 || prepos_in==preposission))
 				{
-					selected_exam=(exams.get(i));
+					selected_exam=(elist.get(i));
 					
 				}
 			} return selected_exam;

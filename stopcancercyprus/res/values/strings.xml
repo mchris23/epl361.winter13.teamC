@@ -90,5 +90,6 @@
     <string name="title_activity_settings_choose">Settings_choose</string>
     <string name="title_activity_chooseset">Chooseset</string>
     <string name="title_activity_choose_set">ChooseSet</string>
+    <string name="title_activity_prevention">PreventionActivity</string>
 
 </resources>

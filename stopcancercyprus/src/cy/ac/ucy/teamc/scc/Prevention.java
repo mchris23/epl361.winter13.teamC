@@ -4,15 +4,19 @@ public class Prevention {
 	int id;
 	String name;
 	String description;
-
-	public Prevention(int i, String n, String d) {
+	String image_name;
+	public Prevention(int i, String n, String d, String img) {
 		id = i;
 		name = n;
 		description = d;
+		image_name=img;
 	}
 
 	public int getId() {
 		return id;
+	}
+	public String getimage_name() {
+		return image_name;
 	}
 
 	public void setId(int id) {

@@ -15,12 +15,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 
-public class CancerActivity extends Activity {
+public class PreventionActivity extends Activity {
 	public final static String EXTRA_IMAGE_ID = "cy.ac.ucy.teamc.scc.MESSAGE";
+
 	TextView name;
 	TextView description;
 	ListView relatedExams;
-	ArrayList<Cancer> cNameDescr;
+	ArrayList<Prevention> cNameDescr;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,39 +30,38 @@ public class CancerActivity extends Activity {
 		Log.e("position", ""+id);
 		id++;
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-		cNameDescr = db.getCancer(id);
+		cNameDescr = db.getPrevention(id);
 
 		setContentView(R.layout.cancer_view);
 		LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
 		createAllObjects();
 		name.setText(cNameDescr.get(0).getName());
 		description.setText(cNameDescr.get(0).getDescription());
-//check if for this exam there is an image
+		// Add contents accordingly,get from database
+		// setContentView(R.layout.cancer_mastos);
+		String img_name = cNameDescr.get(0).getimage_name();
+//check if for this prevention there is an image
         
-		 String img_name = cNameDescr.get(0).getimg_name();
-			
-//check if for this exam there is an image
-       
-       int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
-       boolean result;
-       Log.e("IAM hereeeeeeeee 2","");
-       
-       
-       if ( checkExistence != 0 ) {  // the resource exists...
-       	Log.e("IAM hereeeeeeeee 3","");
-       	result = true;
-           final String image_id_str = String.valueOf(checkExistence);
-           ImageButton Bimage = new ImageButton(this);
-           Bimage.setImageResource(checkExistence);
-  
-           Bimage.setScaleType(ScaleType.FIT_XY);
-           
-           
-           ll.addView(Bimage);
-           
-           
-           
-           Bimage.setOnClickListener(new View.OnClickListener() {
+        int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
+        boolean result;
+        Log.e("IAM hereeeeeeeee 2","");
+        
+        
+        if ( checkExistence != 0 ) {  // the resource exists...
+        	Log.e("IAM hereeeeeeeee 3","");
+        	result = true;
+            final String image_id_str = String.valueOf(checkExistence);
+            ImageButton Bimage = new ImageButton(this);
+            Bimage.setImageResource(checkExistence);
+   
+            Bimage.setScaleType(ScaleType.FIT_XY);
+            
+            
+            ll.addView(Bimage);
+            
+            
+            
+            Bimage.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
@@ -76,14 +76,13 @@ public class CancerActivity extends Activity {
 	                startActivity(i);
 	  
 				}
-           
-           });
-       }
-       else {  // checkExistence == 0  // the resouce does NOT exist!!
-           result = false;
-           Log.w("HEREE 2"," "+result);
-       }
-
+            
+            });
+        }
+        else {  // checkExistence == 0  // the resouce does NOT exist!!
+            result = false;
+            Log.w("HEREE 2"," "+result);
+        }
 	}
 
 	private void createAllObjects() {
@@ -93,3 +92,4 @@ public class CancerActivity extends Activity {
 
 	}
 }
+

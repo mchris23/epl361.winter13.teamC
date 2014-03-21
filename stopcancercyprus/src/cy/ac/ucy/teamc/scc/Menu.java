@@ -19,18 +19,18 @@ public class Menu extends TabActivity {
 		setContentView(R.layout.main);
 		menuTabHost=getTabHost();
 		
-		TabSpec generalSpec=menuTabHost.newTabSpec("Γενική\nΕνημέρωση");
-		generalSpec.setIndicator("Γενική Ενημέρωση",getResources().getDrawable(R.drawable.mytab1));
+		TabSpec generalSpec=menuTabHost.newTabSpec("Ξ“ΞµΞ½ΞΉΞΊΞ® Ξ•Ξ½Ξ·ΞΌΞ­ΟΟ‰ΟƒΞ·");
+		generalSpec.setIndicator("Ξ“ΞµΞ½ΞΉΞΊΞ® Ξ•Ξ½Ξ·ΞΌΞ­ΟΟ‰ΟƒΞ·",getResources().getDrawable(R.drawable.mytab1));
 		Intent generalIntent=new Intent(this,GeneralInform.class);
 		generalSpec.setContent(generalIntent);
 		
-		TabSpec personalSpec=menuTabHost.newTabSpec("Προσωπική\nΕνημέρωση");
-		personalSpec.setIndicator("Προσωπική Ενημέρωση",getResources().getDrawable(R.drawable.mytab2));
+		TabSpec personalSpec=menuTabHost.newTabSpec("Ξ ΟΞΏΟƒΟ‰Ο€ΞΉΞΊΞ® Ξ•Ξ½Ξ·ΞΌΞ­ΟΟ‰ΟƒΞ·");
+		personalSpec.setIndicator("Ξ ΟΞΏΟƒΟ‰Ο€ΞΉΞΊΞ® Ξ•Ξ½Ξ·ΞΌΞ­ΟΟ‰ΟƒΞ·",getResources().getDrawable(R.drawable.mytab2));
 		Intent personallIntent=new Intent(this,PersonalInform.class);
 		personalSpec.setContent(personallIntent);
 		
-		TabSpec settingsSpec=menuTabHost.newTabSpec("Ρυθμίσεις");
-		settingsSpec.setIndicator("Ρυθμίσεις",getResources().getDrawable(R.drawable.mytab3));
+		TabSpec settingsSpec=menuTabHost.newTabSpec("Ξ΅Ο…ΞΈΞΌΞ―ΟƒΞµΞΉΟ‚");
+		settingsSpec.setIndicator("Ξ΅Ο…ΞΈΞΌΞ―ΟƒΞµΞΉΟ‚",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
 			

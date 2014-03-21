@@ -88,6 +88,8 @@ public class Personal_information extends Activity {
 
         
         //check if for this exam there is an image
+        if(!(img_name.equals("-")))
+        {
         
         int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
         boolean result;
@@ -105,7 +107,6 @@ public class Personal_information extends Activity {
             
             ll.addView(Bimage);
             
-            Log.w("HEREEE 1"," "+result);
             
             
             Bimage.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +131,7 @@ public class Personal_information extends Activity {
             result = false;
             Log.w("HEREE 2"," "+result);
         }
-		
+        }
 	}
 
 	

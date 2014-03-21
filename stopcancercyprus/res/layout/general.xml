@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="80"
             android:focusableInTouchMode="false"
-            android:text="Ασκήσεις:"
+            android:text="Τρόποι πρόληψης:"
             android:textSize="18dp"
             android:paddingLeft="5dp"/>
 
@@ -97,57 +97,8 @@
             android:text="Επιλογή" />
         </LinearLayout>
        
-      <!-- diet choice -->
-       <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:paddingBottom="20dp">
-        <TextView
-            android:id="@+id/dietText"
-            android:layout_width="81dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="80"
-            android:text="Διατροφή:"
-            android:textSize="18dp"
-            android:paddingLeft="5dp"/>
-
-        <requestFocus />
-
-        <Button
-            android:id="@+id/Bdiet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Επιλογή" />
-        </LinearLayout>
-        
-           <!-- image choice -->
-       <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:paddingBottom="20dp">
-        <TextView
-            android:id="@+id/imageText"
-            android:layout_width="81dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="80"
-            android:text="Εικόνες:"
-            android:textSize="18dp"
-            android:paddingLeft="5dp"/>
-
-        <requestFocus />
-
-        <Button
-            android:id="@+id/Bimg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Επιλογή" />
-        </LinearLayout>
+     
+           
         
        </LinearLayout>
     </ScrollView>
