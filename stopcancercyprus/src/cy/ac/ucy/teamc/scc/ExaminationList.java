@@ -41,7 +41,7 @@ public class ExaminationList extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 			if (position==0) {
 				try{
-					Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ExamTesticles");
+					Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ExamTesticles");
 					Intent ourIntent=new Intent(ExaminationList.this, ourClass);
 					startActivity(ourIntent);
 				}catch(ClassNotFoundException e){
@@ -51,7 +51,7 @@ public class ExaminationList extends ListActivity {
 			else
 				if (position==1){
 					try{
-						Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ExamBreast");
+						Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ExamBreast");
 						Intent ourIntent=new Intent(ExaminationList.this, ourClass);
 						startActivity(ourIntent);
 					}catch(ClassNotFoundException e){
@@ -61,7 +61,7 @@ public class ExaminationList extends ListActivity {
 				else
 					if (position==2){
 						try{
-							Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ExamPap");
+							Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ExamPap");
 							Intent ourIntent=new Intent(ExaminationList.this, ourClass);
 							startActivity(ourIntent);
 						}catch(ClassNotFoundException e){
@@ -71,7 +71,7 @@ public class ExaminationList extends ListActivity {
 					else
 						if (position==3){
 							try{
-								Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ExamColonoscopy");
+								Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ExamColonoscopy");
 								Intent ourIntent=new Intent(ExaminationList.this, ourClass);
 								startActivity(ourIntent);
 							}catch(ClassNotFoundException e){
@@ -81,7 +81,7 @@ public class ExaminationList extends ListActivity {
 						else
 							if (position==4){
 								try{
-									Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ExamStool");
+									Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ExamStool");
 									Intent ourIntent=new Intent(ExaminationList.this, ourClass);
 									startActivity(ourIntent);
 								}catch(ClassNotFoundException e){
@@ -91,7 +91,7 @@ public class ExaminationList extends ListActivity {
 							else
 								if (position==5){
 									try{
-										Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ExamBlood");
+										Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ExamBlood");
 										Intent ourIntent=new Intent(ExaminationList.this, ourClass);
 										startActivity(ourIntent);
 									}catch(ClassNotFoundException e){

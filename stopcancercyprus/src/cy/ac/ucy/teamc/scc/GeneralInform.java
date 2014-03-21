@@ -27,7 +27,7 @@ public class GeneralInform extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
-					Class ourClass = Class.forName("com.example.stopcancercyprus.ExaminationList");
+					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.ExaminationList");
 					//triggered a class that user selected.
 					Intent ourIntent = new Intent(GeneralInform.this, ourClass);
 					startActivity(ourIntent);
@@ -43,7 +43,7 @@ Bactiv.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
-					Class ourClass = Class.forName("com.example.stopcancercyprus.ActivityList");
+					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.ActivityList");
 					//triggered a class that user selected.
 					Intent ourIntent = new Intent(GeneralInform.this, ourClass);
 					startActivity(ourIntent);
@@ -59,7 +59,7 @@ Bdiet.setOnClickListener(new View.OnClickListener() {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		try {
-			Class ourClass = Class.forName("com.example.stopcancercyprus.DietList");
+			Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.DietList");
 			//triggered a class that user selected.
 			Intent ourIntent = new Intent(GeneralInform.this, ourClass);
 			startActivity(ourIntent);
@@ -75,7 +75,7 @@ Bcancer.setOnClickListener(new View.OnClickListener() {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		try {
-			Class ourClass = Class.forName("com.example.stopcancercyprus.CancerList");
+			Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.CancerList");
 			//triggered a class that user selected.
 			Intent ourIntent = new Intent(GeneralInform.this, ourClass);
 			startActivity(ourIntent);
@@ -91,7 +91,7 @@ Bimage.setOnClickListener(new View.OnClickListener() {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		try {
-			Class ourClass = Class.forName("com.example.stopcancercyprus.GridViewImageActivity");
+			Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.GridViewImageActivity");
 			//triggered a class that user selected.
 			Intent ourIntent = new Intent(GeneralInform.this, ourClass);
 			startActivity(ourIntent);

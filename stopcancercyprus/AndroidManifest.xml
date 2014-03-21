@@ -4,8 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
@@ -32,18 +33,10 @@
             android:name=".PasikafInfo"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="com.example.stopCancerCyprus.PASIKAFINFO" />
+                <action android:name="cy.ac.ucy.teamc.scc.PASIKAFINFO" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".PersonalInform"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name=".Settings"
-            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".Menu"
@@ -65,31 +58,78 @@
             android:name=".CancerList"
             android:label="@string/app_name" >
         </activity>
-        
-         <activity
+        <activity
+            android:name=".Cancer"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".CancerActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".ActivityNotification"
             android:label="@string/app_name" >
         </activity>
-        
-         <service android:name=".ActivityNotificationService">
-             
-         </service>  
-         
-         <activity
+
+        <service android:name=".ActivityNotificationService" >
+        </service>
+
+        <activity
             android:name=".GridViewImageActivity"
             android:label="@string/app_name" >
         </activity>
-        
-          <activity
+        <activity
             android:name=".ImageAdapter"
             android:label="@string/app_name" >
         </activity>
-        
-         <activity
+        <activity
             android:name=".MyImageActivity"
             android:label="@string/app_name" >
         </activity>
-
-        </application>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.PersonalInform"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Prevention"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.Personal_settings"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.TouchImageActivity"
+            android:label="@string/title_activity_touch_image" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.TouchImageViewActivity"
+            android:label="@string/title_activity_cancer_breast_" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.ActivityPersonalInform"
+            android:label="@string/title_activity_activity_personal_inform" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.Personal_information"
+            android:label="@string/title_activity_personal_information" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.Exam"
+            android:label="@string/title_activity_exam" >
+        </activity>
+        <activity
+            android:name=".DatabaseManager"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".SQLConnection"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
 
 </manifest>

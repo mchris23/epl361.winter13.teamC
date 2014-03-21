@@ -19,9 +19,9 @@ public class TouchImageViewActivity extends Activity {
 		int resource=Integer.parseInt(id);
 		Log.w("*************************************************resource"," "+resource);
         super.onCreate(savedInstanceState);
-   //     setContentView(R.layout.main2);
-   //     TouchImageView img = (TouchImageView) findViewById(R.id.img);
-   //     img.setImageResource(resource);
-    //    img.setMaxZoom(4);
+        setContentView(R.layout.main2);
+        TouchImageView img = (TouchImageView) findViewById(R.id.img);
+        img.setImageResource(resource);
+        img.setMaxZoom(4);
     }
 }

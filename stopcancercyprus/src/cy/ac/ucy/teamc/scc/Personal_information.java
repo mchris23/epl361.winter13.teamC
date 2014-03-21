@@ -21,9 +21,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 
-
 public class Personal_information extends Activity {
-	public final static String EXTRA_IMAGE_ID = "com.example.stopcancercyprus.MESSAGE";
+	public final static String EXTRA_IMAGE_ID = "cy.ac.ucy.teamc.scc.MESSAGE";
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@SuppressLint("NewApi")
@@ -90,7 +89,7 @@ public class Personal_information extends Activity {
         
         //check if for this exam there is an image
         
-        int checkExistence = getResources().getIdentifier(img_name, "drawable","com.example.stopcancercyprus");
+        int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
         boolean result;
         
         
@@ -134,6 +133,7 @@ public class Personal_information extends Activity {
 		
 	}
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

@@ -34,7 +34,7 @@ public class CancerList extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 			try {
 				Class<?> ourClass = Class
-						.forName("com.example.stopcancercyprus.CancerActivity");
+						.forName("cy.ac.ucy.teamc.scc.CancerActivity");
 				Intent ourIntent = new Intent(CancerList.this, ourClass);
 				Bundle b = new Bundle();
 				b.putInt("position", position); //Your id

@@ -30,7 +30,7 @@ public class ActivityList extends ListActivity{
 		super.onListItemClick(l, v, position, id);
 			if (position==0) {
 				try{
-					Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ActivityBreast");
+					Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ActivityBreast");
 					Intent ourIntent=new Intent(ActivityList.this, ourClass);
 					startActivity(ourIntent);
 				}catch(ClassNotFoundException e){
@@ -40,7 +40,7 @@ public class ActivityList extends ListActivity{
 			else
 				if (position==1){
 					try{
-						Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ActivityKidney");
+						Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ActivityKidney");
 						Intent ourIntent=new Intent(ActivityList.this, ourClass);
 						startActivity(ourIntent);
 					}catch(ClassNotFoundException e){
@@ -50,7 +50,7 @@ public class ActivityList extends ListActivity{
 				else
 					if (position==2){
 						try{
-							Class<?> ourClass=Class.forName("com.example.stopcancercyprus.ActivityRectum");
+							Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.ActivityRectum");
 							Intent ourIntent=new Intent(ActivityList.this, ourClass);
 							startActivity(ourIntent);
 						}catch(ClassNotFoundException e){

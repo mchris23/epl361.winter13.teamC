@@ -17,10 +17,10 @@ import android.widget.EditText;
 
 
 public class PersonalInform extends Activity {
-	public final static String EXTRA_NAME = "com.example.stopcancercyprus.MESSAGE";
-	public final static String EXTRA_DESCRIPTION = "com.example.stopcancercyprus.MESSAGE";
-	public final static String EXTRA_IMAGE_NAME= "com.example.stopcancercyprus.MESSAGE";
-	public final static String EXTRA_FREQUENCY= "com.example.stopcancercyprus.MESSAGE";
+	public final static String EXTRA_NAME = "cy.ac.ucy.teamc.scc.MESSAGE";
+	public final static String EXTRA_DESCRIPTION = "cy.ac.ucy.teamc.scc.MESSAGE";
+	public final static String EXTRA_IMAGE_NAME= "cy.ac.ucy.teamc.scc.MESSAGE";
+	public final static String EXTRA_FREQUENCY= "cy.ac.ucy.teamc.scc.MESSAGE";
 	Button checkSubmition;
 	TextView displaySubmit;
 	EditText Tweight;
@@ -32,7 +32,8 @@ public class PersonalInform extends Activity {
 	private int day;
 	public float maza_somatos;
 
-	static ArrayList<Exam> exams=new ArrayList<Exam>();
+	DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
+	ArrayList<Exam> exams=db.getAllExams();
 	static final int DATE_DIALOG_ID = 999;
 
 	@Override
@@ -104,7 +105,7 @@ public class PersonalInform extends Activity {
 								if(!(exam_description==null))
 								{
 									try{
-										Class<?> ourClass=Class.forName("com.example.stopcancercyprus.Personal_information");
+										Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.Personal_information");
 										Intent ourIntent=new Intent(PersonalInform.this, ourClass);
 										
 										

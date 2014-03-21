@@ -106,7 +106,7 @@ public class Personal_settings extends Activity {
 								if(!(exam_description==null))
 								{
 									try{
-										Class<?> ourClass=Class.forName("com.example.stopcancercyprus.Personal_information");
+										Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.Personal_information");
 										Intent ourIntent=new Intent(Personal_settings.this, ourClass);
 										
 										
@@ -229,11 +229,11 @@ public class Personal_settings extends Activity {
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-	//	checkSubmition = (Button) findViewById(R.id.Bsubmit);
-	//	recreate = (Button) findViewById(R.id.Brecreate);
-	//	displaySubmit = (TextView) findViewById(R.id.msgSubmit);
-	//	Tweight = (EditText) findViewById(R.id.CommandWeight);
-	//	Theight=(EditText) findViewById(R.id.CommandHeigh);
+		checkSubmition = (Button) findViewById(R.id.Bsubmit);
+		recreate = (Button) findViewById(R.id.Brecreate);
+		displaySubmit = (TextView) findViewById(R.id.msgSubmit);
+		Tweight = (EditText) findViewById(R.id.CommandWeight);
+		Theight=(EditText) findViewById(R.id.CommandHeigh);
 		setCurrentDateOnView();
 	}
 

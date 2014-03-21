@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
-
 @SuppressWarnings("deprecation")
 public class Menu extends TabActivity {
 
@@ -20,30 +19,24 @@ public class Menu extends TabActivity {
 		setContentView(R.layout.main);
 		menuTabHost=getTabHost();
 		
-		TabSpec generalSpec=menuTabHost.newTabSpec("ΓΕΝΙΚΑ");
-		generalSpec.setIndicator("ΓΕΝΙΚΑ",getResources().getDrawable(R.drawable.mytab1));
+		TabSpec generalSpec=menuTabHost.newTabSpec("Γενική\nΕνημέρωση");
+		generalSpec.setIndicator("Γενική Ενημέρωση",getResources().getDrawable(R.drawable.mytab1));
 		Intent generalIntent=new Intent(this,GeneralInform.class);
 		generalSpec.setContent(generalIntent);
 		
-		TabSpec personalSpec=menuTabHost.newTabSpec("ΓΙΑ ΕΜΕΝΑ");
-		personalSpec.setIndicator("ΓΙΑ ΕΜΕΝΑ",getResources().getDrawable(R.drawable.mytab2));
+		TabSpec personalSpec=menuTabHost.newTabSpec("Προσωπική\nΕνημέρωση");
+		personalSpec.setIndicator("Προσωπική Ενημέρωση",getResources().getDrawable(R.drawable.mytab2));
 		Intent personallIntent=new Intent(this,PersonalInform.class);
 		personalSpec.setContent(personallIntent);
 		
-		TabSpec settingsSpec=menuTabHost.newTabSpec("ΡΥΘΜΙΣΕΙΣ");
-		settingsSpec.setIndicator("ΡΥΘΜΙΣΕΙΣ",getResources().getDrawable(R.drawable.mytab3));
+		TabSpec settingsSpec=menuTabHost.newTabSpec("Ρυθμίσεις");
+		settingsSpec.setIndicator("Ρυθμήσεις",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
-		
-		TabSpec pasikafinfo =menuTabHost.newTabSpec("ΠΑΣΥΚΑΦ");
-		pasikafinfo.setIndicator("ΠΑΣΥΚΑΦ",getResources().getDrawable(R.drawable.pasikaf));
-		Intent pasikafinfolIntent=new Intent(this,Settings.class);
-		pasikafinfo.setContent(settingslIntent);
-		
+			
 		menuTabHost.addTab(generalSpec);
 		menuTabHost.addTab(personalSpec);
 		menuTabHost.addTab(settingsSpec);
-		menuTabHost.addTab(pasikafinfo);
 
 	}
 

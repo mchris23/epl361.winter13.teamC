@@ -16,6 +16,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public static synchronized DatabaseManager getHelper(Context context) {
 		if (instance == null) {
 			instance = new DatabaseManager(context);
+			instance.getReadableDatabase();
 		}
 		return instance;
 	}
@@ -159,7 +160,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			for (String i : relatedPreventions) {
 				// find related exam's id
 				query = new String(
-						"SELECT ID_Prevention FROM PREVENTION WHERE prevention_name='"
+						"SELECT ID_prevention FROM PREVENTION WHERE prevention_name='"
 								+ i + "'");
 				Cursor c2 = db.rawQuery(query, null);
 				if (c2.moveToFirst()) {
@@ -359,7 +360,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public ArrayList<Exam> getExam(int eID) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
-		String query = new String("SELECT * FROM CANCER WHERE ID_Examination="
+		String query = new String("SELECT * FROM EXAMINATION WHERE ID_Examination="
 				+ eID + ";");
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
@@ -405,6 +406,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 						c.getInt(4), c.getString(2), c.getString(10), c
 								.getInt(3)));
 			} while (c.moveToNext());
+			db.close();
 			return exams;
 		} else {
 			db.close();
