@@ -75,12 +75,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		addExamination(db, "енетасг аилатос CA125",
 				"енетасг аилатос CA125 ЦИА ТОМ ЙАЯЙъМО ТЫМ ЫОХГЙЧМ.", 12, 1,
-				"50-90", 3, "0-40", 0, 0, null,1);
+				"0-120", 3, "0-40", 0, 0, null,1);
 		addExamination(
 				db,
 				"летягсг пяостатийоу амтицомоу (PSA)",
 				"летягсг пяостатийоу амтицомоу (PSA) ЦИА ТОМ ЙАЯЙъМО ТОУ ПЯОСТэТГ.",
-				12, 0, "40-50", 3, "0-40", 0, 0, null,0);
+				12, 0, "0-120", 3, "0-40", 0, 0, null,0);
 		addPrevention(
 				db,
 				"уциеимг диатяожг",
@@ -130,7 +130,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				} else {
 					// add exam
 					addExamination(db, i);
-					Log.d("SCC - addCancer", "Added related exam: " + name);
+					addCancerRelatedExams(db, name, new String[]{i});
+					Log.d("SCC - addCancer", "Added related exam: " + i);
 				}
 			}
 			// db2.close();
@@ -168,9 +169,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
 					addCancerPrevention(db, c.getInt(0), c2.getInt(0));
 				} else {
 					// add prevention
-					addPrevention(db, i, null, null);
+					addPrevention(db,i,null,null);
+					addCancerRelatedPreventions(db, name, new String[]{i});
 					Log.d("SCC - addCancer", "Added related prevention: "
-							+ name);
+							+ i);
 				}
 			}
 			// db2.close();

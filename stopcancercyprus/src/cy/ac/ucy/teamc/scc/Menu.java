@@ -30,7 +30,7 @@ public class Menu extends TabActivity {
 		personalSpec.setContent(personallIntent);
 		
 		TabSpec settingsSpec=menuTabHost.newTabSpec("Ρυθμίσεις");
-		settingsSpec.setIndicator("Ρυθμήσεις",getResources().getDrawable(R.drawable.mytab3));
+		settingsSpec.setIndicator("Ρυθμίσεις",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
 			

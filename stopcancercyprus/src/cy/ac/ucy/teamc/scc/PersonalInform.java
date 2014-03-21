@@ -16,6 +16,7 @@ import android.widget.EditText;
 
 
 
+
 public class PersonalInform extends Activity {
 	public final static String EXTRA_NAME = "cy.ac.ucy.teamc.scc.MESSAGE";
 	public final static String EXTRA_DESCRIPTION = "cy.ac.ucy.teamc.scc.MESSAGE";
@@ -35,14 +36,13 @@ public class PersonalInform extends Activity {
 	DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
 	ArrayList<Exam> exams=db.getAllExams();
 	static final int DATE_DIALOG_ID = 999;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.personal);
 		createAllObjects();
-
 		checkSubmition.setOnClickListener(new View.OnClickListener() {
 			@SuppressWarnings("deprecation")
 			@Override
