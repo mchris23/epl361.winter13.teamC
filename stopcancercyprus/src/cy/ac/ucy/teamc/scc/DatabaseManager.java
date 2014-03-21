@@ -331,18 +331,17 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	}
 
-	public ArrayList<String> getCancerNameDescription(int cID) {
+	public ArrayList<Cancer> getCancer(int cID) {
 		SQLiteDatabase db = this.getReadableDatabase();
-		ArrayList<String> eNames = new ArrayList<String>();
+		ArrayList<Cancer> cancers = new ArrayList<Cancer>();
 		String query = new String(
-				"SELECT cancer_name,cancer_description FROM CANCER WHERE ID_Cancer="
+				"SELECT ID_cancer, cancer_name,cancer_description FROM CANCER WHERE ID_Cancer="
 						+ cID + ";");
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
-			eNames.add(c.getString(0));
-			eNames.add(c.getString(1));
+			cancers.add(new Cancer(c.getInt(0), c.getString(1), c.getString(2)));
 			db.close();
-			return eNames;
+			return cancers;
 		} else {
 			db.close();
 			return null;

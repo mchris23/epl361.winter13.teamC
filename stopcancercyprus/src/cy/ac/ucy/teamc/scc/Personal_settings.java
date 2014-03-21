@@ -1,27 +1,28 @@
-package cy.ac.ucy.teamc.scc;
+﻿package cy.ac.ucy.teamc.scc;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
+import android.graphics.Color;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.graphics.Color;
-import android.widget.EditText;
 
-
-
-public class PersonalInform extends Activity {
+public class Personal_settings extends Activity {
+	
 	public final static String EXTRA_NAME = "com.example.stopcancercyprus.MESSAGE";
 	public final static String EXTRA_DESCRIPTION = "com.example.stopcancercyprus.MESSAGE";
 	public final static String EXTRA_IMAGE_NAME= "com.example.stopcancercyprus.MESSAGE";
 	public final static String EXTRA_FREQUENCY= "com.example.stopcancercyprus.MESSAGE";
 	Button checkSubmition;
+	Button recreate;
 	TextView displaySubmit;
 	EditText Tweight;
 	EditText Theight;
@@ -39,7 +40,8 @@ public class PersonalInform extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.personal);
+		setContentView(R.layout.personal_settings);
+
 		createAllObjects();
 
 		checkSubmition.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +94,7 @@ public class PersonalInform extends Activity {
 								 int Preposission= selectPreposission.getSelectedItemPosition();
 								 int SexualSituation= selectSexualSituation.getSelectedItemPosition();
 								maza_somatos=Float.parseFloat(Tweight.getText().toString())/ (((Float.parseFloat(Theight.getText().toString()))*(Float.parseFloat(Theight.getText().toString())))/10000);
-								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!\n Ο δείκτης μάζας σώματος σας είναι:"+maza_somatos);
+								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!");
 								
 								displaySubmit.setTextColor(Color.GREEN);
 								
@@ -105,7 +107,7 @@ public class PersonalInform extends Activity {
 								{
 									try{
 										Class<?> ourClass=Class.forName("com.example.stopcancercyprus.Personal_information");
-										Intent ourIntent=new Intent(PersonalInform.this, ourClass);
+										Intent ourIntent=new Intent(Personal_settings.this, ourClass);
 										
 										
 										
@@ -124,8 +126,45 @@ public class PersonalInform extends Activity {
 							}
 			}
 		});
+		
+		
+		
+		
+		
+		recreate.setOnClickListener(new View.OnClickListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onClick(View v) {
+				 final Spinner selectsmoke = (Spinner) findViewById(R.id.selectSmoke);
+				 final Spinner selectGender = (Spinner) findViewById(R.id.selectGender);
+				 final Spinner selectalcoholic = (Spinner) findViewById(R.id.selectAlcohol);
+				 final Spinner selectPreposission = (Spinner) findViewById(R.id.selectPreposission);
+				 final Spinner selectSexualSituation = (Spinner) findViewById(R.id.selectSexualSituation);
+				
+				 selectsmoke.setSelection(0);
+				 selectGender.setSelection(0);
+				 selectalcoholic.setSelection(0);
+				 selectPreposission.setSelection(0);
+				 selectSexualSituation.setSelection(0);
+				 
+				 Theight.getText().clear();
+				 Tweight.getText().clear();
+				 setCurrentDateOnView();
+				 
+			}
+		});
+				
 	}
 	
+			
+			
+			
+			
+			
+			
+			
+			
+			
 	//Inform personal the user about the exams that he/she should do
 		public Exam informUser(int age,int smoker, int gender,float deiktis_mazas_somatos,int alcoholic,int preposission, int sexual_situation)
 		{
@@ -191,6 +230,7 @@ public class PersonalInform extends Activity {
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
 		checkSubmition = (Button) findViewById(R.id.Bsubmit);
+		recreate = (Button) findViewById(R.id.Brecreate);
 		displaySubmit = (TextView) findViewById(R.id.msgSubmit);
 		Tweight = (EditText) findViewById(R.id.CommandWeight);
 		Theight=(EditText) findViewById(R.id.CommandHeigh);
