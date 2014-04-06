@@ -28,6 +28,16 @@ public class Settings extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+				try {
+					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.Personal_settings");
+					//triggered a class that user selected.
+					Intent ourIntent = new Intent(Settings.this, ourClass);
+					startActivity(ourIntent);
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				
 				setContentView(R.layout.personal_settings);
 			}
 		});
@@ -38,7 +48,7 @@ public class Settings extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				try {
-					Class ourClass = Class.forName("com.example.stopcancercyprus.ActivityNotification");
+					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.ActivityNotification");
 					//triggered a class that user selected.
 					Intent ourIntent = new Intent(Settings.this, ourClass);
 					startActivity(ourIntent);

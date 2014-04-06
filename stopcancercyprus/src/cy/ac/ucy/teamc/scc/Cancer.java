@@ -5,11 +5,13 @@ public class Cancer {
 	int id;
 	String name;
 	String description;
+	String img_name;
 
-	public Cancer(int i, String n, String d) {
+	public Cancer(int i, String n, String d, String img) {
 		id = i;
 		name = n;
 		description = d;
+		img_name=img;
 	}
 
 	public void setId(int id) {
@@ -18,6 +20,9 @@ public class Cancer {
 
 	public String getName() {
 		return name;
+	}
+	public String getimg_name() {
+		return img_name;
 	}
 
 	public void setName(String name) {

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
-
 @SuppressWarnings("deprecation")
 public class Menu extends TabActivity {
 
@@ -20,30 +19,24 @@ public class Menu extends TabActivity {
 		setContentView(R.layout.main);
 		menuTabHost=getTabHost();
 		
-		TabSpec generalSpec=menuTabHost.newTabSpec("цемийа");
-		generalSpec.setIndicator("цемийа",getResources().getDrawable(R.drawable.mytab1));
+		TabSpec generalSpec=menuTabHost.newTabSpec("н⌠н╣н╫н╧н╨н╝ н∙н╫н╥н╪н╜о│о┴о┐н╥");
+		generalSpec.setIndicator("н⌠н╣н╫н╧н╨н╝ н∙н╫н╥н╪н╜о│о┴о┐н╥",getResources().getDrawable(R.drawable.mytab1));
 		Intent generalIntent=new Intent(this,GeneralInform.class);
 		generalSpec.setContent(generalIntent);
 		
-		TabSpec personalSpec=menuTabHost.newTabSpec("циа елема");
-		personalSpec.setIndicator("циа елема",getResources().getDrawable(R.drawable.mytab2));
+		TabSpec personalSpec=menuTabHost.newTabSpec("н═о│н©о┐о┴о─н╧н╨н╝ н∙н╫н╥н╪н╜о│о┴о┐н╥");
+		personalSpec.setIndicator("н═о│н©о┐о┴о─н╧н╨н╝ н∙н╫н╥н╪н╜о│о┴о┐н╥",getResources().getDrawable(R.drawable.mytab2));
 		Intent personallIntent=new Intent(this,PersonalInform.class);
 		personalSpec.setContent(personallIntent);
 		
-		TabSpec settingsSpec=menuTabHost.newTabSpec("яухлисеис");
-		settingsSpec.setIndicator("яухлисеис",getResources().getDrawable(R.drawable.mytab3));
+		TabSpec settingsSpec=menuTabHost.newTabSpec("н║о┘н╦н╪н╞о┐н╣н╧о┌");
+		settingsSpec.setIndicator("н║о┘н╦н╪н╞о┐н╣н╧о┌",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
-		
-		TabSpec pasikafinfo =menuTabHost.newTabSpec("пасуйаж");
-		pasikafinfo.setIndicator("пасуйаж",getResources().getDrawable(R.drawable.pasikaf));
-		Intent pasikafinfolIntent=new Intent(this,Settings.class);
-		pasikafinfo.setContent(settingslIntent);
-		
+			
 		menuTabHost.addTab(generalSpec);
 		menuTabHost.addTab(personalSpec);
 		menuTabHost.addTab(settingsSpec);
-		menuTabHost.addTab(pasikafinfo);
 
 	}
 

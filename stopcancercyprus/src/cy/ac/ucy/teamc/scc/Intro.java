@@ -25,7 +25,7 @@ public class Intro extends Activity{
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}finally{
-					Intent openStartingPoint=new Intent("com.example.stopCancerCyprus.PASIKAFINFO");
+					Intent openStartingPoint=new Intent("cy.ac.ucy.teamc.scc.PASIKAFINFO");
 					startActivity(openStartingPoint);
 				}
 			}

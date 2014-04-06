@@ -24,7 +24,7 @@ public class PasikafInfo extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
-					Class ourClass = Class.forName("com.example.stopcancercyprus.Menu");
+					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.Menu");
 					//triggered a class that user selected.
 					Intent ourIntent = new Intent(PasikafInfo.this, ourClass);
 					startActivity(ourIntent);

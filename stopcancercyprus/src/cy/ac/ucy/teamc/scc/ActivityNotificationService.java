@@ -21,14 +21,14 @@ public class ActivityNotificationService extends Service {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		//Toast.makeText(this, "create", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "create", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		//Toast.makeText(this, "destroy", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "destroy", Toast.LENGTH_SHORT).show();
 	}
 
 	@SuppressWarnings("deprecation")

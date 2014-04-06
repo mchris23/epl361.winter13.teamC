@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -26,6 +27,7 @@ public class CancerList extends ListActivity {
 		ArrayList<String> listOfChoices = db.getCancerNames();
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, listOfChoices));
+
 	}
 
 	@Override
@@ -34,7 +36,7 @@ public class CancerList extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 			try {
 				Class<?> ourClass = Class
-						.forName("com.example.stopcancercyprus.CancerActivity");
+						.forName("cy.ac.ucy.teamc.scc.CancerActivity");
 				Intent ourIntent = new Intent(CancerList.this, ourClass);
 				Bundle b = new Bundle();
 				b.putInt("position", position); //Your id

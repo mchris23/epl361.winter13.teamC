@@ -24,7 +24,7 @@ public class DietList extends ListActivity{
 		super.onListItemClick(l, v, position, id);
 			if (position==0) {
 				try{
-					Class<?> ourClass=Class.forName("com.example.stopcancercyprus.DietBreast");
+					Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.DietBreast");
 					Intent ourIntent=new Intent(DietList.this, ourClass);
 					startActivity(ourIntent);
 				}catch(ClassNotFoundException e){
@@ -34,7 +34,7 @@ public class DietList extends ListActivity{
 			else
 				if (position==1){
 					try{
-						Class<?> ourClass=Class.forName("com.example.stopcancercyprus.DietProstate");
+						Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.DietProstate");
 						Intent ourIntent=new Intent(DietList.this, ourClass);
 						startActivity(ourIntent);
 					}catch(ClassNotFoundException e){
@@ -44,7 +44,7 @@ public class DietList extends ListActivity{
 				else
 					if (position==2){
 						try{
-							Class<?> ourClass=Class.forName("com.example.stopcancercyprus.DietRectum");
+							Class<?> ourClass=Class.forName("cy.ac.ucy.teamc.scc.DietRectum");
 							Intent ourIntent=new Intent(DietList.this, ourClass);
 							startActivity(ourIntent);
 						}catch(ClassNotFoundException e){
