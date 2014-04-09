@@ -51,7 +51,7 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				PendingIntent pendingIntent=PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 				alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 				
-				intent.putExtra("msg", "Έκλεισες ραντεβού;");
+				//intent.putExtra("msg", "Έκλεισες ραντεβού;");
 				
 				
 				//startService(intent);
@@ -59,3 +59,4 @@ public class ActivityNotification extends Activity implements OnClickListener{
 	}
 	
 }
+
