@@ -43,7 +43,7 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				case R.id.BtimeNotification: intent.setClass(this, ActivityNotificationService.class);
 				int hour=notificationTime.getCurrentHour();
 				int minutes=notificationTime.getCurrentMinute();
-				Toast.makeText(getApplicationContext(), "Ώρα που καθορίστηκε: "+hour+":"+minutes,Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ΞΟΞ± Ο€ΞΏΟ… ΞΊΞ±ΞΈΞΏΟΞ―ΟƒΟ„Ξ·ΞΊΞµ: "+hour+":"+minutes,Toast.LENGTH_SHORT).show();
 				Calendar calendar=Calendar.getInstance();
 				calendar.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, calendar.HOUR, calendar.MINUTE);
 				AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
@@ -51,7 +51,7 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				PendingIntent pendingIntent=PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 				alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 				
-				intent.putExtra("msg", "Έκλεισες ραντεβού;");
+				//intent.putExtra("msg", "ΞΞΊΞ»ΞµΞΉΟƒΞµΟ‚ ΟΞ±Ξ½Ο„ΞµΞ²ΞΏΟ;");
 				
 				
 				//startService(intent);

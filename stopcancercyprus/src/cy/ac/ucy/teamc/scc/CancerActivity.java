@@ -44,18 +44,19 @@ public class CancerActivity extends Activity {
        
        int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
        boolean result;
-       Log.e("IAM hereeeeeeeee 2","");
+     
        
        
        if ( checkExistence != 0 ) {  // the resource exists...
-       	Log.e("IAM hereeeeeeeee 3","");
        	result = true;
            final String image_id_str = String.valueOf(checkExistence);
            ImageButton Bimage = new ImageButton(this);
+           
+           
            Bimage.setImageResource(checkExistence);
   
            Bimage.setScaleType(ScaleType.FIT_XY);
-           
+           Bimage.setLayoutParams(new LinearLayout.LayoutParams(285,200));
            
            ll.addView(Bimage);
            

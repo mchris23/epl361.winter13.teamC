@@ -138,6 +138,10 @@
             android:name="cy.ac.ucy.teamc.scc.PreventionActivity"
             android:label="@string/title_activity_prevention" >
         </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.PasikafInfoafter"
+            android:label="@string/title_activity_pasikaf_infoafter" >
+        </activity>
     </application>
 
 </manifest>

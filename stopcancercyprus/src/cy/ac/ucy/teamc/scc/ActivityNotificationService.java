@@ -21,30 +21,44 @@ public class ActivityNotificationService extends Service {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		Toast.makeText(this, "create", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "create", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		Toast.makeText(this, "destroy", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "destroy", Toast.LENGTH_SHORT).show();
 	}
 
 	@SuppressWarnings("deprecation")
 	public void onStart(Intent intent, int startId) {
 		// TODO Auto-generated method stub
 		super.onStart(intent, startId);
-		String message=intent.getStringExtra("msg");
+		//String message=intent.getStringExtra("msg");
+		
+		
+		String message = null; //from database (exam info)
+		
 		NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 		Intent notificationIntent=new Intent(this, ActivityNotification.class);
 		PendingIntent pedIntent=PendingIntent.getActivity(this, 0, notificationIntent, 0);
+		
 		int icon=R.drawable.pasikaf;
-		String text="Έχετε μία νέα υπενθύμιση";
-		long when=System.currentTimeMillis();
+		String text=null; //from database
+		int frequency = 0; //from database(in months)
+		long f = (frequency-1/*notific. before 1 month*/); 
+		f *= 30/*days*/ ;
+		f *= 24/*h*/ ;
+		f *= 60/*min*/ ;
+		f *= 60/*sec*/ ;
+		f *= 100/*millisec*/; //time in milliseconds
+		
+		long when=System.currentTimeMillis() + f;
+		
 		Notification notification=new Notification(icon, text, when);
 		String contentText=message;
-		String contentTitle="Έκλεισες ραντεβού;";
+		String contentTitle=null; //from database (exam title)
 		notification.setLatestEventInfo(this, contentTitle, contentText, pedIntent);
 		notificationManager.notify(1,notification);
 		

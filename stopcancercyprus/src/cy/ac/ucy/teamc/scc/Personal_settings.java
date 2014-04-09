@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -193,7 +192,6 @@ public class Personal_settings extends Activity {
 				int prepos_in=(elist.get(i).get_inheritance());
 				int sexual_situation_in=(elist.get(i).get_SexualSituation());
 				
-				//Log.w("---->", "ag "+age_r[0]);
 				
 				if(deiktis_mazas_somatos>=start_deiktis_mazas && deiktis_mazas_somatos<=end_deiktis_mazas && age>=start_age && age<=end_age && (smoker_in==3 ||smoker_in==smoker) && (gender_in==2 || gender_in==gender) && (sexual_situation_in==2 || sexual_situation_in==sexual_situation) && (alcoholic_in==2 || alcoholic_in==alcoholic) && (prepos_in==2 || prepos_in==preposission))
 				{

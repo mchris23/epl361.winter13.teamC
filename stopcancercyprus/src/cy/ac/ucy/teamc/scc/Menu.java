@@ -33,10 +33,16 @@ public class Menu extends TabActivity {
 		settingsSpec.setIndicator("Ρυθμίσεις",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
-			
+		
+		TabSpec pasikafinfo =menuTabHost.newTabSpec("Πληροφορίες ΠΑΣΥΚΑΦ");
+		pasikafinfo.setIndicator("Πληροφορίες ΠΑΣΥΚΑΦ",getResources().getDrawable(R.drawable.pasikaf));
+		Intent pasikafinfolIntent=new Intent(this,PasikafInfoafter.class);
+		pasikafinfo.setContent(pasikafinfolIntent);
 		menuTabHost.addTab(generalSpec);
 		menuTabHost.addTab(personalSpec);
 		menuTabHost.addTab(settingsSpec);
+		menuTabHost.addTab(pasikafinfo);
+
 
 	}
 
