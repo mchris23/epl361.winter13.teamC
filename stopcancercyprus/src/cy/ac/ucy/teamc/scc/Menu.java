@@ -26,7 +26,7 @@ public class Menu extends TabActivity {
 		
 		TabSpec personalSpec=menuTabHost.newTabSpec("Προσωπική Ενημέρωση");
 		personalSpec.setIndicator("Προσωπική Ενημέρωση",getResources().getDrawable(R.drawable.mytab2));
-		Intent personallIntent=new Intent(this,PersonalInform.class);
+		Intent personallIntent=new Intent(this,ChoosePersonalInfrom.class);
 		personalSpec.setContent(personallIntent);
 		
 		TabSpec settingsSpec=menuTabHost.newTabSpec("Ρυθμίσεις");
@@ -35,7 +35,7 @@ public class Menu extends TabActivity {
 		settingsSpec.setContent(settingslIntent);
 		
 		TabSpec pasikafinfo =menuTabHost.newTabSpec("Πληροφορίες ΠΑΣΥΚΑΦ");
-		pasikafinfo.setIndicator("Πληροφορίες ΠΑΣΥΚΑΦ",getResources().getDrawable(R.drawable.pasikaf));
+		pasikafinfo.setIndicator("Πληροφορίες ΠΑΣΥΚΑΦ",getResources().getDrawable(R.drawable.logo));
 		Intent pasikafinfolIntent=new Intent(this,PasikafInfoafter.class);
 		pasikafinfo.setContent(pasikafinfolIntent);
 		menuTabHost.addTab(generalSpec);

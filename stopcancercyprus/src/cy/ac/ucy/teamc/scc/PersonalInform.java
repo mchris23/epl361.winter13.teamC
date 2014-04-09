@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -87,6 +90,9 @@ public class PersonalInform extends Activity {
 							{ 
 								//get the user's personals information from screen
 								int age=curyear-dpResult.getYear();
+								int year_of_birth=dpResult.getYear();
+								
+								Log.e("year1",""+year_of_birth);
 								 final Spinner selectsmoke = (Spinner) findViewById(R.id.selectSmoke);
 								 final Spinner selectGender = (Spinner) findViewById(R.id.selectGender);
 								 final Spinner selectalcoholic = (Spinner) findViewById(R.id.selectAlcohol);
@@ -95,8 +101,8 @@ public class PersonalInform extends Activity {
 								
 								 int smoker= selectsmoke.getSelectedItemPosition();
 								 int Gender= selectGender.getSelectedItemPosition();
-							 int alcoholic= selectalcoholic.getSelectedItemPosition();
-							 int Preposission= selectPreposission.getSelectedItemPosition();
+								 int alcoholic= selectalcoholic.getSelectedItemPosition();
+								 int Preposission= selectPreposission.getSelectedItemPosition();
 								 int SexualSituation= selectSexualSituation.getSelectedItemPosition();
 								maza_somatos=Float.parseFloat(Tweight.getText().toString())/ (((Float.parseFloat(Theight.getText().toString()))*(Float.parseFloat(Theight.getText().toString())))/10000);
 								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!");
@@ -105,6 +111,38 @@ public class PersonalInform extends Activity {
 								ArrayList<Exam> selected_exams= new ArrayList<Exam>();
 								
 								selected_exams=informUser(age,smoker, Gender,maza_somatos,alcoholic,Preposission,SexualSituation);
+								
+								
+								//create the file with the user's info
+								SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+								Editor edit=s_pref.edit();
+								
+								edit.putInt("year_of_birth",year_of_birth);
+								edit.putInt("smoker",smoker);
+								edit.putInt("Gender",Gender);
+								edit.putInt("alcoholic",alcoholic);
+								edit.putInt("Preposission",Preposission);
+								edit.putInt("SexualSituation",SexualSituation);
+								edit.putFloat("maza_somatos",maza_somatos);
+							
+								//edit
+								/*if(!selected_exams.isEmpty())
+									for(int i=0;i<selected_exams.size();i++)
+										edit.putInt("exam"+i,selected_exams.get(i).get_name());*/
+								
+								edit.commit();
+								
+								int input_smoker=s_pref.getInt("smoker",0);
+								int input_Gender=s_pref.getInt("Gender",0);
+								int input_year_of_birth=s_pref.getInt("year_of_birth",0);
+								int input_alcoholic=s_pref.getInt("alcoholic",0);
+								int input_Preposission=s_pref.getInt("Preposission",0);
+								int input_SexualSituation=s_pref.getInt("SexualSituation",0);
+								float input_maza_somatos=s_pref.getFloat("maza_somatos",(float) 0.0);
+								Log.e("antoniaaaa", ""+input_smoker);
+								Log.e("antoniaaaa", ""+input_maza_somatos);
+								Log.e("seeantoniaaaa", ""+input_year_of_birth);
+								
 								
 								
 								
@@ -146,6 +184,7 @@ public class PersonalInform extends Activity {
 			{
 				if(exams.get(i)!=null)
 				{
+					//exams.get(i).id
 					int start_age = 0,end_age = 0,start_deiktis_mazas = 0,end_deiktis_mazas = 0,smoker_in,gender_in,alcoholic_in,prepos_in,sexual_situation_in;
 					Log.e("this2",""+exams.get(i).get_name());
 					// get age range (split)

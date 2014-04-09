@@ -131,7 +131,8 @@ public class Personal_information extends Activity {
    
             Bimage.setScaleType(ScaleType.FIT_XY);
             
-            
+
+            Bimage.setLayoutParams(new LinearLayout.LayoutParams(285,200));
             ll.addView(Bimage);
             
             
