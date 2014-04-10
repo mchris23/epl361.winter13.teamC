@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     android:orientation="vertical" >
 
     <TextView
@@ -16,18 +17,21 @@
     <DatePicker
         android:id="@+id/datePicker1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/turquise" />
 
     <Button
         android:id="@+id/byes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/medium_brown"
         android:text="ΝΑΙ" />
 
     <Button
         android:id="@+id/bno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/medium_brown"
         android:text="ΟΧΙ" />
 
 </LinearLayout>
