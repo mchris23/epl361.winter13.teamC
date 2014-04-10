@@ -3,6 +3,7 @@ package cy.ac.ucy.teamc.scc;
 import java.io.Serializable;
 
 public class Exam  implements Serializable {
+	int id;
 private String name;
 private String age_range;
 private int smoker;
@@ -15,8 +16,9 @@ private String description;
 private String image_name;
 private int frequency;
 
-public Exam(String name,String age_range,int smoker,int alcohol,String deiktis_mazas_range,int gender,int inheritance, int SexualSituation, String  description, String image_name, int frequency)
+public Exam(int id,String name,String age_range,int smoker,int alcohol,String deiktis_mazas_range,int gender,int inheritance, int SexualSituation, String  description, String image_name, int frequency)
 {
+	this.id=id;
 	this.name=name;
 	this.age_range=age_range;
 	this.alcohol=alcohol;
@@ -30,6 +32,10 @@ public Exam(String name,String age_range,int smoker,int alcohol,String deiktis_m
 	this.frequency=frequency;
 }
 
+public int get_id()
+{
+	return this.id;
+}
 public int get_frequency()
 {
 	return this.frequency;

@@ -5,11 +5,13 @@ import java.util.Calendar;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -25,7 +27,6 @@ public class PersonalInformNotFirstTime extends Activity {
 		
 		LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
 		createAllObjects();
-		//LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
 		SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		int curyear = Calendar.getInstance().get(Calendar.YEAR);
 		
@@ -36,6 +37,8 @@ public class PersonalInformNotFirstTime extends Activity {
 		int input_Preposission=s_pref.getInt("Preposission",0);
 		int input_SexualSituation=s_pref.getInt("SexualSituation",0);
 		float input_maza_somatos=s_pref.getFloat("maza_somatos",(float) 0.0);
+		
+		
 		
 		//calculate the  age of the use
 		int age=curyear-input_year_of_birth;
@@ -117,24 +120,32 @@ public class PersonalInformNotFirstTime extends Activity {
 		}	
 		
 			
-		Log.e("antoniaaaa11", ""+input_smoker);
-		Log.e("antoniaaaa11", ""+input_maza_somatos);
-		Log.e("age", ""+age);
-		Log.e("year", ""+input_year_of_birth);
 		
-		  // add text view for the name of the exam
-        /*EditText tv_name = new EditText(this);*/
+		  // set the of the text view for context of the user's info
+       
         cont.setText("Έχετε ήδη εισάγει τα προσωπικά σας στοιχεία. Αν επιθυμήται να τα τροποποιήσεται υπάρχει η επιλογή Ρυθμίσεις. Είσατε "+in_Gender+" Είσαστε "+age+" χρονών. Ο δείκτης μάζας σώματος σας είναι "+input_maza_somatos+". "+in_Smoker+in_alcoholic+in_Preposission+in_SexualSituation);
-       /* tv_name.setTextSize(20);
-        tv_name.setBackgroundColor(Color.parseColor("#ddfac0"));
-        tv_name.setClickable(false);
-        tv_name.setKeyListener(null);
-        tv_name.setCursorVisible(false);
-        tv_name.setPressed(false);
-        tv_name.setFocusable(false);
-        tv_name.setGravity(Gravity.CENTER);
-        ll.addView(tv_name);*/
+       
 		
+        
+
+        showRelatedExams.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				try {
+					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.ShowForFirstTime");
+					//triggered a class that user selected.
+					Intent ourIntent = new Intent(PersonalInformNotFirstTime.this, ourClass);
+					startActivity(ourIntent);
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				
+				setContentView(R.layout.personal_settings);
+			}
+		});
 	}
 	
 

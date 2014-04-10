@@ -94,5 +94,6 @@
     <string name="title_activity_pasikaf_infoafter">PasikafInfoafter</string>
     <string name="title_activity_personal_inform_not_first_time">PersonalInformNotFirstTime</string>
     <string name="title_activity_choose_personal_infrom">ChoosePersonalInfrom</string>
+    <string name="title_activity_show_not_for_first_time_related_exams">ShowNotForFirstTimeRelatedExams</string>
 
 </resources>

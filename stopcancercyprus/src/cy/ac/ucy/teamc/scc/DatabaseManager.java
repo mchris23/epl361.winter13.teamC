@@ -417,7 +417,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				+ eID + ";");
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
-			exams.add(new Exam(c.getString(1), c.getString(5), c.getInt(7), c
+			exams.add(new Exam(eID,c.getString(1), c.getString(5), c.getInt(7), c
 					.getInt(9), c.getString(6), c.getInt(11), c.getInt(8), c
 					.getInt(4), c.getString(2), c.getString(10), c.getInt(3)));
 			db.close();
@@ -454,7 +454,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		Cursor c = db.rawQuery(query, null);
 		if (c.moveToFirst()) {
 			do {
-				exams.add(new Exam(c.getString(1), c.getString(5), c.getInt(7),
+				exams.add(new Exam(c.getInt(0),c.getString(1), c.getString(5), c.getInt(7),
 						c.getInt(9), c.getString(6), c.getInt(11), c.getInt(8),
 						c.getInt(4), c.getString(2), c.getString(10), c
 								.getInt(3)));

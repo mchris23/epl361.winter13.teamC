@@ -75,10 +75,10 @@ public final class R {
         public static final int Bnotification=0x7f0c000c;
         public static final int BpersonalInfo=0x7f0c000b;
         public static final int Brecreate=0x7f0c002d;
-        public static final int Bsubmit=0x7f0c0006;
+        public static final int Bsubmit=0x7f0c0005;
         public static final int BtimeNotification=0x7f0c001a;
-        public static final int CancerDescription=0x7f0c0005;
-        public static final int CancerName=0x7f0c0009;
+        public static final int CancerDescription=0x7f0c0009;
+        public static final int CancerName=0x7f0c0008;
         public static final int CommandHeigh=0x7f0c0023;
         public static final int CommandWeight=0x7f0c0021;
         public static final int Cont=0x7f0c0004;
@@ -98,8 +98,8 @@ public final class R {
         public static final int imageView1=0x7f0c0001;
         public static final int img=0x7f0c0014;
         public static final int instructionText=0x7f0c0016;
-        public static final int linearLayout1=0x7f0c0008;
-        public static final int linearLayout2=0x7f0c0007;
+        public static final int linearLayout1=0x7f0c0007;
+        public static final int linearLayout2=0x7f0c0006;
         public static final int msgSubmit=0x7f0c002c;
         public static final int myImage=0x7f0c000d;
         public static final int prepossession=0x7f0c0028;
@@ -116,13 +116,13 @@ public final class R {
         public static final int timePicker=0x7f0c0017;
     }
     public static final class layout {
-        public static final int activity_choose_personal_infrom=0x7f030000;
-        public static final int activity_exam=0x7f030001;
-        public static final int activity_pasikaf_infoafter=0x7f030002;
-        public static final int activity_personal_inform_not_first_time=0x7f030003;
-        public static final int activity_personal_information=0x7f030004;
-        public static final int activity_personal_settings=0x7f030005;
-        public static final int activity_prevention=0x7f030006;
+        public static final int activity_exam=0x7f030000;
+        public static final int activity_pasikaf_infoafter=0x7f030001;
+        public static final int activity_personal_inform_not_first_time=0x7f030002;
+        public static final int activity_personal_information=0x7f030003;
+        public static final int activity_personal_settings=0x7f030004;
+        public static final int activity_prevention=0x7f030005;
+        public static final int activity_show_not_for_first_time_related_exams=0x7f030006;
         public static final int cancer_view=0x7f030007;
         public static final int choose_setting_type=0x7f030008;
         public static final int fullscreen_image=0x7f030009;
@@ -146,7 +146,8 @@ public final class R {
         public static final int personal_information=0x7f0b0006;
         public static final int personal_settings=0x7f0b0007;
         public static final int prevention=0x7f0b0008;
-        public static final int touch_image=0x7f0b0009;
+        public static final int show_not_for_first_time_related_exams=0x7f0b0009;
+        public static final int touch_image=0x7f0b000a;
     }
     public static final class raw {
         public static final int my_music=0x7f050000;
@@ -190,6 +191,7 @@ public final class R {
         public static final int title_activity_send_photo=0x7f070016;
         public static final int title_activity_settings=0x7f07001d;
         public static final int title_activity_settings_choose=0x7f07001e;
+        public static final int title_activity_show_not_for_first_time_related_exams=0x7f070025;
         public static final int title_activity_touch_image=0x7f070018;
         public static final int uterus=0x7f070004;
     }

@@ -24,9 +24,15 @@ public class PasikafInfo extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
+					
+					//ntent libraryIntent = new Intent(this, RecordedLibrary.class);
+					
+					
+					
 					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.Menu");
 					//triggered a class that user selected.
 					Intent ourIntent = new Intent(PasikafInfo.this, ourClass);
+					ourIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(ourIntent);
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();

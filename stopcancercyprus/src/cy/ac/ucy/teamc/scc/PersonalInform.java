@@ -33,8 +33,7 @@ public class PersonalInform extends Activity {
 	private int day;
 	public float maza_somatos;
 	ArrayList<Exam> exams;
-   // static ArrayList<Exam> exams = new ArrayList<Exam>();
-	
+  
     
     static final int DATE_DIALOG_ID = 999;
 	
@@ -45,7 +44,7 @@ public class PersonalInform extends Activity {
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
 		exams=db.getAllExams();
 		for(int i=0;i<exams.size();i++)
-			Log.e("here",i+") "+exams.get(i).get_name());
+			Log.e("wwwwwwwwwwwwwwwwwwwwwww",i+") "+exams.get(i).get_id());
 		
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -125,23 +124,17 @@ public class PersonalInform extends Activity {
 								edit.putInt("SexualSituation",SexualSituation);
 								edit.putFloat("maza_somatos",maza_somatos);
 							
-								//edit
-								/*if(!selected_exams.isEmpty())
+								int num=selected_exams.size();
+								edit.putInt("num_of_exam",num);
+								if(!selected_exams.isEmpty())
 									for(int i=0;i<selected_exams.size();i++)
-										edit.putInt("exam"+i,selected_exams.get(i).get_name());*/
+										edit.putInt("exam"+i,selected_exams.get(i).get_id());
 								
 								edit.commit();
 								
-								int input_smoker=s_pref.getInt("smoker",0);
-								int input_Gender=s_pref.getInt("Gender",0);
-								int input_year_of_birth=s_pref.getInt("year_of_birth",0);
-								int input_alcoholic=s_pref.getInt("alcoholic",0);
-								int input_Preposission=s_pref.getInt("Preposission",0);
-								int input_SexualSituation=s_pref.getInt("SexualSituation",0);
 								float input_maza_somatos=s_pref.getFloat("maza_somatos",(float) 0.0);
-								Log.e("antoniaaaa", ""+input_smoker);
-								Log.e("antoniaaaa", ""+input_maza_somatos);
-								Log.e("seeantoniaaaa", ""+input_year_of_birth);
+								Log.e("antoniaaaanum", ""+num);
+								
 								
 								
 								

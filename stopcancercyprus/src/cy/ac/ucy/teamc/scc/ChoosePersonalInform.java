@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 
-public class ChoosePersonalInfrom extends Activity {
+public class ChoosePersonalInform extends Activity {
 
 	
 
@@ -24,7 +24,6 @@ public class ChoosePersonalInfrom extends Activity {
 		
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_choose_personal_infrom);
 
 		
 		if(input_smoker==5)
@@ -33,7 +32,7 @@ public class ChoosePersonalInfrom extends Activity {
 				try {
 					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.PersonalInform");
 					//triggered a class that user selected.
-					Intent ourIntent = new Intent(ChoosePersonalInfrom.this, ourClass);
+					Intent ourIntent = new Intent(ChoosePersonalInform.this, ourClass);
 					startActivity(ourIntent);
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
@@ -49,7 +48,7 @@ public class ChoosePersonalInfrom extends Activity {
 				try {
 					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.PersonalInformNotFirstTime");
 					//triggered a class that user selected.
-					Intent ourIntent = new Intent(ChoosePersonalInfrom.this, ourClass);
+					Intent ourIntent = new Intent(ChoosePersonalInform.this, ourClass);
 					startActivity(ourIntent);
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();

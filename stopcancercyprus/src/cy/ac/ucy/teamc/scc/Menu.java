@@ -3,7 +3,10 @@ package cy.ac.ucy.teamc.scc;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -26,13 +29,55 @@ public class Menu extends TabActivity {
 		
 		TabSpec personalSpec=menuTabHost.newTabSpec("Προσωπική Ενημέρωση");
 		personalSpec.setIndicator("Προσωπική Ενημέρωση",getResources().getDrawable(R.drawable.mytab2));
-		Intent personallIntent=new Intent(this,ChoosePersonalInfrom.class);
-		personalSpec.setContent(personallIntent);
+		//Intent personallIntent=new Intent(this,ChoosePersonalInform.class);
+		//personalSpec.setContent(personallIntent);
+		
+		
+		
+SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		
+		int input_smoker=s_pref.getInt("smoker",5);
+		
+		Log.e("////////antoni**********", ""+input_smoker);
+		
+		
+		super.onCreate(savedInstanceState);
+		boolean flag_first_time = true;
+		
+		if(input_smoker==5)
+			flag_first_time=false;
+		
+		
+		if(flag_first_time==false)
+		{
+				
+					Intent personallIntent=new Intent(this,PersonalInform.class);
+					personalSpec.setContent(personallIntent);
+					flag_first_time=true;
+					personallIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				}
+				
+				
+	
+		else
+			
+		{
+				
+					Intent personallIntent=new Intent(this,PersonalInformNotFirstTime.class);
+					personalSpec.setContent(personallIntent);
+					personallIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				
+			}
+	
+		
+		
+		
 		
 		TabSpec settingsSpec=menuTabHost.newTabSpec("Ρυθμίσεις");
 		settingsSpec.setIndicator("Ρυθμίσεις",getResources().getDrawable(R.drawable.mytab3));
 		Intent settingslIntent=new Intent(this,Settings.class);
 		settingsSpec.setContent(settingslIntent);
+		settingslIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		
 		TabSpec pasikafinfo =menuTabHost.newTabSpec("Πληροφορίες ΠΑΣΥΚΑΦ");
 		pasikafinfo.setIndicator("Πληροφορίες ΠΑΣΥΚΑΦ",getResources().getDrawable(R.drawable.logo));
@@ -43,8 +88,14 @@ public class Menu extends TabActivity {
 		menuTabHost.addTab(settingsSpec);
 		menuTabHost.addTab(pasikafinfo);
 
+		
+		
+		
 
 	}
+	
+	
+	
 
 
 }
