@@ -142,8 +142,6 @@ public class PersonalInformNotFirstTime extends Activity {
 					e.printStackTrace();
 				}
 				
-				
-				setContentView(R.layout.personal_settings);
 			}
 		});
 	}

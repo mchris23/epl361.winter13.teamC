@@ -122,19 +122,18 @@ public final class R {
         public static final int activity_personal_information=0x7f030003;
         public static final int activity_personal_settings=0x7f030004;
         public static final int activity_prevention=0x7f030005;
-        public static final int activity_show_not_for_first_time_related_exams=0x7f030006;
-        public static final int cancer_view=0x7f030007;
-        public static final int choose_setting_type=0x7f030008;
-        public static final int fullscreen_image=0x7f030009;
-        public static final int general=0x7f03000a;
-        public static final int intro=0x7f03000b;
-        public static final int main=0x7f03000c;
-        public static final int main2=0x7f03000d;
-        public static final int my_images=0x7f03000e;
-        public static final int notification=0x7f03000f;
-        public static final int pasikafinfo=0x7f030010;
-        public static final int personal=0x7f030011;
-        public static final int personal_settings=0x7f030012;
+        public static final int cancer_view=0x7f030006;
+        public static final int choose_setting_type=0x7f030007;
+        public static final int fullscreen_image=0x7f030008;
+        public static final int general=0x7f030009;
+        public static final int intro=0x7f03000a;
+        public static final int main=0x7f03000b;
+        public static final int main2=0x7f03000c;
+        public static final int my_images=0x7f03000d;
+        public static final int notification=0x7f03000e;
+        public static final int pasikafinfo=0x7f03000f;
+        public static final int personal=0x7f030010;
+        public static final int personal_settings=0x7f030011;
     }
     public static final class menu {
         public static final int activity_personal_inform=0x7f0b0000;
