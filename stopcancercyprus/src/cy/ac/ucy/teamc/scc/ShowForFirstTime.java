@@ -22,7 +22,7 @@ public class ShowForFirstTime extends Activity {
 		
 		SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		
-		//the related exams of the 
+		//the related exams of the exam
 		ArrayList<Exam> selected_exams= new ArrayList<Exam>();
 				int input_exam;
 				int input_num_of_exmas=s_pref.getInt("num_of_exam",9999999);

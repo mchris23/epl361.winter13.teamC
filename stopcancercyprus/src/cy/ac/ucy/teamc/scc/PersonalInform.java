@@ -43,8 +43,8 @@ public class PersonalInform extends Activity {
 		
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
 		exams=db.getAllExams();
-		for(int i=0;i<exams.size();i++)
-			Log.e("wwwwwwwwwwwwwwwwwwwwwww",i+") "+exams.get(i).get_id());
+		//for(int i=0;i<exams.size();i++)
+			//Log.e("wwwwwwwwwwwwwwwwwwwwwww",i+") "+exams.get(i).get_id());
 		
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
