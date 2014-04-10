@@ -87,10 +87,13 @@ public final class R {
         public static final int MsgPushNotification=0x7f0c0013;
         public static final int Smoke=0x7f0c0022;
         public static final int Weight=0x7f0c001e;
-        public static final int action_settings=0x7f0c002d;
+        public static final int action_settings=0x7f0c0030;
         public static final int activitiesText=0x7f0c000d;
         public static final int alcoholic=0x7f0c0024;
+        public static final int bno=0x7f0c002f;
+        public static final int byes=0x7f0c002e;
         public static final int cancerText=0x7f0c000b;
+        public static final int datePicker1=0x7f0c002d;
         public static final int deActivateNotification=0x7f0c0014;
         public static final int dpResult=0x7f0c001d;
         public static final int examinationText=0x7f0c0009;
@@ -132,6 +135,7 @@ public final class R {
         public static final int pasikafinfo=0x7f03000d;
         public static final int personal=0x7f03000e;
         public static final int personal_settings=0x7f03000f;
+        public static final int push_notification_screen=0x7f030010;
     }
     public static final class menu {
         public static final int activity_personal_inform=0x7f0b0000;
