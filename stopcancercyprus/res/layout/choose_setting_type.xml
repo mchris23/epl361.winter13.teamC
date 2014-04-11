@@ -3,7 +3,7 @@
     android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffff99"
+    android:background="@drawable/karkinos"
     android:padding="77dp"
     android:paddingBottom="22dp" >
 
@@ -16,8 +16,8 @@
 
         <Button
             android:id="@+id/BpersonalInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="244dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:text="Προσωπικά στοιχεία"
             android:textSize="14dp" />
@@ -32,8 +32,8 @@
 
         <Button
             android:id="@+id/Bnotification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="172dp"
+            android:layout_height="72dp"
             android:layout_gravity="center"
             android:text="Υπενθυμίσεις"
             android:textSize="14dp" />

@@ -1,3 +1,4 @@
+
 package cy.ac.ucy.teamc.scc;
 
 import java.util.Calendar;
@@ -35,15 +36,18 @@ public class ActivityNotification extends Activity implements OnClickListener{
 		BsetTimeNotification.setOnClickListener(this);
 	}
 
+			@SuppressWarnings("static-access")
 			@SuppressLint("ShowToast")
 			public void onClick(View view) {
 				// TODO Auto-generated method stub
 				Intent intent=new Intent();
+				Bundle extras = intent.getExtras();
+				
 				switch(view.getId()){
 				case R.id.BtimeNotification: intent.setClass(this, ActivityNotificationService.class);
 				int hour=notificationTime.getCurrentHour();
 				int minutes=notificationTime.getCurrentMinute();
-				Toast.makeText(getApplicationContext(), "Ώρα που καθορίστηκε: "+hour+":"+minutes,Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "¿ñá ðïõ êáèïñßóôçêå: "+hour+":"+minutes,Toast.LENGTH_SHORT).show();
 				Calendar calendar=Calendar.getInstance();
 				calendar.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, calendar.HOUR, calendar.MINUTE);
 				AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
@@ -51,7 +55,11 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				PendingIntent pendingIntent=PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 				alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 				
-				//intent.putExtra("msg", "Έκλεισες ραντεβού;");
+				
+				String time = extras.getString("WEEK");
+				extras.putString("WEEK",time);
+				
+				//intent.putExtra("msg", "¸êëåéóåò ñáíôåâïý;");
 				
 				
 				//startService(intent);

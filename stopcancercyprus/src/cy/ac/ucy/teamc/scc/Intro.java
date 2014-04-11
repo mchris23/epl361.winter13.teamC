@@ -1,8 +1,10 @@
 package cy.ac.ucy.teamc.scc;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -14,9 +16,23 @@ public class Intro extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.intro);
 		ourSong=MediaPlayer.create(Intro.this, R.raw.my_music2);
-		ourSong.start();
-		//new SQLConnection().doInBackground("getCancerNames.php");
+		
+		@SuppressWarnings("unused")
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
+		
+		AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+		//sound won't play if device is in silent mode
+		switch (am.getRingerMode()) {
+	    	case AudioManager.RINGER_MODE_SILENT:
+				        							break;
+	    	case AudioManager.RINGER_MODE_VIBRATE:
+				        							break;
+	    	case AudioManager.RINGER_MODE_NORMAL:
+				    								ourSong.start();
+				    								break;
+		}
+			//new SQLConnection().doInBackground();
+
 		
 		Thread timer=new Thread(){
 			public void run(){

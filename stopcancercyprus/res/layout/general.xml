@@ -3,9 +3,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:padding="20dp"
-    android:background="#ffb8b8">
+    android:background="@drawable/karkinos"
+    android:orientation="vertical"
+    android:padding="20dp" >
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -24,24 +24,14 @@
         android:orientation="horizontal"
         android:weightSum="100"
         android:paddingBottom="20dp" >
-        <TextView
-            android:id="@+id/examinationText"
-            android:layout_width="81dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="80"
-            android:focusableInTouchMode="false"
-            android:text="Εξετάσεις:"
-            android:textSize="18dp"
-            android:paddingLeft="5dp"/>
 
         <requestFocus />
 
         <Button
             android:id="@+id/Bexam"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Επιλογή" />
+            android:text="ΕΞΕΤΑΣΕΙΣ" />
         </LinearLayout>
         
         <!-- cancer choice -->
@@ -51,23 +41,14 @@
         android:orientation="horizontal"
         android:weightSum="100"
         android:paddingBottom="20dp">
-        <TextView
-            android:id="@+id/cancerText"
-            android:layout_width="81dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="80"
-            android:text="Καρκίνοι:"
-            android:textSize="18dp"
-            android:paddingLeft="5dp"/>
 
         <requestFocus />
 
         <Button
             android:id="@+id/Bcancer"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Επιλογή" />
+            android:text="ΚΑΡΚΙΝΟΙ" />
         </LinearLayout>
        
        <!-- activity choice -->
@@ -77,24 +58,14 @@
         android:orientation="horizontal"
         android:weightSum="100"
         android:paddingBottom="20dp" >
-        <TextView
-            android:id="@+id/activitiesText"
-            android:layout_width="81dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="80"
-            android:focusableInTouchMode="false"
-            android:text="Τρόποι πρόληψης:"
-            android:textSize="18dp"
-            android:paddingLeft="5dp"/>
 
         <requestFocus />
 
         <Button
             android:id="@+id/Bactiv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Επιλογή" />
+            android:text="ΤΡΟΠΟΙ ΠΡΟΛΗΨΗΣ" />
         </LinearLayout>
        
      

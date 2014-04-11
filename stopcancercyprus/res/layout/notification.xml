@@ -89,8 +89,10 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="63dp"
+            android:background="@color/brown"
             android:text="Αποθύκευση"
             android:typeface="sans" />
+
     </LinearLayout>
 
 </LinearLayout>
