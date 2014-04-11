@@ -10,8 +10,7 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/s_green" >
+        android:layout_height="match_parent" >
 
         <LinearLayout android:id="@+id/linearLayout2" android:layout_width="match_parent"
    android:orientation="vertical" android:layout_height="match_parent">
