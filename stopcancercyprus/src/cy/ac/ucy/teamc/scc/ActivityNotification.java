@@ -41,7 +41,7 @@ public class ActivityNotification extends Activity implements OnClickListener{
 			public void onClick(View view) {
 				// TODO Auto-generated method stub
 				Intent intent=new Intent();
-				Bundle extras = intent.getExtras();
+				//Bundle extras = intent.getExtras();
 				
 				switch(view.getId()){
 				case R.id.BtimeNotification: intent.setClass(this, ActivityNotificationService.class);
@@ -56,13 +56,13 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 				
 				
-				String time = extras.getString("WEEK");
-				extras.putString("WEEK",time);
+				//String time = extras.getString("WEEK");
+				//extras.putString("WEEK",time);
 				
 				//intent.putExtra("msg", "¸êëåéóåò ñáíôåâïý;");
 				
 				
-				//startService(intent);
+				startService(intent);
 				}
 	}
 	

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class pushNotificationScreen extends Activity{
+public class PushNotificationScreen extends Activity{
 	public final static String WEEK = "1";
 
 	
@@ -21,6 +21,20 @@ public class pushNotificationScreen extends Activity{
         yes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
+            	//Edw prepi na kani eisagwgi imerominias stin vasi
+            	//gia tin teleutea imerominia pou ekane tin e3etasi
+            	
+            	
+            	//create new notification
+            	Intent i = new Intent(getApplicationContext(),ActivityNotification.class);
+            	
+            	//Bundle extras = new Bundle();
+				//extras.putString("WEEK",week);
+				//i.putExtras(extras);
+            	
+            	startActivity(i);
+            	
+            	
             }
         });
 
@@ -28,6 +42,7 @@ public class pushNotificationScreen extends Activity{
         no.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
+            	
             	//Create a new notification after a week
             	Intent i = new Intent(getApplicationContext(),ActivityNotification.class);
             	

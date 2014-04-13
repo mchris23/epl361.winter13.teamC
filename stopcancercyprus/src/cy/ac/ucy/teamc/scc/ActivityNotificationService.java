@@ -66,7 +66,7 @@ public class ActivityNotificationService extends Service {
 		long f=0, when; 
 		
 		if(extras.getString("WEEK")!="1"){
-			int frequency = 0; //from database(in months)
+			int frequency = e.get(0).get_frequency(); //from database(in months)
 			f = (frequency-1/*notific. before 1 month*/);
 			f *= 30/*days*/ ;
 		}
