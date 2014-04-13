@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class GeneralInform extends Activity {
 
-	Button Bexams;
-	Button Bactiv;
-	Button Bcancer;
+	ImageButton Bexams;
+	ImageButton Bactiv;
+	ImageButton Bcancer;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +75,10 @@ Bcancer.setOnClickListener(new View.OnClickListener() {
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
 		
-		Bactiv= (Button) findViewById(R.id.Bactiv);
-		Bcancer= (Button) findViewById(R.id.Bcancer);
-		Bexams= (Button) findViewById(R.id.Bexam);
+		Bactiv= (ImageButton) findViewById(R.id.Bactiv);
+		Bcancer= (ImageButton) findViewById(R.id.Bcancer);
+		Bexams= (ImageButton) findViewById(R.id.Bexam);
+		
 	}
 	
     

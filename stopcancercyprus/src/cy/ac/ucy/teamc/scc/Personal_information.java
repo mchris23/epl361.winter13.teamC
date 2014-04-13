@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -23,9 +25,8 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
 public class Personal_information extends Activity {
-	//public final static String EXTRA_IMAGE_ID = "cy.ac.ucy.teamc.scc.MESSAGE";
+
 	ArrayList<Exam> exams;
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@SuppressLint("NewApi")
@@ -43,16 +44,31 @@ public class Personal_information extends Activity {
 		/*try{
 		    // Get the Bundle Object        
 		    Bundle bundleObject = getIntent().getExtras();
-		             
+		   
 		        // Get ArrayList Bundle
 		    ArrayList<Exam> classObject = (ArrayList<Exam>) bundleObject.getSerializable("EXTRA_ARRAY");
 		             
 		       // Retrieve Objects from Bundle
 		    for(int index = 0; index < classObject.size(); index++){
 		                 
+		    	
 		        Exam Object = classObject.get(index);
 		        Toast.makeText(getApplicationContext(), "Εξέταση :"+Object.get_name(), Toast.LENGTH_SHORT).show();
 		        list.add(Object);
+		        
+		        //create new notification
+		        PendingIntent pendingIntent=PendingIntent.getService(this, 0, getIntent(), PendingIntent.FLAG_UPDATE_CURRENT);
+				
+				
+				
+				//String time = extras.getString("WEEK");
+				//extras.putString("WEEK",time);
+				
+				//intent.putExtra("msg", "¸êëåéóåò ñáíôåâïý;");
+				
+				
+				//startService(pendingIntent);
+		        
 		    }
 		} catch(Exception e){
 		    e.printStackTrace();
@@ -100,7 +116,7 @@ public class Personal_information extends Activity {
         // add text view for the name of the exam
         EditText tv_name = new EditText(this);
         tv_name.setText(name);
-        tv_name.setTextSize(40);
+        tv_name.setTextSize(20);
         tv_name.setBackgroundColor(Color.parseColor("#ddfac0"));
         tv_name.setClickable(false);
         tv_name.setKeyListener(null);
@@ -131,7 +147,7 @@ public class Personal_information extends Activity {
         EditText tv_descr = new EditText(this);
         tv_descr.setText(description);
         tv_descr.setBackgroundColor(color.holo_green_light);
-        tv_descr.setTextSize(20);
+        tv_descr.setTextSize(10);
         tv_descr.setGravity(Gravity.CENTER);
         tv_descr.setClickable(false);
         tv_descr.setKeyListener(null);
@@ -201,6 +217,6 @@ public class Personal_information extends Activity {
 	}
 	
 	
-	
-
 }
+
+

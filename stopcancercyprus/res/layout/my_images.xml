@@ -7,7 +7,7 @@
     android:horizontalSpacing="22dp"
     android:columnWidth="100dp"
     android:gravity="center"
-    android:background="#000066"
+    android:background="#ccffff"
     android:id="@+id/gridView" >
     
 

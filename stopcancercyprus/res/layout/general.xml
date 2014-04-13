@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/karkinos"
+    android:background="#ccffff"
     android:orientation="vertical"
     android:padding="20dp" >
 
@@ -27,11 +27,14 @@
 
         <requestFocus />
 
-        <Button
+        <ImageButton
             android:id="@+id/Bcancer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ΚΑΡΚΙΝΟΙ" />
+            android:src="@drawable/karkinoi" 
+            android:layout_width="300dp"  
+			android:layout_height="90dp"  
+            android:background="#ccffff"/>
+ 
+             />
         </LinearLayout>
        
             
@@ -42,15 +45,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:paddingBottom="20dp" >
+        android:paddingBottom="20dp" 
+        >
 
         <requestFocus />
 
-        <Button
+       <ImageButton
             android:id="@+id/Bactiv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ΤΡΟΠΟΙ ΠΡΟΛΗΨΗΣ" />
+            android:layout_width="300dp"  
+			android:layout_height="90dp"  
+              android:src="@drawable/tropoi_proliyeis" 
+              android:background="#ccffff"/>
         </LinearLayout>
        
             
@@ -65,11 +70,13 @@
 
         <requestFocus />
 
-        <Button
+        <ImageButton
             android:id="@+id/Bexam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ΔΙΑΓΝΩΣΤΙΚΕΣ ΕΞΕΤΑΣΕΙΣ" />
+           android:src="@drawable/diagnosties_eksetaseis" 
+           android:layout_width="300dp"  
+			android:layout_height="90dp"  
+           android:background="#ccffff"
+            />
         </LinearLayout>
         
        
