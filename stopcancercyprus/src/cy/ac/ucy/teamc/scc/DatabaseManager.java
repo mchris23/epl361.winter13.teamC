@@ -31,14 +31,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				"CREATE TABLE EXAMINATION(ID_Examination INTEGER PRIMARY KEY AUTOINCREMENT,examination_name TEXT,examination_description TEXT,examination_frequency INTEGER,examination_sex INTEGER,examination_agerange TEXT,examination_dms TEXT,examination_smoker INTEGER,examination_family_history INTEGER,examination_alcohol INTEGER, image_name TEXT, examination_gender INTEGER, examination_type INTEGER)");
 		String createCancerTable = new String(
 				"CREATE TABLE CANCER(ID_cancer INTEGER PRIMARY KEY AUTOINCREMENT,cancer_name TEXT,cancer_description TEXT,image_name TEXT)");
-		//String createPreventionTable = new String(
-				//"CREATE TABLE PREVENTION(ID_prevention INTEGER PRIMARY KEY AUTOINCREMENT,prevention_name TEXT,prevention_description TEXT,image_name TEXT)");
-		//String createExamCancerTable = new String(
-			//	"CREATE TABLE EXAMINATION_CANCER(ID_Examination INTEGER,ID_cancer INTEGER)");
-		//String createCancerPreventionTable = new String(
-		//		"CREATE TABLE CANCER_PREVENTION(ID_cancer INTEGER,ID_prevention INTEGER)");
-
-		// execute creation queries
+		
 		db.execSQL(createExamTable);
 		Log.d("SCC - DBCreate", "Created table EXAMINATION");
 		db.execSQL(createCancerTable);
@@ -64,7 +57,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		
 		
 		// Εμβόλιο για τον ιο ανθρώπινων θηλωμάτων
-		addExamination(db,  "Eμβόλιο για τον ιό των ανθρωπίνων θηλωμάτων","Eνημερωθείτε για το εμβόλιο και εμβολιαστείτε το συντομότερο.  ", 0, 0, "18-25", 3, "0-100", 2, 2, "-", 1,0);
+		addExamination(db,  "Eμβόλιο για τον ιό των ανθρωπίνων θηλωμάτων","Eνημερωθείτε για το εμβόλιο και εμβολιαστείτε το συντομότερο.  ", 0, 0, "18-25", 3, "0-100", 2, 2, "-", 2,0);
 		
 		
 		//Καρκίνος του Τραχήλου της Μήτρας 
@@ -73,7 +66,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		
 		
 		//Γνωρίστε το σώμα σας Προστατέψετε τον εαυτό σας για όλους τους άντρες prevention
-		addExamination(db,"Γνωρίστε το σώμα σας Προστατέψετε τον εαυτό σας ","Αν είστε καπνιστής/καπνίστρια ενταχθείτε σε Ομάδα Διακοπής του Καπνίσματος και αποδεσμευθείτε από τον 1ο παράγοντα κινδύνου για όλους τους καρκίνους και τον οποίο μπορείτε να ελέγξετε. \r\nΑν μεταφέρετε παιδιά στο αυτοκίνητο ή έχετε παιδιά στο σπίτι μην καπνίζετε στους χώρους αυτούς.Αν δεν καπνίζετε μην ξεκινήσετε ποτέ. Είστε ήδη ελεύθερος/ελεύθερη! \r\nΑν καπνίζουν άλλοι στο χώρο σας διεκδικήστε το δικαίωμά σας για χώρους ελεύθερους από τον καπνό του τσιγάρου. \r\nΤο παθητικό και το τριτογενές κάπνισμα είναι βλαπτικά και επικίνδυνα ιδιαίτερα για παιδιά.",0, 1, "0-120", 3, "0-100", 2, 2, "-", 2,0);
+		addExamination(db,"Γνωρίστε το σώμα σας Προστατέψετε τον εαυτό σας ","Αν είστε καπνιστής/καπνίστρια ενταχθείτε σε Ομάδα Διακοπής του Καπνίσματος και αποδεσμευθείτε από τον 1ο παράγοντα κινδύνου για όλους τους καρκίνους και τον οποίο μπορείτε να ελέγξετε. \r\nΑν μεταφέρετε παιδιά στο αυτοκίνητο ή έχετε παιδιά στο σπίτι μην καπνίζετε στους χώρους αυτούς.Αν δεν καπνίζετε μην ξεκινήσετε ποτέ. Είστε ήδη ελεύθερος/ελεύθερη! \r\nΑν καπνίζουν άλλοι στο χώρο σας διεκδικήστε το δικαίωμά σας για χώρους ελεύθερους από τον καπνό του τσιγάρου. \r\nΤο παθητικό και το τριτογενές κάπνισμα είναι βλαπτικά και επικίνδυνα ιδιαίτερα για παιδιά.",0,2,"0-120",3,"0-100",2,2,"",2,0);
 		
 
 		
@@ -103,7 +96,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		
 		
 		//Εμβολιασμός για τον ιό ανθρωπίνων θηλωμάτων"
-		addExamination(db, "Eμβολιασμός για τον ιό ανθρωπίνων θηλωμάτων","Αν δεν έχετε ήδη εμβολιαστεί για τον ιό ανθρωπίνων θηλωμάτων μπορείτε εμβολιαστείτε και για δική σας προστασία.  ",0,2,"18-25",3,"0-100",1,2,"",2,0);
+		//addExamination(db, "Eμβολιασμός για τον ιό ανθρωπίνων θηλωμάτων","Αν δεν έχετε ήδη εμβολιαστεί για τον ιό ανθρωπίνων θηλωμάτων μπορείτε εμβολιαστείτε και για δική σας προστασία.  ",0,2,"0-120",3,"0-100",2,2,"",2,0);
 			
 		
 		//Καρκίνος των όρχεων *
@@ -131,6 +124,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	
 		
 		addCancer(db,"Καρκίνος του Δέρματος, Μελάνωμα","Επαναλαμβανόμενα εγκαύματα λόγω ηλιοθεραπείας /υπερβολικής έκθεσης στον ήλιο αποτελούν τον 1ο παράγοντα κινδύνου για τον καρκίνο του δέρματος και το μελάνωμα \r\nΆτομα ψηλού κινδύνου είναι όσοι έχουν ή είχαν \r\n•	Οικογενειακό ιστορικό μελανώματος \r\n•	Μεγάλο αριθμό σπίλων ή ασυνήθιστους σπίλους που αλλάζουν \r\n•	Ανοιχτόχρωμο δέρμα και μάτια γαλανά \r\n•	Εργάζονται ή δραστηριοποιούνται στο ύπαιθρο ακάλυπτοι \r\n•	Εγκαύματα στην παιδική ηλικία \r\nΑν προσέξετε \r\nΑλλαγή στο μέγεθος ή χρώμα ενός σπίλου (ελιάς) \r\nΠόνο ή αιμορραγία από ένα σπίλο \r\nΜια πληγή που δεν επουλώνει  \r\nΣυμβουλευτείτε το γιατρό σας","-");
+
+		
+		//Ισορροπημένη διατροφή
+		addExamination(db,"Ισορροπημένη διατροφή", "Ακολούθησε τις πιο κάτω συμβουλές",0,2,"0-120-35",3,"0-100",2,2,"diatrofi",2,0);
 
 	}
 
@@ -526,6 +523,26 @@ public ArrayList<Exam> getAllPrev() {
 	SQLiteDatabase db = this.getReadableDatabase();
 	ArrayList<Exam> exams = new ArrayList<Exam>();
 	String query = new String("SELECT * FROM EXAMINATION WHERE examination_type=0;");
+	Cursor c = db.rawQuery(query, null);
+	if (c.moveToFirst()) {
+		do {
+			exams.add(new Exam(c.getInt(0),c.getString(1), c.getString(5), c.getInt(7),
+					c.getInt(9), c.getString(6), c.getInt(11), c.getInt(8),
+					c.getInt(4), c.getString(2), c.getString(10), c
+							.getInt(3)));
+		} while (c.moveToNext());
+		return exams;
+	} else {
+		db.close();
+		return null;
+	}
+
+}
+
+public ArrayList<Exam> getAllPrevExams() {
+	SQLiteDatabase db = this.getReadableDatabase();
+	ArrayList<Exam> exams = new ArrayList<Exam>();
+	String query = new String("SELECT * FROM EXAMINATION;");
 	Cursor c = db.rawQuery(query, null);
 	if (c.moveToFirst()) {
 		do {

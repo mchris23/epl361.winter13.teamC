@@ -69,7 +69,7 @@
             android:id="@+id/Bexam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ΕΞΕΤΑΣΕΙΣ" />
+            android:text="ΔΙΑΓΝΩΣΤΙΚΕΣ ΕΞΕΤΑΣΕΙΣ" />
         </LinearLayout>
         
        

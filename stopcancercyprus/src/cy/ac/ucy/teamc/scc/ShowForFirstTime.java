@@ -14,6 +14,9 @@ public class ShowForFirstTime extends Activity {
 	ArrayList<Exam> exams;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Log.e("showForFirsttime", "showForFirsttime");
+		
+		
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
 		exams=db.getAllExams();
 		

@@ -7,7 +7,7 @@
     <string name="mastos">Καρκίνος του μαστού</string>
     <string name="uterus">Καρκίνος της μήτρας</string>
     <string name="gender">Φύλο</string>
-    <string name="title_activity_cancer_breast_">CancerBreast_</string>
+    <string name="title_activity_cancer_breast_">Μεγένθυση εικόνας</string>
 
     <string-array name="sex">
         <item>Αρρεν</item>
@@ -31,7 +31,7 @@
 
     <string-array name="smokeCategories">
         <item>Νυν Καπνιστής</item>
-        <item>Πρόιν καπνιστής</item>
+        <item>Πρώην καπνιστής</item>
         <item>Μή καπνιστής</item>
     </string-array>
 

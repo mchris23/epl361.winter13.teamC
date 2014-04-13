@@ -41,10 +41,10 @@ public class PersonalInform extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
+		Log.e("personal infor", "personal inform");
+		
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
-		exams=db.getAllExams();
-		//for(int i=0;i<exams.size();i++)
-			//Log.e("wwwwwwwwwwwwwwwwwwwwwww",i+") "+exams.get(i).get_id());
+		exams=db.getAllPrevExams();
 		
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -141,19 +141,22 @@ public class PersonalInform extends Activity {
 								
 								if(selected_exams!=null)
 								{
-									
+									Log.e("not nulllllll","not nulll");
 									try{
+										Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.PersonalInformNotFirstTime");
 										
+
+										Log.e("call PersonalInformNotFirstTime","in PersonalInform");
 										
 										Intent passIntent = new Intent();
-										passIntent.setClass(PersonalInform.this, Personal_information.class);
+										passIntent.setClass(PersonalInform.this, ourClass);
 										
 										// Create a Bundle and Put Bundle in to it
-										Bundle bundleObject = new Bundle();
-										bundleObject.putSerializable("EXTRA_ARRAY", selected_exams);
+										//Bundle bundleObject = new Bundle();
+										//bundleObject.putSerializable("EXTRA_ARRAY", selected_exams);
 										                 
 										// Put Bundle in to Intent and call start Activity
-										passIntent.putExtras(bundleObject);
+										//passIntent.putExtras(bundleObject);
 										startActivity(passIntent);
 										
 						
