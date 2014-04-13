@@ -16,7 +16,45 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-        
+            
+             <!-- cancer choice -->
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:paddingBottom="20dp">
+
+        <requestFocus />
+
+        <Button
+            android:id="@+id/Bcancer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ΚΑΡΚΙΝΟΙ" />
+        </LinearLayout>
+       
+            
+            
+         <!-- activity choice -->
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:paddingBottom="20dp" >
+
+        <requestFocus />
+
+        <Button
+            android:id="@+id/Bactiv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ΤΡΟΠΟΙ ΠΡΟΛΗΨΗΣ" />
+        </LinearLayout>
+       
+            
+            
         <!-- examination choice -->
        <LinearLayout
         android:layout_width="fill_parent"
@@ -34,40 +72,8 @@
             android:text="ΕΞΕΤΑΣΕΙΣ" />
         </LinearLayout>
         
-        <!-- cancer choice -->
-       <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:paddingBottom="20dp">
-
-        <requestFocus />
-
-        <Button
-            android:id="@+id/Bcancer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ΚΑΡΚΙΝΟΙ" />
-        </LinearLayout>
        
-       <!-- activity choice -->
-       <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:paddingBottom="20dp" >
-
-        <requestFocus />
-
-        <Button
-            android:id="@+id/Bactiv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ΤΡΟΠΟΙ ΠΡΟΛΗΨΗΣ" />
-        </LinearLayout>
-       
+      
      
            
         

@@ -56,8 +56,9 @@ public class CancerActivity extends Activity {
            Bimage.setImageResource(checkExistence);
   
            Bimage.setScaleType(ScaleType.FIT_XY);
+          // Bimage.setLayoutParams(new LinearLayout.LayoutParams(100,100));
            Bimage.setLayoutParams(new LinearLayout.LayoutParams(285,200));
-           
+            
            ll.addView(Bimage);
            
            
@@ -80,7 +81,7 @@ public class CancerActivity extends Activity {
            
            });
        }
-       else {  // checkExistence == 0  // the resouce does NOT exist!!
+       else {  // checkExistence == 0  // the resource does NOT exist!!
            result = false;
            Log.w("HEREE 2"," "+result);
        }

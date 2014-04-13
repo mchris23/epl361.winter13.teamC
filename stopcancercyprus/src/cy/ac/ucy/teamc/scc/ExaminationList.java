@@ -13,9 +13,6 @@ import android.content.Intent;
 
 public class ExaminationList extends ListActivity {
 
-	//
-	// private ListView listView;
-	// private ArrayAdapter<String> adapter;
 
 
 
@@ -25,7 +22,7 @@ public class ExaminationList extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-		ArrayList<String> listOfChoices = db.getExamNames();
+		ArrayList<String> listOfChoices = db.getExamNamesonly();
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, listOfChoices));
 	}

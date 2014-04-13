@@ -21,25 +21,44 @@ public class PreventionActivity extends Activity {
 	TextView name;
 	TextView description;
 	ListView relatedExams;
-	ArrayList<Prevention> cNameDescr;
+	ArrayList<Exam> cNameDescr=new ArrayList<Exam>();
+	ArrayList<Exam> allexams;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle b = getIntent().getExtras();
 		int id = b.getInt("position");
 		Log.e("position", ""+id);
-		id++;
+		
+		
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-		cNameDescr = db.getPrevention(id);
-
+		allexams = db.getAllPrev();
+		int y=allexams.size();
+		Log.e("***allexams",""+allexams.size());
+		Log.e("***allexams1",""+allexams.get(0).get_id());
+		Log.e("***allexams2",""+allexams.get(y-1).get_id());
+		
+		for(int i=0; i<allexams.size();i++){
+			
+			Log.e("***"+i,"**"+allexams.get(i).get_id());
+			Log.e("***id","**"+id);
+			if(i==id)
+			{
+				Log.e("***allexamsin if","alll");
+				cNameDescr.add(allexams.get(i));
+		
+			}
+		}
+		
+		
 		setContentView(R.layout.cancer_view);
 		LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
 		createAllObjects();
-		name.setText(cNameDescr.get(0).getName());
-		description.setText(cNameDescr.get(0).getDescription());
+		name.setText(cNameDescr.get(0).get_name());
+		description.setText(cNameDescr.get(0).get_description());
 		// Add contents accordingly,get from database
 		// setContentView(R.layout.cancer_mastos);
-		String img_name = cNameDescr.get(0).getimage_name();
+		String img_name = cNameDescr.get(0).get_image_name();
 //check if for this prevention there is an image
         
         int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");

@@ -1,5 +1,6 @@
 package cy.ac.ucy.teamc.scc;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 import android.os.Bundle;
@@ -20,6 +21,10 @@ import android.widget.TextView;
 public class PersonalInformNotFirstTime extends Activity {
 	TextView cont;
 	Button showRelatedExams;
+	
+	public static String roundToOneDigit(float paramFloat) {
+	    return String.format("%.2f%n", paramFloat);
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,7 +43,7 @@ public class PersonalInformNotFirstTime extends Activity {
 		int input_SexualSituation=s_pref.getInt("SexualSituation",0);
 		float input_maza_somatos=s_pref.getFloat("maza_somatos",(float) 0.0);
 		
-		
+		//String maza_som=roundToOneDigit(input_maza_somatos);
 		
 		//calculate the  age of the use
 		int age=curyear-input_year_of_birth;
@@ -119,11 +124,13 @@ public class PersonalInformNotFirstTime extends Activity {
 				in_SexualSituation="Δεν είσαστε σεξουαλικά ενεργή για περισσότερα από 2 χρόνια. ";
 		}	
 		
+		
+		DecimalFormat df = new DecimalFormat("###.##");
 			
 		
 		  // set the of the text view for context of the user's info
        
-        cont.setText("Έχετε ήδη εισάγει τα προσωπικά σας στοιχεία. Αν επιθυμήται να τα τροποποιήσεται υπάρχει η επιλογή Ρυθμίσεις. Είσατε "+in_Gender+" Είσαστε "+age+" χρονών. Ο δείκτης μάζας σώματος σας είναι "+input_maza_somatos+". "+in_Smoker+in_alcoholic+in_Preposission+in_SexualSituation);
+        cont.setText("Έχετε ήδη εισάγει τα προσωπικά σας στοιχεία. Αν επιθυμήται να τα τροποποιήσεται υπάρχει η επιλογή Ρυθμίσεις. Είσατε "+in_Gender+" Είσαστε "+age+" χρονών. Ο δείκτης μάζας σώματος σας είναι "+df.format(input_maza_somatos)+". "+in_Smoker+in_alcoholic+in_Preposission+in_SexualSituation);
        
 		
         

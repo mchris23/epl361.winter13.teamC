@@ -73,9 +73,10 @@ Bcancer.setOnClickListener(new View.OnClickListener() {
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		Bexams= (Button) findViewById(R.id.Bexam);
+		
 		Bactiv= (Button) findViewById(R.id.Bactiv);
 		Bcancer= (Button) findViewById(R.id.Bcancer);
+		Bexams= (Button) findViewById(R.id.Bexam);
 	}
 	
     

@@ -4,19 +4,14 @@
 	import java.util.ArrayList;
 
 	import android.os.Bundle;
-	import android.view.Menu;
-	import android.view.View;
-	import android.widget.ArrayAdapter;
-	import android.widget.ListView;
-	import android.app.ListActivity;
-	import android.content.Intent;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.app.ListActivity;
+import android.content.Intent;
 
 	public class ActivityList extends ListActivity {
-
-		//
-		// private ListView listView;
-		// private ArrayAdapter<String> adapter;
-
 
 
 
@@ -25,7 +20,7 @@
 			// TODO Auto-generated method stub
 			super.onCreate(savedInstanceState);
 			DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-			ArrayList<String> listOfChoices = db.getPreventionNames();
+			ArrayList<String> listOfChoices = db.getExamNamesonlyPreventions();
 			setListAdapter(new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, listOfChoices));
 		}
@@ -39,6 +34,7 @@
 							.forName("cy.ac.ucy.teamc.scc.PreventionActivity");
 					Intent ourIntent = new Intent(ActivityList.this, ourClass);
 					Bundle b = new Bundle();
+					Log.e("positon Exam", ""+position);
 					b.putInt("position", position); //Your id
 					ourIntent.putExtras(b); //Put your id to your next Intent
 					startActivity(ourIntent);

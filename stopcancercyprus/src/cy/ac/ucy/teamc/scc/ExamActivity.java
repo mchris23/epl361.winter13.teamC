@@ -20,28 +20,41 @@ public class ExamActivity extends Activity {
 	TextView name;
 	TextView description;
 	ListView relatedExams;
-	ArrayList<Exam> cNameDescr;
+	ArrayList<Exam> cNameDescr=new ArrayList<Exam>();
+	ArrayList<Exam> allexams;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle b = getIntent().getExtras();
 		int id = b.getInt("position");
 		Log.e("position", ""+id);
-		id++;
+		
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
 		
-		cNameDescr = db.getExam(id);
+		allexams = db.getAllExams();
 		
-		Log.e("IAM hereeeeeeeee","");
+		int y=allexams.size();
 		
+		for(int i=0; i<allexams.size();i++){
+			
+			Log.e("***"+i,"**"+allexams.get(i).get_id());
+			Log.e("***id","**"+id);
+			if(i==id)
+			{
+				Log.e("***allexamsin if","alll");
+				cNameDescr.add(allexams.get(i));
+		
+			}
+		}
+		
+		Log.e("*****","**");
 		setContentView(R.layout.cancer_view);
 		LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
 		createAllObjects();
 		 Log.e("oups0",""+id);
 		name.setText(cNameDescr.get(0).get_name());
 		description.setText(cNameDescr.get(0).get_description());
-		// Add contents accordingly,get from database
-		// setContentView(R.layout.cancer_mastos);
+		
 		Log.e("oups",""+id);
 		 String img_name = cNameDescr.get(0).get_image_name();
 		 Log.e("oups1",""+id);
@@ -50,9 +63,7 @@ public class ExamActivity extends Activity {
 			 Log.e("oups2",""+id);
         int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
         boolean result;
-        Log.e("IAM hereeeeeeeee 2","");
-        
-        
+         
         if ( checkExistence != 0 ) {  // the resource exists...
         	Log.e("IAM hereeeeeeeee 3","");
         	result = true;
@@ -61,6 +72,7 @@ public class ExamActivity extends Activity {
             Bimage.setImageResource(checkExistence);
    
             Bimage.setScaleType(ScaleType.FIT_XY);
+            Bimage.setLayoutParams(new LinearLayout.LayoutParams(285,200));
             
             
             ll.addView(Bimage);

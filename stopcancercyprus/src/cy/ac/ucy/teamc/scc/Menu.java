@@ -38,8 +38,6 @@ SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplic
 		
 		int input_smoker=s_pref.getInt("smoker",5);
 		
-		Log.e("////////antoni**********", ""+input_smoker);
-		
 		
 		super.onCreate(savedInstanceState);
 		boolean flag_first_time = true;

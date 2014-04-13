@@ -81,9 +81,9 @@ public final class R {
     }
     public static final class id {
         public static final int Age=0x7f0c001b;
-        public static final int Bactiv=0x7f0c0010;
-        public static final int Bcancer=0x7f0c000f;
-        public static final int Bexam=0x7f0c000e;
+        public static final int Bactiv=0x7f0c000f;
+        public static final int Bcancer=0x7f0c000e;
+        public static final int Bexam=0x7f0c0010;
         public static final int BmenuList=0x7f0c0018;
         public static final int Bnotification=0x7f0c000c;
         public static final int BpersonalInfo=0x7f0c000b;
