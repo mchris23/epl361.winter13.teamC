@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
@@ -23,6 +25,7 @@ import android.widget.Toast;
 
 public class Personal_information extends Activity {
 	public final static String EXTRA_IMAGE_ID = "cy.ac.ucy.teamc.scc.MESSAGE";
+	public final static String ID = null;
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@SuppressLint("NewApi")
@@ -37,16 +40,31 @@ public class Personal_information extends Activity {
 		try{
 		    // Get the Bundle Object        
 		    Bundle bundleObject = getIntent().getExtras();
-		             
+		   
 		        // Get ArrayList Bundle
 		    ArrayList<Exam> classObject = (ArrayList<Exam>) bundleObject.getSerializable("EXTRA_ARRAY");
 		             
 		       // Retrieve Objects from Bundle
 		    for(int index = 0; index < classObject.size(); index++){
 		                 
+		    	
 		        Exam Object = classObject.get(index);
 		        Toast.makeText(getApplicationContext(), "Εξέταση :"+Object.get_name(), Toast.LENGTH_SHORT).show();
 		        list.add(Object);
+		        
+		        //create new notification
+		        PendingIntent pendingIntent=PendingIntent.getService(this, 0, getIntent(), PendingIntent.FLAG_UPDATE_CURRENT);
+				
+				
+				
+				//String time = extras.getString("WEEK");
+				//extras.putString("WEEK",time);
+				
+				//intent.putExtra("msg", "¸êëåéóåò ñáíôåâïý;");
+				
+				
+				//startService(pendingIntent);
+		        
 		    }
 		} catch(Exception e){
 		    e.printStackTrace();
