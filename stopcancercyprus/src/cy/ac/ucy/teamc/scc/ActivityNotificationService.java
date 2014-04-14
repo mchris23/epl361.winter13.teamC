@@ -65,18 +65,18 @@ public class ActivityNotificationService extends Service {
 		
 		
 		//F temp in comments
-		//if(extras.getString("WEEK")!="1"){
-			//int frequency = e.get(0).get_frequency(); //from database(in months)
-			//f = (frequency-1/*notific. before 1 month*/);
-			//f *= 30/*days*/ ;
-		//}
-		//else
-			//f = 7 /*days*/;
+		if(extras.getString("WEEK")!="1"){
+			int frequency = e.get(0).get_frequency(); //from database(in months)
+			f = (frequency-1/*notific. before 1 month*/);
+			f *= 30/*days*/ ;
+		}
+		else
+			f = 7 /*days*/;
 		
-		//f *= 24/*h*/ ;
-		//f *= 60/*min*/ ;
-		//f *= 60/*sec*/ ;
-		//f *= 100/*millisec*/; //time in milliseconds
+		f *= 24/*h*/ ;
+		f *= 60/*min*/ ;
+		f *= 60/*sec*/ ;
+		f *= 100/*millisec*/; //time in milliseconds
 
 		
 		when=System.currentTimeMillis() + f;
@@ -100,14 +100,13 @@ public class ActivityNotificationService extends Service {
 		
 		edit.commit();
 		
-		//int time = (h * 60) + m;
-		//time *= 60 *100;
-		 int time  =0;
+		int time = (h * 60) + m;
+		time *= 60 *100;
 		 
 		//AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
 		//alarmManager.set(AlarmManager.RTC_WAKEUP, time, getIntent());
 		AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
-		alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), getIntent());
+		alarmManager.set(AlarmManager.RTC_WAKEUP, time /*System.currentTimeMillis()*/, getIntent());
 	}
 
 	private PendingIntent getIntent() {
