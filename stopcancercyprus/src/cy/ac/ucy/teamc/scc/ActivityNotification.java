@@ -10,7 +10,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -49,11 +52,26 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				int minutes=notificationTime.getCurrentMinute();
 				Toast.makeText(getApplicationContext(), "¿ñá ðïõ êáèïñßóôçêå: "+hour+":"+minutes,Toast.LENGTH_SHORT).show();
 				Calendar calendar=Calendar.getInstance();
-				calendar.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, calendar.HOUR, calendar.MINUTE);
-				AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+				//calendar.set(calendar.YEAR, calendar.MONTH, calendar.DAY_OF_MONTH, calendar.HOUR, calendar.MINUTE);
 				
-				PendingIntent pendingIntent=PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-				alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+				SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+				Editor edit=s_pref.edit();
+				
+				edit.putInt("notification_hour",calendar.HOUR);
+				edit.putInt("notification_min",calendar.MINUTE);
+				
+				edit.commit();
+				
+				//AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
+				
+				
+				
+				//PendingIntent pendingIntent=PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+				
+				
+				
+				//if(true /*set notification on*/ )
+				//alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 				
 				
 				//String time = extras.getString("WEEK");
@@ -62,7 +80,7 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				//intent.putExtra("msg", "¸êëåéóåò ñáíôåâïý;");
 				
 				
-				startService(intent);
+				//startService(intent);
 				}
 	}
 	
