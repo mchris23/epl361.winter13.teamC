@@ -87,6 +87,9 @@ public class ActivityNotificationService extends Service {
 		notification.setLatestEventInfo(this, contentTitle, contentText, pedIntent);
 		notificationManager.notify(1,notification);
 		
+		//notification.
+		//showNotification();
+		
 		int h,m;
 		
 		SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -104,7 +107,7 @@ public class ActivityNotificationService extends Service {
 		//AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
 		//alarmManager.set(AlarmManager.RTC_WAKEUP, time, getIntent());
 		AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
-		alarmManager.set(AlarmManager.RTC_WAKEUP, time, getIntent());
+		alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), getIntent());
 	}
 
 	private PendingIntent getIntent() {
