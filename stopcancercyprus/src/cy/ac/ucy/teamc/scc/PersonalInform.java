@@ -66,18 +66,18 @@ public class PersonalInform extends Activity {
 					displaySubmit.setText("Δεν έχετε εισάγει όλα τα δεδομένα²");
 					displaySubmit.setTextColor(Color.RED);
 				} else if (Float.parseFloat(Tweight.getText().toString()) > (float) 350.00
-							|| Float.parseFloat(Tweight.getText().toString()) < (float) 20) 
+							|| Float.parseFloat(Tweight.getText().toString()) < (float) 30) 
 					{
-					displaySubmit.setText("Εισάγατε λάθος όριο βάρους. Το όριο βάρους είναι [20-350]");
+					displaySubmit.setText("Εισάγατε λάθος τιμή βάρους. \r\n Το όριο βάρους είναι [30-350]");
 					displaySubmit.setTextColor(Color.RED);
 					} else if (Theight.getText().toString().equalsIgnoreCase(""))
 						{
 						displaySubmit.setText("Δεν έχετε εισάγει όλα τα δεδομένα");
 						displaySubmit.setTextColor(Color.RED);
 						} else if (Float.parseFloat(Theight.getText().toString()) > (float) 250.00
-								|| Float.parseFloat(Theight.getText().toString()) < (float) 40)
+								|| Float.parseFloat(Theight.getText().toString()) < (float) 100)
 							{
-							displaySubmit.setText("Εισάγατε λάθος όριο ύψους. Το όριο ύψους είναι[40-250]");
+							displaySubmit.setText("Εισάγατε λάθος τιμή ύψους. \r\n  Το όριο ύψους είναι[100-250]");
 							displaySubmit.setTextColor(Color.RED);
 							}
 							else if (dpResult.getYear()>=(curyear) || dpResult.getYear()<(curyear-120))

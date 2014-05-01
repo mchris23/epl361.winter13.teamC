@@ -130,7 +130,7 @@ public class Personal_information extends Activity {
         {String frequency =   Integer.toString(list.get(i).get_frequency());
 	     // add text view for the frequency of the exam
 	        EditText tv_freq = new EditText(this);
-	        tv_freq.setText("Συχνότητα διεξαγωγής τις εκέτασης: κάθε "+frequency+" μήνες.");
+	        tv_freq.setText("Συχνότητα διεξαγωγής τις εξέτασης: κάθε "+frequency+" μήνες.");
 	        tv_freq.setBackgroundColor(color.holo_green_light);
 	        tv_freq.setTextSize(20);
 	        tv_freq.setGravity(Gravity.CENTER);
