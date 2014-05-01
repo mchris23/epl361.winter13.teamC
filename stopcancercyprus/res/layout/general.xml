@@ -34,7 +34,7 @@
 			android:layout_height="90dp"  
             android:background="#ccffff"/>
  
-             />
+             
         </LinearLayout>
        
             

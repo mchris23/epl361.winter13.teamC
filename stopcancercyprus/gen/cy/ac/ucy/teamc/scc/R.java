@@ -76,13 +76,15 @@ public final class R {
         public static final int mytab1=0x7f02000d;
         public static final int mytab2=0x7f02000e;
         public static final int mytab3=0x7f02000f;
-        public static final int pasikaf=0x7f020010;
-        public static final int pink=0x7f020011;
-        public static final int purple=0x7f020012;
-        public static final int tirquage=0x7f020013;
-        public static final int tropoi_proliyeis=0x7f020014;
-        public static final int wallpaper=0x7f020015;
-        public static final int yellow=0x7f020016;
+        public static final int notifica=0x7f020010;
+        public static final int pasikaf=0x7f020011;
+        public static final int personal=0x7f020012;
+        public static final int pink=0x7f020013;
+        public static final int purple=0x7f020014;
+        public static final int tirquage=0x7f020015;
+        public static final int tropoi_proliyeis=0x7f020016;
+        public static final int wallpaper=0x7f020017;
+        public static final int yellow=0x7f020018;
     }
     public static final class id {
         public static final int Age=0x7f0c001b;

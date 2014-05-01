@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Settings extends Activity {
 
-	Button Bpersonal;
-	Button Bnotification;
+	ImageButton Bpersonal;
+	ImageButton Bnotification;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,8 @@ public class Settings extends Activity {
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		Bpersonal = (Button) findViewById(R.id.BpersonalInfo);
-		Bnotification = (Button) findViewById(R.id.Bnotification);
+		Bpersonal = (ImageButton) findViewById(R.id.BpersonalInfo);
+		Bnotification = (ImageButton) findViewById(R.id.Bnotification);
 	}
 
 }

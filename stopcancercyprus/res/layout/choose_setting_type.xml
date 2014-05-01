@@ -1,42 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView2"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ccffff"
-    android:padding="77dp"
-    android:paddingBottom="22dp" >
-
-    <LinearLayout
+    android:orientation="vertical"
+    android:padding="20dp" >
+ <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
+        android:layout_height="match_parent" >
         <!-- Button for changing of personal information -->
 
-        <Button
-            android:id="@+id/BpersonalInfo"
-            android:layout_width="244dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:text="Προσωπικά στοιχεία"
-            android:textSize="14dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+<LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="22dp" />
+            android:orientation="vertical" >
+            
+             <!-- cancer choice -->
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:paddingBottom="20dp">
+
+        <requestFocus />
+        <ImageButton
+             android:id="@+id/BpersonalInfo"
+            android:layout_width="250dp"  
+			android:layout_height="90dp"  
+			android:scaleType="fitCenter"
+			android:adjustViewBounds="true"
+              android:src="@drawable/personal" 
+               android:layout_gravity="center"
+              android:background="#ccffff"/>
+
+        </LinearLayout>
 
         <!-- Button for changing of push notification settings -->
 
-        <Button
-            android:id="@+id/Bnotification"
-            android:layout_width="172dp"
-            android:layout_height="72dp"
-            android:layout_gravity="center"
-            android:text="Υπενθυμίσεις"
-            android:textSize="14dp" />
-    </LinearLayout>
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:paddingBottom="20dp" 
+        >
 
-</ScrollView>
+      <requestFocus />
+        <ImageButton
+             android:id="@+id/Bnotification"
+            android:layout_width="250dp"  
+			android:layout_height="90dp"  
+			android:scaleType="fitCenter"
+			android:adjustViewBounds="true"
+              android:src="@drawable/notifica" 
+               android:layout_gravity="center"
+              android:background="#ccffff"/>
+
+        </LinearLayout>
+
+  </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
