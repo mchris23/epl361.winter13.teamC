@@ -98,6 +98,10 @@ public class Personal_settings extends Activity {
 								 final Spinner selectPreposission = (Spinner) findViewById(R.id.selectPreposission);
 								 final Spinner selectSexualSituation = (Spinner) findViewById(R.id.selectSexualSituation);
 							
+								 
+								 
+								 
+								 
 								 int smoker= selectsmoke.getSelectedItemPosition();
 								 int Gender= selectGender.getSelectedItemPosition();
 								 int alcoholic= selectalcoholic.getSelectedItemPosition();

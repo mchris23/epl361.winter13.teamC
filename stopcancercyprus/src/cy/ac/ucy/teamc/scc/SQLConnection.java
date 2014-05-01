@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.ArrayList;
-
+import android.util.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -23,6 +23,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 public class SQLConnection extends AsyncTask{
+	
 /* 
  * Old method using normal HTTP connection
  
@@ -98,7 +99,7 @@ public class SQLConnection extends AsyncTask{
 	        HttpClient client = new DefaultHttpClient();
 	        
 
-	        URI website = new URI("https://dione.in.cs.ucy.ac.cy/assignments/stopcancercyprus/api/"+file); 
+	        URI website = new URI("https://webdata.in.cs.ucy.ac.cy/home/students/cs/2011/anicol15/public_html/getCancerNames.php"+file); 
 	        HttpGet request = new HttpGet();
 	        request.setURI(website);
 	        HttpResponse response = client.execute(request);
@@ -113,6 +114,7 @@ public class SQLConnection extends AsyncTask{
 	        }in.close();
 	        data = sb.toString();
 	        Log.d("DATA_RECEIVED",data);
+	        Log.e("DATA_RECEIVED2",data);
 	        return data;
 	    } catch (Exception e) {
 	    	System.out.println("Exception " + e.getMessage());
@@ -131,6 +133,8 @@ public class SQLConnection extends AsyncTask{
 	@Override
 	protected Object doInBackground(Object... arg0) {
 		// TODO Auto-generated method stub
+		Log.e("see","");
 		return this.getInternetData((String)arg0[0]);
+		
 	}
 }
