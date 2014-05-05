@@ -62,6 +62,8 @@ public class ActivityNotification extends Activity implements OnClickListener{
 				
 				edit.commit();
 				
+				
+				
 				//AlarmManager alarmManager=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
 				
 				
