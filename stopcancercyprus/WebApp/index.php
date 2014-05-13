@@ -11,19 +11,15 @@ session_start();
 </head>
 
 <body>
-<!--error reporting for debugging-->
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors','1');
-?>
-
-<?php
-if(isset( $_SESSION['user'])){
-    if($_SESSION['user']==0){
+if(isset($_SESSION['user'])){
+    if($_SESSION['user']==1){
+        session_unset();
+    }
+    else if($_SESSION['user']==0){
         echo "<script type='text/javascript'>alert('Έχετε εισάγει λανθασμένα στοιχεία. Παρακαλώ ξαναδοκιμάστε.');</script>";
     }
 }
-
 ?>
 
 <img alt="background image" src="images/bground.jpg" id="full-screen-background-image"/>

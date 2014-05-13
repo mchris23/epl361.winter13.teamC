@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+include("glob.html");
 ?>
 <html>
 
@@ -16,23 +17,9 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
 	header("location: index.php");
 }
 ?>
-
-<img alt="background image" src="images/bground.jpg" id="full-screen-background-image"/>
-    <div class="top">
-    <p>StopCancerCyprus - Database Management</p>
-    </div>
-
-    <div class="left">
-        <ul>
-            <li><a href="insertData.php">Εισαγωγή Καρκίνου</a> </li>
-            <li><a href="insertPrev.php">Εισαγωγή Πρόληψης</a> </li>
-            <li><a href="insertExam.php">Εισαγωγή Εξέτασης</a></li>
-            <li><a href="index.php" onclick="<?php session_destroy(); ?>">Αποσύνδεση</a></li>
-        </ul>
-    </div>
-
     <div class="main">
-    <p>Main Content</p>
+    <p>Καλωσορίσατε στην σελίδα διαχείρισης της εφαρμογής StopCancerCyprus!</p>
+    <p>Χρησιμοποιήστε το μενού στα αριστερά σας για να διαχειριστείτε τη βάση δεδομένων της εφαρμογής.</p>
     </div>
 
 </body>
