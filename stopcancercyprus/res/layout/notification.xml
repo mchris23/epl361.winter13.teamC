@@ -2,16 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ccffff"
     android:orientation="vertical"
-    android:background="#ccffff">
+    android:padding="10dp" >
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:weightSum="100" >
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal" >
         <EditText
             android:id="@+id/instructionText"
             android:layout_width="match_parent"
@@ -24,26 +33,13 @@
             android:focusableInTouchMode="false"
             android:gravity="center"
             android:paddingBottom="20dp"
-            android:text="Ωρα ενεργοποίησης υπενθύμησης:"
+            android:text="Eνεργοποίηση υπενθυμίσεων:"
             android:textSize="16dp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <!-- notification time trigger -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingLeft="60dp"
-        android:paddingTop="20dp" >
-
-        <TimePicker
-            android:id="@+id/timePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
+   
     <!-- activate or disactivate the notification -->
       <LinearLayout
                 android:layout_width="fill_parent"
@@ -55,13 +51,13 @@
 
                 <TextView
                     android:id="@+id/MsgPushNotification"
-                    android:layout_width="81dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="47.09"
+                    android:layout_width="155dp"
+                    android:layout_height="155dp"
+                    android:layout_weight="80.09"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:paddingLeft="5dp"
-                    android:text="Ειδοποίηση:"
+                    android:text="Θέλετε να ειδοποιήστε \nγια να πραγματοποιήσεται τις \nεξετάσεις που σας προτείνονται;"
                     android:textSize="16dp" />
 
                 <ToggleButton
@@ -77,22 +73,37 @@
     
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="100dp"
         android:layout_weight="0.95"
         android:gravity="bottom"
         android:orientation="horizontal"
         android:paddingBottom="7dp"
         android:paddingLeft="7dp" >
+                
+       
+                 <ImageButton
+             android:id="@+id/BtimeNotification"
+            android:layout_width="300dp"  
+			android:layout_height="90dp"  
+			android:scaleType="fitCenter"
+			android:adjustViewBounds="true"
+              android:src="@drawable/ipovoli" 
+               android:layout_gravity="center"
+              android:background="#ccffff"/>
+            </LinearLayout>
+            
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/BtimeNotification"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="63dp"
-            android:background="@color/brown"
-            android:text="Αποθύκευση"
-            android:typeface="sans" />
-
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                   /> </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

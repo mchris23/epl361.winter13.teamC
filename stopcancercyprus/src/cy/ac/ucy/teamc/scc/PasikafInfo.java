@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class PasikafInfo extends Activity{
 
-	Button BenterMenuList;
+	ImageButton BenterMenuList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,6 @@ public class PasikafInfo extends Activity{
 				// TODO Auto-generated method stub
 				try {
 					
-					//ntent libraryIntent = new Intent(this, RecordedLibrary.class);
-					
-					
 					
 					Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.Menu");
 					//triggered a class that user selected.
@@ -43,7 +41,7 @@ public class PasikafInfo extends Activity{
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		BenterMenuList= (Button) findViewById(R.id.BmenuList);
+		BenterMenuList= (ImageButton) findViewById(R.id.BmenuList);
 	}
 
 }

@@ -19,7 +19,7 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
 <div class="main">
     <form accept-charset="utf-8" action="" method="post" id="updateC">
         Ενημέρωση Καρκίνου:<br/>
-        <select name='CANCER'>
+        <select id="updateCancer" name="selectC">
             <?php
             include 'connection.php';
             getCancers();
@@ -27,9 +27,10 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
         </select>
         <input type="submit" value="Ενημέρωση" name="updateCancer"/>
     </form>
+    <br />
     <form accept-charset="utf-8" action="" method="post" id="updateE">
-        Ενημέρωση Εξέτασης:<br/>
-        <select name='ΕΧΑΜΙΝΑΤΙΟΝ'>
+        Ενημέρωση Εξέτασης / Τρόπου Πρόληψης:<br/>
+        <select id="updateExam" name="selectE">
             <?php
             include 'connection.php';
             getExams();
@@ -39,7 +40,7 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
     </form>
 </div>
 <?php
-if(isset($_POST['CANCER']))
+if(isset($_POST['updateCancer']))
 {
     $con = mysql_connect("localhost","stopcancercyprus","zx&w&tin");
     if(!$con)
@@ -48,30 +49,31 @@ if(isset($_POST['CANCER']))
     }
     else
     {
-        $split = explode(".",$_POST['CANCER'],2);
         mysql_select_db("stopcancercyprus", $con);
         mysql_set_charset('utf8', $con);
-        $select_query = "SELECT * FROM CANCER WHERE ID_cancer=".$split[0]." AND Deleted=0";
+        $select_query = "SELECT * FROM CANCER WHERE ID_cancer=".$_POST['selectC']." AND Deleted=0";
         $res = mysql_query($select_query, $con);
         if($res)
         {
+            $row = mysql_fetch_row($res);
             $_SESSION['cUpdate']=1;
-            $_SESSION['cID']=$res{'ID_cancer'};
-            $_SESSION['cName']=$res{'cancer_name'};
-            $_SESSION['cDescr']=$res{'cancer_description'};
+            $_SESSION['cID']=$row[0];
+            $_SESSION['cName']=$row[1];
+            $_SESSION['cDescr']=$row[2];
             mysql_close($con);
-            unset($_POST['CANCER']);
             header("location:insertCancer.php");
+
         }
         else
         {
             mysql_close($con);
-            unset($_POST['CANCER']);
+            unset($_POST['updateCancer']);
             echo '<script type="text/javascript">alert("Πρόβλημα σύνδεσης με τη βάση δεδομένων. Παρακαλώ δοκιμάστε ξανά αργότερα.");window.location.href="main.php";</script>';
         }
     }
 }
-if(isset($_POST['EXAMINATION']))
+
+if(isset($_POST['updateExam']))
 {
     $con = mysql_connect("localhost","stopcancercyprus","zx&w&tin");
     if(!$con)
@@ -80,39 +82,50 @@ if(isset($_POST['EXAMINATION']))
     }
     else
     {
-        $split = explode(".",$_POST['EXAMINATION'],2);
         mysql_select_db("stopcancercyprus", $con);
         mysql_set_charset('utf8', $con);
-        $select_query = "SELECT * FROM EXAMINATION WHERE ID_exam=".$split[0]." AND Deleted=0";
+        $select_query = "SELECT * FROM EXAMINATION WHERE ID_exam=".$_POST['selectE']." AND Deleted=0";
         $res = mysql_query($select_query, $con);
         if($res)
         {
+            $row = mysql_fetch_row($res);
             $_SESSION['eUpdate']=1;
-            $_SESSION['eID']=$res{'ID_exam'};
-            $_SESSION['eName']=$res{'exam_name'};
-            $_SESSION['eDescr']=$res{'exam_description'};
-            $_SESSION['eFreq']=$res{'exam_frequency'};
-            $_SESSION['eGender']=$res{'exam_gender'};
-            $_SESSION['eSmoker']=$res{'exam_smoker'};
-            $_SESSION['eAlcohol']=$res{'exam_alcohol'};
-            $_SESSION['eHistory']=$res{'exam_history'};
-            $_SESSION['eExam']=$res{'is_exam'};
-            $_SESSION['eFreq']=$res{'exam_frequency'};
-            $agedb=explode("-",$res{'exam_agerange'});
-            $_SESSION['eAgeFrom']=$agedb[0];
-            $_SESSION['eAgeTo']=$agedb[1];
-            $dmsdb=explode("-",$res{'exam_dms'});
-            $_SESSION['eDMSFrom']=$dmsdb[0];
-            $_SESSION['eDMSTo']=$dmsdb[1];
-            $_SESSION['ePicture']=$res{'exam_link'};
+            $_SESSION['eID']=$row[0];
+            $_SESSION['eName']=$row[1];
+            $_SESSION['eDescr']=$row[2];
+            $_SESSION['eFreq']=$row[3];
+            $_SESSION['eGender']=$row[10];
+            $_SESSION['eSmoker']=$row[7];
+            $_SESSION['eAlcohol']=$row[9];
+            $_SESSION['eHistory']=$row[8];
+            $_SESSION['eExam']=$row[12];
+            $_SESSION['eSex']=$row[4];
+            $agedb=explode("-",$row[5]);
+            if($agedb[0]==0)
+                $_SESSION['eAgeFrom']="";
+            else
+                $_SESSION['eAgeFrom']=$agedb[0];
+            if($agedb[1]==200)
+                $_SESSION['eAgeTo']="";
+            else
+                $_SESSION['eAgeTo']=$agedb[1];
+            $dmsdb=explode("-",$row[6]);
+            if($dmsdb[0]==0)
+                $_SESSION['eDMSFrom']="";
+            else
+                $_SESSION['eDMSFrom']=$dmsdb[0];
+            if($dmsdb[1]==100)
+                $_SESSION['eDMSTo']="";
+            else
+                $_SESSION['eDMSTo']=$dmsdb[1];
             mysql_close($con);
-            unset($_POST['EXAMINATION']);
+            unset($_POST['updateExam']);
             header("location:insertExam.php");
         }
         else
         {
             mysql_close($con);
-            unset($_POST['EXAMINATION']);
+            unset($_POST['updateExam']);
             echo '<script type="text/javascript">alert("Πρόβλημα σύνδεσης με τη βάση δεδομένων. Παρακαλώ δοκιμάστε ξανά αργότερα.");window.location.href="main.php";</script>';
         }
     }

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.graphics.Color;
@@ -22,7 +23,7 @@ import android.widget.EditText;
 public class PersonalInform extends Activity {
 	public final static String EXTRA_ARRAY = "cy.ac.ucy.teamc.scc.MESSAGE";
 
-	Button checkSubmition;
+	ImageButton checkSubmition;
 	TextView displaySubmit;
 	EditText Tweight;
 	EditText Theight;
@@ -63,7 +64,7 @@ public class PersonalInform extends Activity {
 				
 				if (Tweight.getText().toString().equalsIgnoreCase(""))
 				{
-					displaySubmit.setText("Δεν έχετε εισάγει όλα τα δεδομένα²");
+					displaySubmit.setText("Δεν έχετε εισάγει όλα τα δεδομένα");
 					displaySubmit.setTextColor(Color.RED);
 				} else if (Float.parseFloat(Tweight.getText().toString()) > (float) 350.00
 							|| Float.parseFloat(Tweight.getText().toString()) < (float) 30) 
@@ -80,18 +81,18 @@ public class PersonalInform extends Activity {
 							displaySubmit.setText("Εισάγατε λάθος τιμή ύψους. \r\n  Το όριο ύψους είναι[100-250]");
 							displaySubmit.setTextColor(Color.RED);
 							}
-							else if (dpResult.getYear()>=(curyear) || dpResult.getYear()<(curyear-120))
+							/*else if (dpResult.getYear()>=(curyear) || dpResult.getYear()<(curyear-120))
 									{
-										displaySubmit.setText("Εισάγαται λάθος ημερομηνία Γέννησης");
+										displaySubmit.setText("Εισάγατε λάθος ημερομηνία Γέννησης");
 										displaySubmit.setTextColor(Color.RED);
-									}
+									}*/
 							else 
 							{ 
 								//get the user's personals information from screen
 								int age=curyear-dpResult.getYear();
 								int year_of_birth=dpResult.getYear();
 								
-								Log.e("year1",""+year_of_birth);
+								
 								 final Spinner selectsmoke = (Spinner) findViewById(R.id.selectSmoke);
 								 final Spinner selectGender = (Spinner) findViewById(R.id.selectGender);
 								 final Spinner selectalcoholic = (Spinner) findViewById(R.id.selectAlcohol);
@@ -111,19 +112,22 @@ public class PersonalInform extends Activity {
 								
 								selected_exams=informUser(age,smoker, Gender,maza_somatos,alcoholic,Preposission,SexualSituation);
 								
-								
+								Log.e("alcoho",""+alcoholic);
+								Log.e("Preposission",""+Preposission);
+								Log.e("SexualSituation",""+SexualSituation);
 								//create the file with the user's info
 								SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 								Editor edit=s_pref.edit();
-								
+								Log.d("Gender",""+Gender);
 								edit.putInt("year_of_birth",year_of_birth);
+								edit.putInt("notifActive",0);
 								edit.putInt("smoker",smoker);
 								edit.putInt("Gender",Gender);
 								edit.putInt("alcoholic",alcoholic);
 								edit.putInt("Preposission",Preposission);
 								edit.putInt("SexualSituation",SexualSituation);
 								edit.putFloat("maza_somatos",maza_somatos);
-							
+								edit.putInt("notif_time",0);
 								int num=selected_exams.size();
 								edit.putInt("num_of_exam",num);
 								if(!selected_exams.isEmpty())
@@ -141,7 +145,7 @@ public class PersonalInform extends Activity {
 								
 								if(selected_exams!=null)
 								{
-									Log.e("not nulllllll","not nulll");
+									
 									try{
 										Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.PersonalInformNotFirstTime");
 										
@@ -151,12 +155,6 @@ public class PersonalInform extends Activity {
 										Intent passIntent = new Intent();
 										passIntent.setClass(PersonalInform.this, ourClass);
 										
-										// Create a Bundle and Put Bundle in to it
-										//Bundle bundleObject = new Bundle();
-										//bundleObject.putSerializable("EXTRA_ARRAY", selected_exams);
-										                 
-										// Put Bundle in to Intent and call start Activity
-										//passIntent.putExtras(bundleObject);
 										startActivity(passIntent);
 										
 						
@@ -181,7 +179,7 @@ public class PersonalInform extends Activity {
 				if(exams.get(i)!=null)
 				{
 					//exams.get(i).id
-					int start_age = 0,end_age = 0,start_deiktis_mazas = 0,end_deiktis_mazas = 0,smoker_in,gender_in,alcoholic_in,prepos_in,sexual_situation_in;
+					int start_age = 0,end_age = 0,start_deiktis_mazas = 0,end_deiktis_mazas = 0,smoker_in=0,gender_in=0,alcoholic_in=0,prepos_in=0,sexual_situation_in=0;
 					Log.e("this2",""+exams.get(i).get_name());
 					// get age range (split)
 					if(exams.get(i).get_age_range()!=null){
@@ -205,10 +203,11 @@ public class PersonalInform extends Activity {
 					alcoholic_in=(exams.get(i).get_alcohol());
 					prepos_in=(exams.get(i).get_inheritance());
 					sexual_situation_in=(exams.get(i).get_SexualSituation());
-					
+					Log.e("inhermy",""+prepos_in);
 					
 					if(deiktis_mazas_somatos>=start_deiktis_mazas && deiktis_mazas_somatos<=end_deiktis_mazas && age>=start_age && age<=end_age && (smoker_in==3 ||smoker_in==smoker) && (gender_in==2 || gender_in==gender) && (sexual_situation_in==2 || sexual_situation_in==sexual_situation) && (alcoholic_in==2 || alcoholic_in==alcoholic) && (prepos_in==2 || prepos_in==preposission))
 					{
+						Log.e("inher",""+preposission);
 						selected_exams_array.add(exams.get(i));
 						
 					}
@@ -243,7 +242,7 @@ public class PersonalInform extends Activity {
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		checkSubmition = (Button) findViewById(R.id.Bsubmit);
+		checkSubmition = (ImageButton) findViewById(R.id.Bsubmit);
 		displaySubmit = (TextView) findViewById(R.id.msgSubmit);
 		Tweight = (EditText) findViewById(R.id.CommandWeight);
 		Theight=(EditText) findViewById(R.id.CommandHeigh);

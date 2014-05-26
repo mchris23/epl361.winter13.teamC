@@ -14,7 +14,7 @@ function getCancers()
         $row = mysql_fetch_array($select_query_run);
         while ($row)
         {
-            echo "<option>".$row{'ID_cancer'}.".".$row{'cancer_name'}."</option>";
+            echo "<option value='".$row{'ID_cancer'}."'> ".$row{'cancer_name'}." </option>";
             $row = mysql_fetch_array($select_query_run);
         }
       //  echo "</select>";
@@ -31,13 +31,13 @@ function getExams()
     {
         mysql_select_db("stopcancercyprus", $con);
         mysql_set_charset('utf8', $con);
-        $select_query = "SELECT ID_exam,exam_name FROM EXAMINATION WHERE Deleted=0";
+        $select_query = "SELECT ID_exam,exam_name,exam_agerange FROM EXAMINATION WHERE Deleted=0";
         $select_query_run = mysql_query($select_query, $con);
      //   echo "<select name='EXAMINATION'>";
         $row = mysql_fetch_array($select_query_run);
         while ($row)
         {
-            echo "<option>".$row{'ID_exam'}.".".$row{'exam_name'}."</option>";
+            echo "<option value='".$row{'ID_exam'}."'> ".$row{'exam_name'}." [".$row{'exam_agerange'}."] </option>";
             $row = mysql_fetch_array($select_query_run);
         }
      //   echo "</select>";

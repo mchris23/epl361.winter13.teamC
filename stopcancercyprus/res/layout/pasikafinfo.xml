@@ -52,8 +52,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="13dp"
-                    android:text="\nΙδρύθηκε το 1986 από 21 άτομα με εμπειρία καρκίνου και φίλους
-        	   	Στόχοι του ΠΑΣΥΚΑΦ είναι Όλοι μαζί, Νικητές στη ζωή με έμφαση                      
+                    android:text="\nΙδρύθηκε το 1986 από 21 άτομα με εμπειρία καρκίνου και φίλους.
+        	   	\nΣτόχοι του ΠΑΣΥΚΑΦ είναι Όλοι μαζί, Νικητές στη ζωή με έμφαση                      
   			    \n• στην πρόληψη του καρκίνου με τη δημιουργία κουλτούρας για υγιεινή ζωή με σωστή διατροφή και άσκηση
   				\n• στην έγκαιρη διάγνωση με αυτοεξέταση, διαγνωστικές εξετάσεις και εφαρμογή πληθυσμιακών προγραμμάτων  
   				\n• στη διασφάλιση των δικαιωμάτων των ασθενών με καρκίνο
@@ -90,15 +90,17 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/BmenuList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Είσοδος"
-                    android:textSize="14dp"
-                    android:textStyle="bold" >
-                </Button>
+                 <ImageButton
+             android:id="@+id/BmenuList"
+            android:layout_width="300dp"  
+			android:layout_height="90dp"  
+			android:scaleType="fitCenter"
+			android:adjustViewBounds="true"
+              android:src="@drawable/eisodos" 
+               android:layout_gravity="center"
+              android:background="#ccffff"/>
+                
+               
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

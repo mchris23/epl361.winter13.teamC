@@ -12,10 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class CancerList extends ListActivity {
-	//
-	// private ListView listView;
-	// private ArrayAdapter<String> adapter;
-
+	
 
 
 

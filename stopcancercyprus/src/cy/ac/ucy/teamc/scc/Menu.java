@@ -29,8 +29,6 @@ public class Menu extends TabActivity {
 		
 		TabSpec personalSpec=menuTabHost.newTabSpec("Προσωπική Ενημέρωση");
 		personalSpec.setIndicator("Προσωπική Ενημέρωση",getResources().getDrawable(R.drawable.mytab2));
-		//Intent personallIntent=new Intent(this,ChoosePersonalInform.class);
-		//personalSpec.setContent(personallIntent);
 		
 		
 		

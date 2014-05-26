@@ -39,44 +39,6 @@ public class Personal_information extends Activity {
 	ArrayList<Exam> list = new ArrayList<Exam>();
 	
 	
-	
-		
-		/*try{
-		    // Get the Bundle Object        
-		    Bundle bundleObject = getIntent().getExtras();
-		   
-		        // Get ArrayList Bundle
-		    ArrayList<Exam> classObject = (ArrayList<Exam>) bundleObject.getSerializable("EXTRA_ARRAY");
-		             
-		       // Retrieve Objects from Bundle
-		    for(int index = 0; index < classObject.size(); index++){
-		                 
-		    	
-		        Exam Object = classObject.get(index);
-		        Toast.makeText(getApplicationContext(), "Εξέταση :"+Object.get_name(), Toast.LENGTH_SHORT).show();
-		        list.add(Object);
-		        
-		        //create new notification
-		        PendingIntent pendingIntent=PendingIntent.getService(this, 0, getIntent(), PendingIntent.FLAG_UPDATE_CURRENT);
-				
-				
-				
-				//String time = extras.getString("WEEK");
-				//extras.putString("WEEK",time);
-				
-				//intent.putExtra("msg", "¸êëåéóåò ñáíôåâïý;");
-				
-				
-				//startService(pendingIntent);
-		        
-		    }
-		} catch(Exception e){
-		    e.printStackTrace();
-		}*/
-	
-	
-	Log.e("personal information", "personal information");
-	
 	SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	
 	//the related exams of the exam
@@ -85,7 +47,6 @@ public class Personal_information extends Activity {
 			Log.e("antoniaaainput_num_of_exmas", ""+input_num_of_exmas);
 			for(int i=0;i<input_num_of_exmas;i++)
 				{
-				Log.e("antonia1aaexam", "");
 				
 				input_exam=s_pref.getInt("exam"+i,99999);
 				Exam current=exams.get(input_exam-1);
@@ -111,7 +72,7 @@ public class Personal_information extends Activity {
     	    String description =  list.get(i).get_description();
     	    String img_name = list.get(i).get_image_name();
     	    int freq =   list.get(i).get_frequency();
-        
+        Log.e("freq"+name,""+freq);
         
         // add text view for the name of the exam
         EditText tv_name = new EditText(this);
@@ -130,9 +91,9 @@ public class Personal_information extends Activity {
         {String frequency =   Integer.toString(list.get(i).get_frequency());
 	     // add text view for the frequency of the exam
 	        EditText tv_freq = new EditText(this);
-	        tv_freq.setText("Συχνότητα διεξαγωγής τις εξέτασης: κάθε "+frequency+" μήνες.");
+	        tv_freq.setText("Συχνότητα διεξαγωγής της εξέτασης: κάθε "+frequency+" μήνες.");
 	        tv_freq.setBackgroundColor(color.holo_green_light);
-	        tv_freq.setTextSize(20);
+	        tv_freq.setTextSize(10);
 	        tv_freq.setGravity(Gravity.CENTER);
 	        tv_freq.setClickable(false);
 	        tv_freq.setKeyListener(null);

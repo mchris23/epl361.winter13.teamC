@@ -37,35 +37,34 @@ public class ExamActivity extends Activity {
 		
 		for(int i=0; i<allexams.size();i++){
 			
-			Log.e("***"+i,"**"+allexams.get(i).get_id());
-			Log.e("***id","**"+id);
+			
 			if(i==id)
 			{
-				Log.e("***allexamsin if","alll");
+				
 				cNameDescr.add(allexams.get(i));
 		
 			}
 		}
 		
-		Log.e("*****","**");
+		
 		setContentView(R.layout.cancer_view);
 		LinearLayout ll = (LinearLayout)findViewById(R.id.linearLayout2);
 		createAllObjects();
-		 Log.e("oups0",""+id);
+		
 		name.setText(cNameDescr.get(0).get_name());
 		description.setText(cNameDescr.get(0).get_description());
 		
-		Log.e("oups",""+id);
+		
 		 String img_name = cNameDescr.get(0).get_image_name();
-		 Log.e("oups1",""+id);
+		
 //check if for this exam there is an image
 		 if(!img_name.equals("-")){
-			 Log.e("oups2",""+id);
+			
         int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
         boolean result;
          
         if ( checkExistence != 0 ) {  // the resource exists...
-        	Log.e("IAM hereeeeeeeee 3","");
+        
         	result = true;
             final String image_id_str = String.valueOf(checkExistence);
             ImageButton Bimage = new ImageButton(this);
@@ -99,12 +98,11 @@ public class ExamActivity extends Activity {
         }
         else {  // checkExistence == 0  // the resouce does NOT exist!!
             result = false;
-            Log.w("HEREE 2"," "+result);
+            
         }
 		
 		 }
-		 else 
-	            Log.w("oupsssssssssss"," "+id);
+		
 	}
 
 	private void createAllObjects() {

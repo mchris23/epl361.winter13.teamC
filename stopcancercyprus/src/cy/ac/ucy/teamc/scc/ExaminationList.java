@@ -36,7 +36,6 @@ public class ExaminationList extends ListActivity {
 						.forName("cy.ac.ucy.teamc.scc.ExamActivity");
 				Intent ourIntent = new Intent(ExaminationList.this, ourClass);
 				Bundle b = new Bundle();
-				Log.e("positon Exam", ""+position);
 				b.putInt("position", position); //Your id
 				ourIntent.putExtras(b); //Put your id to your next Intent
 				startActivity(ourIntent);

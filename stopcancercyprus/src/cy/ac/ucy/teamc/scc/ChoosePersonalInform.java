@@ -20,7 +20,7 @@ public class ChoosePersonalInform extends Activity {
 		
 		int input_smoker=s_pref.getInt("smoker",5);
 		
-		Log.e("antoni**********", ""+input_smoker);
+		
 		
 		
 		super.onCreate(savedInstanceState);

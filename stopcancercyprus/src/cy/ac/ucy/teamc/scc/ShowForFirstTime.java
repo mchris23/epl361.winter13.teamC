@@ -14,7 +14,6 @@ public class ShowForFirstTime extends Activity {
 	ArrayList<Exam> exams;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.e("showForFirsttime", "showForFirsttime");
 		
 		
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
@@ -29,13 +28,11 @@ public class ShowForFirstTime extends Activity {
 		ArrayList<Exam> selected_exams= new ArrayList<Exam>();
 				int input_exam;
 				int input_num_of_exmas=s_pref.getInt("num_of_exam",9999999);
-				Log.e("antoniaaainput_num_of_exmas", ""+input_num_of_exmas);
 				for(int i=0;i<input_num_of_exmas;i++)
 					{
 					input_exam=s_pref.getInt("exam"+i,99999);
 					Exam current=exams.get(input_exam-1);
 					selected_exams.add(current);
-					Log.e("antoniaaaexam", ""+input_exam);
 					
 					
 					
@@ -69,11 +66,5 @@ public class ShowForFirstTime extends Activity {
 			}
 		
 		
-/*
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		return true;
-	}*/
 
 }

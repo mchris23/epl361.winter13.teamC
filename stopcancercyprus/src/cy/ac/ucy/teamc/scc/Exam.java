@@ -15,8 +15,9 @@ private int SexualSituation;
 private String description;
 private String image_name;
 private int frequency;
+private int type;//0 if is exam , 1 if is revention 
 
-public Exam(int id,String name,String age_range,int smoker,int alcohol,String deiktis_mazas_range,int gender,int inheritance, int SexualSituation, String  description, String image_name, int frequency)
+public Exam(int id,String name,String age_range,int smoker,int alcohol,String deiktis_mazas_range,int gender,int inheritance, int SexualSituation, String  description, String image_name, int frequency, int type)
 {
 	this.id=id;
 	this.name=name;
@@ -30,11 +31,16 @@ public Exam(int id,String name,String age_range,int smoker,int alcohol,String de
 	this.SexualSituation=SexualSituation;
 	this.image_name=image_name;
 	this.frequency=frequency;
+	this.type=type;
 }
 
 public int get_id()
 {
 	return this.id;
+}
+public int get_type()
+{
+	return this.type;
 }
 public int get_frequency()
 {

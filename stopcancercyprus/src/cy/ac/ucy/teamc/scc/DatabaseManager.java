@@ -36,12 +36,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		Log.d("SCC - DBCreate", "Created table EXAMINATION");
 		db.execSQL(createCancerTable);
 		Log.d("SCC - DBCreate", "Created table CANCER");
-		//db.execSQL(createPreventionTable);
-		//Log.d("SCC - DBCreate", "Created table PREVENTION");
-		//db.execSQL(createExamCancerTable);
-		//Log.d("SCC - DBCreate", "Created table EXAMINATION_CANCER");
-		//db.execSQL(createCancerPreventionTable);
-		//Log.d("SCC - DBCreate", "Created table CANCER_PREVENTION");
+		
 
 		// initialise table data
 		addData(db);
@@ -50,14 +45,14 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	public void addData(SQLiteDatabase db) {
 		// since data is going to be static for now, enter here
-		
+		//1=exam 0=prevention
 		//Αυτοεξέταση μαστού
 		addExamination(db,  "Αυτοεξέταση μαστού","Γυναίκες άνω των 30 μπορούν να κάνουν την αυτοεξέταση μια φορά τον μήνα", 1, 0, "30-120", 3, "0-100", 2, 2, "-", 1,1);
 		
 		
 		
 		// Εμβόλιο για τον ιο ανθρώπινων θηλωμάτων
-		addExamination(db,  "Eμβόλιο για τον ιό των ανθρωπίνων θηλωμάτων","Eνημερωθείτε για το εμβόλιο και εμβολιαστείτε το συντομότερο.  ", 0, 0, "18-25", 3, "0-100", 2, 2, "-", 2,0);
+		addExamination(db,  "Eμβόλιο για τον ιό των ανθρωπίνων θηλωμάτων","Eνημερωθείτε για το εμβόλιο και εμβολιαστείτε το συντομότερο.  ", 0, 1, "18-25", 3, "0-100", 2, 2, "-", 2,0);
 		
 		
 		//Καρκίνος του Τραχήλου της Μήτρας 
@@ -75,7 +70,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		addExamination(db, "ΤΕΣΤ ΠΑΠΑΝΙΚΟΛΑΟΥ", "Το Τεστ Παπανικολάου (υγρής κυτταρολογίας) μπορεί να χρησιμοποιηθεί για να διαγνώσει έγκαιρα τον καρκίνο του τραχήλου της μήτρας. Είναι καλό να γίνεται κάθε 1-2 χρόνια, 2 χρόνια μετά την πρώτη σεξουαλική επαφή.", 16, 1, "18-45", 3, "0-100", 2, 2, "-", 1,1);
 		
 		// Τεστ Παπανικολάου για γυναίκες 45+ με σεξουαλική επαφή
-		addExamination(db, "ΤΕΣΤ ΠΑΠΑΝΙΚΟΛΑΟΥ και υπερηχογράφημα", "Το Τεστ Παπανικολάου (υγρής κυτταρολογίας) μπορεί να χρησιμοποιηθεί για να διαγνώσει έγκαιρα τον καρκίνο του τραχήλου της μήτρας. Είναι καλό να γίνεται κάθε 1-2 χρόνια, 2 χρόνια μετά την πρώτη σεξουαλική επαφή. \r\nΑν δεν έχετε ξανακάνει Τεστ Παπανικολάου, μην το αμελήσετε άλλο. Κάντε το τεστ και ένα υπερηχογράφημα στο γυναικολόγο σας. \r\nΑν κληθήτε για εξέταση στα πλαίσια πληθυσμιακού προγράμματος, ανταποκριθείτε άμεσα.", 16, 1, "45-120", 3, "0-100", 2, 2, "-", 1,1);
+		addExamination(db, "ΤΕΣΤ ΠΑΠΑΝΙΚΟΛΑΟΥ και υπερηχογράφημα", "Το Τεστ Παπανικολάου (υγρής κυτταρολογίας) μπορεί να χρησιμοποιηθεί για να διαγνώσει έγκαιρα τον καρκίνο του τραχήλου της μήτρας. Είναι καλό να γίνεται κάθε 1-2 χρόνια, 2 χρόνια μετά την πρώτη σεξουαλική επαφή. \r\nΑν δεν έχετε ξανακάνει Τεστ Παπανικολάου, μην το αμελήσετε άλλο. Κάντε το τεστ και ένα υπερηχογράφημα στο γυναικολόγο σας. \r\nΑν κληθήτε για εξέταση στα πλαίσια πληθυσμιακού προγράμματος, ανταποκριθείτε άμεσα.", 16, 2, "45-120", 3, "0-100", 2, 2, "-", 1,1);
 		
 		
 		
@@ -89,10 +84,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		addExamination(db, "Συμβουλευθείτε τον γιατρό σας","Αν έχετε συγγενείς από το στενό οικογενειακό περιβάλλον με καρκίνο του μαστού, ή και παράλληλα με καρκίνο των ωοθηκών ή με καρκίνο του παχέος εντέρου συμβουλευθείτε το γιατρό σας",0,2,"18-25",3,"0-100",1,2,"-",1,1);
 		
 		//Μαστογραφία και υπερηχογράφημα (ultra sound)"
-		addExamination(db,"Μαστογραφία και υπερηχογράφημα (ultra sound) με οικογενειακό ιστορικό","Γνωρίζοντας το ιστορικό της οικογένειάς σας, αν κάποιος στενός συγγενής έχει διαγνωσθεί με κάποιο είδος καρκίνου σε ηλικία κάτω των 40 ετών, ή αν έχει καρκίνο και στους δυο μαστούς, μιλήστε με το γιατρό σας. \r\n Μετά τα 35 ξεκινήστε να κάνετε μαστογραφία κάθε χρόνο Είτε έχετε συμπτώματα είτε όχι η οποία είναι καλά να συνοδεύεται με υπερηχογράφημα (ultra sound).",0,2,"22-65",3,"0-100",2,2,"-",1,1);
+		addExamination(db,"Μαστογραφία και υπερηχογράφημα (ultra sound) με οικογενειακό ιστορικό","Γνωρίζοντας το ιστορικό της οικογένειάς σας, αν κάποιος στενός συγγενής έχει διαγνωσθεί με κάποιο είδος καρκίνου σε ηλικία κάτω των 40 ετών, ή αν έχει καρκίνο και στους δυο μαστούς, μιλήστε με το γιατρό σας. \r\n Μετά τα 35 ξεκινήστε να κάνετε μαστογραφία κάθε χρόνο Είτε έχετε συμπτώματα είτε όχι η οποία είναι καλά να συνοδεύεται με υπερηχογράφημα (ultra sound).",0,2,"22-120",3,"0-100",0,2,"-",1,1);
 
 		//Μαστογραφία	40-75 
-		addExamination(db,"Μαστογραφία","Έχετε ενοχλήσεις ή συμπτώματα όπως: Στο μαστό: \r\n ●αλλαγή στο μέγεθος ή σχήμα \r\n●ρυτιδώδης υφή δέρματος \r\n●σκληρότητα  \r\nΣτη θηλή: \r\n●κοίλανση \r\n●εξόγκωση ή σκλήρυνση \r\n●εκκρίσεις \r\n●ερεθισμός.  \r\nΣτον ώμο: \r\n●πρήξιμο στη μασχάλη, \r\nδιόγκωση λεμφαδένων.  \r\nΓια γυναίκες ηλικίας 50-69 ετών γίνονται μαστογραφίες δωρεάν, στα πλαίσια του προγράμματος πληθυσμιακού ελέγχου του Υπουργείου Υγείας. Η μαστογραφία επαναλαμβάνεται κάθε 2 χρόνια. Η πρόσκληση αποστέλλεται ταχυδρομικώς. Αν δεν έχετε ανταποκριθεί ακόμα δράστε τώρα και αν δεν σας έχει αποσταλεί πρόσκληση επικοινωνήστε με το Υπουργείο Υγείας. \r\nΠροσοχή – Η μαστογραφία μπορεί να εντοπίσει ογκίδιο πριν να το εντοπίσετε εσείς ή ο γιατρός σας \r\n	Κέντρα Μαστογραφίας - Ώρες Λειτουργίας 7:30π.μ.-2:30μ.μ. :\r\n •  Κέντρο Υγείας Αγλαντζιάς - Τηλ: 22444460 \r\n•  Παλαιό Νοσοκομείο Λεμεσού – Τηλ: 25305124 \r\n•  Γενικό Νοσοκομείο Λάρνακας – Τηλ: 24625124 \r\n•  Γενικό Νοσοκομείο Πάφου - Τηλ: 26803225, Ώρες Λειτουργίας 3:30μ.μ.-5:20μ.μ. (Δευτέρα – Παρασκευή) και 9:00π.μ.-1:00μ.μ. (Σάββατο) \r\n•  Γενικό Νοσοκομείο Αμμοχώστου - Τηλ: 23200166",0,2,"40-120",3,"0-100",2,2,"-",1,1);
+		addExamination(db,"Μαστογραφία","Έχετε ενοχλήσεις ή συμπτώματα όπως: Στο μαστό: \r\n ●αλλαγή στο μέγεθος ή σχήμα \r\n●ρυτιδώδης υφή δέρματος \r\n●σκληρότητα  \r\nΣτη θηλή: \r\n●κοίλανση \r\n●εξόγκωση ή σκλήρυνση \r\n●εκκρίσεις \r\n●ερεθισμός.  \r\nΣτον ώμο: \r\n●πρήξιμο στη μασχάλη, \r\nδιόγκωση λεμφαδένων.  \r\nΓια γυναίκες ηλικίας 50-69 ετών γίνονται μαστογραφίες δωρεάν, στα πλαίσια του προγράμματος πληθυσμιακού ελέγχου του Υπουργείου Υγείας. Η μαστογραφία επαναλαμβάνεται κάθε 2 χρόνια. Η πρόσκληση αποστέλλεται ταχυδρομικώς. Αν δεν έχετε ανταποκριθεί ακόμα δράστε τώρα και αν δεν σας έχει αποσταλεί πρόσκληση επικοινωνήστε με το Υπουργείο Υγείας. \r\nΠροσοχή – Η μαστογραφία μπορεί να εντοπίσει ογκίδιο πριν να το εντοπίσετε εσείς ή ο γιατρός σας \r\n	Κέντρα Μαστογραφίας - Ώρες Λειτουργίας 7:30π.μ.-2:30μ.μ. :\r\n •  Κέντρο Υγείας Αγλαντζιάς - Τηλ: 22444460 \r\n•  Παλαιό Νοσοκομείο Λεμεσού – Τηλ: 25305124 \r\n•  Γενικό Νοσοκομείο Λάρνακας – Τηλ: 24625124 \r\n•  Γενικό Νοσοκομείο Πάφου - Τηλ: 26803225, Ώρες Λειτουργίας 3:30μ.μ.-5:20μ.μ. (Δευτέρα – Παρασκευή) και 9:00π.μ.-1:00μ.μ. (Σάββατο) \r\n•  Γενικό Νοσοκομείο Αμμοχώστου - Τηλ: 23200166",0,2,"40-120",3,"0-100",1,2,"-",1,1);
 		
 		
 		//Εμβολιασμός για τον ιό ανθρωπίνων θηλωμάτων"
@@ -103,7 +98,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		addCancer(db,"Καρκίνος των όρχεων","Εντοπίζεται σε νεαρές ηλικίες και θεραπεύεται εύκολα και για πάντα όταν εντοπίζεται έγκαιρα. \r\nΗ μηνιαία αυτοεξέταση μπορεί να σας σώσει. \r\nΗ κρυψορχία και κληρονομικότητα αποτελούν πιθανούς παράγοντες κινδύνου","autoeksetasi_orxewn");
 		
 		//Αυτοεξέταση των όρχεων
-		addExamination(db,"Αυτοεξέταση των όρχεων", "Ακολούθησε τα πιο κάτω βήματα για την αυτοεξέταση των όρχεών σας μετά το μπάνιο μια φορά το μήνα (δες εικ.) \r\nΨηλάφισε τους όρχεις. Είναι φυσιολογικό να διαφέρει ο ένας από τον άλλο σε μέγεθος ή στο ύψος που βρίσκεται. \r\nΒρες την επιδιδυμίδα στο πάνω μέρος κάθε όρχι. Είναι μαλακή και ευαίσθητη. \r\nΒρες τον σπερματικό τόνο. Ξεκινά από την κορυφή της επιδιδυμίδας, πίσω από τον όρχι και είναι σαν σωλήνας. \r\nΑν προσέξεις \r\n● αλλαγές στο βάρος ή στο μέγεθος του όρχι \r\n● διόγκωση ή πρίξιμο \r\n● σκλήρυνση ή μικρό όγκο \r\n● πόνο \r\nΖήτα αμέσως ιατρική συμβουλή από ουρολόγο χωρίς αναστολές ή καθυστέρηση",0,2,"15-35",3,"0-100",2,2,"autoeksetasi_orxewn",0,1);
+		addExamination(db,"Αυτοεξέταση των όρχεων", "Ακολούθησε τα πιο κάτω βήματα για την αυτοεξέταση των όρχεών σας μετά το μπάνιο μια φορά το μήνα (δες εικ.) \r\nΨηλάφισε τους όρχεις. Είναι φυσιολογικό να διαφέρει ο ένας από τον άλλο σε μέγεθος ή στο ύψος που βρίσκεται. \r\nΒρες την επιδιδυμίδα στο πάνω μέρος κάθε όρχι. Είναι μαλακή και ευαίσθητη. \r\nΒρες τον σπερματικό τόνο. Ξεκινά από την κορυφή της επιδιδυμίδας, πίσω από τον όρχι και είναι σαν σωλήνας. \r\nΑν προσέξεις \r\n● αλλαγές στο βάρος ή στο μέγεθος του όρχι \r\n● διόγκωση ή πρίξιμο \r\n● σκλήρυνση ή μικρό όγκο \r\n● πόνο \r\nΖήτα αμέσως ιατρική συμβουλή από ουρολόγο χωρίς αναστολές ή καθυστέρηση",1,2,"15-35",3,"0-100",2,2,"autoeksetasi_orxewn",0,1);
 
 		//Καρκίνος του Προστάτη*
 		addCancer(db,"Καρκίνος του Προστάτη","Εντοπίζεται σε νεαρές ηλικίες και θεραπεύεται εύκολα και για πάντα όταν εντοπίζεται έγκαιρα. \r\nΗ μηνιαία αυτοεξέταση μπορεί να σας σώσει. \r\nΗ κρυψορχία και κληρονομικότητα αποτελούν πιθανούς παράγοντες κινδύνου","cancer_prostatis");
@@ -114,7 +109,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		
 		//κλονοσκόπηση όταν υπάρχει οικογενεικό ιστορικό 
 		
-		addExamination(db,"Κολονοσλόπηση","Αν έχετε συγγενή 1ου βαθμού με καρκίνο του παχέος εντέρου θα πρέπει να εξεταστείτε, κάνοντας κολονοσκόπηση, 10-15 χρόνια πριν την ηλικία που είχε διαγνωσθεί",0,2,"25-50",3,"0-100",1,2,"-",2,1);
+		addExamination(db,"Κολονοσκόπηση","Αν έχετε συγγενή 1ου βαθμού με καρκίνο του παχέος εντέρου θα πρέπει να εξεταστείτε, κάνοντας κολονοσκόπηση, 10-15 χρόνια πριν την ηλικία που είχε διαγνωσθεί",0,2,"25-50",3,"0-100",1,2,"-",2,1);
 		addExamination(db,"Συμβουλευτείτε ένα γαστρεντερολόγο","Αν έχετε συμπτώματα που πρωτοεμφανίζονται, αλλαγές στις εντερικές σας συνήθειες  και διαρκούν 3-4 εβδομάδες ή έχετε το ακόλουθο ιστορικό συμβουλευτείτε ένα γαστρεντερολόγο. \r\nΑιμορραγία από τον πρωκτό \r\nΑναιμία και αίσθηση κούρασης \r\nΠόνος ή συνεχιζόμενη δυσφορία \r\nΕλκώδη κολίτιδα",0,2,"35-55",3,"0-100",2,2,"-",2,1);
 	
 		addExamination(db,"Κολονοσκόπηση ή ανάλυση κοπράνων","Είτε έχετε συμπτώματα είτε όχι υποβληθείτε σε μία κολονοσκόπηση ή ανάλυση κοπράνων.\r\nΕξετάσεις που μπορεί να κάνει ο γιατρός: \r\nΔακτυλική εξέταση στο έντερο \r\nΕξέταση αίματος για αναιμία \r\nΆκαμπτη/Εύκαμπτη Σιγμοειδοσκόπηση \r\nΚολονοσκόπηση \r\n Αξονική τομογραφία-εντερογραφία \r\nΓια γυναίκες και άνδρες ηλικίας 50-69 ετών γίνονται αναλύσεις κοπράνων δωρεάν, στα πλαίσια του προγράμματος πληθυσμιακού ελέγχου του Υπουργείου Υγείας, σε κοινότητες της Επαρχίας Λάρνακας. Εάν η ανάλυση είναι θετική ακολουθεί παραπομπή για κολονοσκόπηση για περαιτέρω διερεύνηση. Η πρόσκληση αποστέλλεται ταχυδρομικώς. Αν δεν έχετε ανταποκριθεί ακόμα δράστε.",0,2,"50-65",3,"0-100",2,2,"-",2,1);
@@ -127,7 +122,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 		
 		//Ισορροπημένη διατροφή
-		addExamination(db,"Ισορροπημένη διατροφή", "Ακολούθησε τις πιο κάτω συμβουλές",0,2,"0-120-35",3,"0-100",2,2,"diatrofi",2,0);
+		addExamination(db,"Ισορροπημένη διατροφή", "Ακολούθησε τις πιο κάτω συμβουλές",0,2,"0-120",3,"0-100",2,2,"diatrofi",2,0);
 
 	}
 
@@ -142,19 +137,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		// Inserting Row
 		db.insert("CANCER", null, values);
 		Log.d("SCC - addCancer", "Added cancer: " + name);
-		// db.close(); // Closing database connection
-
-		/*if (relatedExams != null)
-			addCancerRelatedExams(db, name, relatedExams);
-
-		if (relatedPreventions != null)
-			addCancerRelatedPreventions(db, name, relatedPreventions);*/
+		
 	}
 
 	private void addCancerRelatedExams(SQLiteDatabase db, String name,
 			String[] relatedExams) {
-		// SQLiteDatabase db2 = this.getReadableDatabase();
-		// find the cancer just added
+	
 		String query = new String(
 				"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name + "'");
 		Cursor c = db.rawQuery(query, null);
@@ -192,44 +180,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				+ cid);
 	}
 
-	/*private void addCancerRelatedPreventions(SQLiteDatabase db, String name,
-			String[] relatedPreventions) {
-		// find the cancer just added
-		String query = new String(
-				"SELECT ID_cancer FROM CANCER WHERE cancer_name='" + name + "'");
-		Cursor c = db.rawQuery(query, null);
-		if (c.moveToFirst()) {
-			for (String i : relatedPreventions) {
-				// find related exam's id
-				query = new String(
-						"SELECT ID_prevention FROM PREVENTION WHERE prevention_name='"
-								+ i + "'");
-				Cursor c2 = db.rawQuery(query, null);
-				if (c2.moveToFirst()) {
-					// add entry to CANCER_PREVENTION table
-					addCancerPrevention(db, c.getInt(0), c2.getInt(0));
-				} else {
-					// add prevention
-					addPrevention(db,i,null,null);
-					addCancerRelatedPreventions(db, name, new String[]{i});
-					Log.d("SCC - addCancer", "Added related prevention: "
-							+ i);
-				}
-			}
-			// db2.close();
-		}
-	}*/
 
-/* void addCancerPrevention(SQLiteDatabase db, int cid, int pid) {
-		ContentValues values = new ContentValues();
-		values.put("ID_cancer", cid);
-		values.put("ID_prevention", pid);
-
-		// Inserting Row
-		db.insert("CANCER_PREVENTION", null, values);
-		Log.d("SCC - addCancer", "Added prevention-cancer rel: " + pid + "-"
-				+ cid);
-	}*/
 
 	public void addPrevention(SQLiteDatabase db, String name,
 			String description, String img) {
@@ -254,7 +205,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 			db.insert("PREVENTION", null, values);
 			Log.d("SCC - addPrevention", "Added prevention: " + name);
 		}
-		// db.close(); // Closing database connection
+		
 	}
 
 	public void addExamination(SQLiteDatabase db, String name) {
@@ -386,22 +337,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	}
 	
 	
-	/*public ArrayList<Exam> getExamObjects() {
-		SQLiteDatabase db = this.getReadableDatabase();
-		ArrayList<Exam> names = new ArrayList<Exam>();
-		String getNamesQuery = new String(
-				"SELECT * FROM EXAMINATION WHERE examination_type=1;");
-		Cursor c = db.rawQuery(getNamesQuery, null);
-		if (c.moveToFirst()) {
-			do {
-				names.add(((DatabaseManager) c).getExam(0));
-			} while (c.moveToNext());
-			db.close();
-			return names;
-		} else
-			db.close();
-		return null;
-	}*/
+	
 
 	public ArrayList<String> getPreventionNames() {
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -468,7 +404,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		if (c.moveToFirst()) {
 			exams.add(new Exam(eID,c.getString(1), c.getString(5), c.getInt(7), c
 					.getInt(9), c.getString(6), c.getInt(11), c.getInt(8), c
-					.getInt(4), c.getString(2), c.getString(10), c.getInt(3)));
+					.getInt(4), c.getString(2), c.getString(10), c.getInt(3),c.getInt(10)));
 			db.close();
 			return exams;
 		} else {
@@ -487,7 +423,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		if (c.moveToFirst()) {
 			exams.add(new Exam(pID,c.getString(1), c.getString(5), c.getInt(7), c
 					.getInt(9), c.getString(6), c.getInt(11), c.getInt(8), c
-					.getInt(4), c.getString(2), c.getString(10), c.getInt(3)));
+					.getInt(4), c.getString(2), c.getString(10), c.getInt(3),c.getInt(10)));
 			db.close();
 			return exams;
 		} else {
@@ -507,7 +443,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 				exams.add(new Exam(c.getInt(0),c.getString(1), c.getString(5), c.getInt(7),
 						c.getInt(9), c.getString(6), c.getInt(11), c.getInt(8),
 						c.getInt(4), c.getString(2), c.getString(10), c
-								.getInt(3)));
+								.getInt(3),c.getInt(10)));
 			} while (c.moveToNext());
 			return exams;
 		} else {
@@ -529,7 +465,7 @@ public ArrayList<Exam> getAllPrev() {
 			exams.add(new Exam(c.getInt(0),c.getString(1), c.getString(5), c.getInt(7),
 					c.getInt(9), c.getString(6), c.getInt(11), c.getInt(8),
 					c.getInt(4), c.getString(2), c.getString(10), c
-							.getInt(3)));
+							.getInt(3),c.getInt(10)));
 		} while (c.moveToNext());
 		return exams;
 	} else {
@@ -549,7 +485,7 @@ public ArrayList<Exam> getAllPrevExams() {
 			exams.add(new Exam(c.getInt(0),c.getString(1), c.getString(5), c.getInt(7),
 					c.getInt(9), c.getString(6), c.getInt(11), c.getInt(8),
 					c.getInt(4), c.getString(2), c.getString(10), c
-							.getInt(3)));
+							.getInt(3),c.getInt(10)));
 		} while (c.moveToNext());
 		return exams;
 	} else {

@@ -27,8 +27,9 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
     </select>
     <input type="submit" value="Διαγραφή" name="deleteCancer"/>
 </form>
+    <br />
 <form accept-charset="utf-8" action="" method="post" id="deleteC">
-    Διαγραφή Εξέτασης:<br/>
+    Διαγραφή Εξέτασης / Τρόπου Πρόληψης:<br/>
     <select name='EXAMINATION'>
         <?php
         include 'connection.php';
@@ -79,7 +80,7 @@ if(isset($_POST['EXAMINATION']))
         $split = explode(".",$_POST['EXAMINATION'],2);
         mysql_select_db("stopcancercyprus", $con);
         mysql_set_charset('utf8', $con);
-        $select_query = "UPDATE EXAMINATION SET Deleted=1 WHERE ID_Examination=".$split[0];
+        $select_query = "UPDATE EXAMINATION SET Deleted=1 WHERE ID_exam=".$split[0];
         $res = mysql_query($select_query, $con);
         if($res)
         {

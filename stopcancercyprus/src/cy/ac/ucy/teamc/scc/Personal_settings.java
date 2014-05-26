@@ -15,17 +15,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class Personal_settings extends Activity {
 	
-	public final static String EXTRA_NAME = "cy.ac.ucy.teamc.scc.MESSAGE";
-	public final static String EXTRA_DESCRIPTION = "cy.ac.ucy.teamc.scc..MESSAGE";
-	public final static String EXTRA_IMAGE_NAME= "cy.ac.ucy.teamc.scc.MESSAGE";
-	public final static String EXTRA_FREQUENCY= "cy.ac.ucy.teamc.scc.MESSAGE";
-	Button checkSubmition;
-	Button recreate;
+	
+	ImageButton checkSubmition;
+	ImageButton recreate;
 	TextView displaySubmit;
 	EditText Tweight;
 	EditText Theight;
@@ -45,7 +43,7 @@ public class Personal_settings extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
-		exams=db.getAllExams();
+		exams=db.getAllPrevExams();
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.personal_settings);
@@ -92,16 +90,13 @@ public class Personal_settings extends Activity {
 								int age=curyear-dpResult.getYear();
 								int year_of_birth=dpResult.getYear();
 								
+								
 								 final Spinner selectsmoke = (Spinner) findViewById(R.id.selectSmoke);
 								 final Spinner selectGender = (Spinner) findViewById(R.id.selectGender);
 								 final Spinner selectalcoholic = (Spinner) findViewById(R.id.selectAlcohol);
 								 final Spinner selectPreposission = (Spinner) findViewById(R.id.selectPreposission);
 								 final Spinner selectSexualSituation = (Spinner) findViewById(R.id.selectSexualSituation);
-							
-								 
-								 
-								 
-								 
+								
 								 int smoker= selectsmoke.getSelectedItemPosition();
 								 int Gender= selectGender.getSelectedItemPosition();
 								 int alcoholic= selectalcoholic.getSelectedItemPosition();
@@ -111,7 +106,7 @@ public class Personal_settings extends Activity {
 								displaySubmit.setText("Τα δεδομένα εισάχθηκαν με επιτυχία!");
 								
 								displaySubmit.setTextColor(Color.GREEN);
-								ArrayList<Exam> 		selected_exams= new ArrayList<Exam>();
+								ArrayList<Exam> selected_exams= new ArrayList<Exam>();
 								
 								selected_exams=informUser(age,smoker, Gender,maza_somatos,alcoholic,Preposission,SexualSituation);
 								
@@ -119,7 +114,8 @@ public class Personal_settings extends Activity {
 								//create the file with the user's info
 								SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 								Editor edit=s_pref.edit();
-								
+								edit.putInt("notifActive",0);
+							
 								edit.putInt("year_of_birth",year_of_birth);
 								edit.putInt("smoker",smoker);
 								edit.putInt("Gender",Gender);
@@ -137,7 +133,7 @@ public class Personal_settings extends Activity {
 								edit.commit();
 								
 								float input_maza_somatos=s_pref.getFloat("maza_somatos",(float) 0.0);
-								Log.e("antoniaaaanum", ""+num);
+								
 								
 								
 								
@@ -147,17 +143,20 @@ public class Personal_settings extends Activity {
 								{
 									
 									try{
+										Class ourClass = Class.forName("cy.ac.ucy.teamc.scc.PersonalInformNotFirstTime");
 										
+
+										Log.e("call PersonalInformNotFirstTime","in pers settings");
 										
 										Intent passIntent = new Intent();
-										passIntent.setClass(Personal_settings.this, Personal_information.class);
+										passIntent.setClass(Personal_settings.this, ourClass);
 										
 										// Create a Bundle and Put Bundle in to it
-										Bundle bundleObject = new Bundle();
-										bundleObject.putSerializable("EXTRA_ARRAY", selected_exams);
+										//Bundle bundleObject = new Bundle();
+										//bundleObject.putSerializable("EXTRA_ARRAY", selected_exams);
 										                 
 										// Put Bundle in to Intent and call start Activity
-										passIntent.putExtras(bundleObject);
+										//passIntent.putExtras(bundleObject);
 										startActivity(passIntent);
 										
 						
@@ -210,51 +209,50 @@ public class Personal_settings extends Activity {
 			
 
 	//Inform personal the user about the exams that he/she should do
-		public ArrayList<Exam> informUser(int age,int smoker, int gender,float deiktis_mazas_somatos,int alcoholic,int preposission, int sexual_situation)
-		{
-			 ArrayList<Exam> selected_exams_array = new ArrayList<Exam>();
-			
-			
-			for(int i=0;i<exams.size();i++)
+			public ArrayList<Exam> informUser(int age,int smoker, int gender,float deiktis_mazas_somatos,int alcoholic,int preposission, int sexual_situation)
 			{
-				if(exams.get(i)!=null)
+				 ArrayList<Exam> selected_exams_array = new ArrayList<Exam>();
+				
+				
+				for(int i=0;i<exams.size();i++)
 				{
-					//exams.get(i).id
-					int start_age = 0,end_age = 0,start_deiktis_mazas = 0,end_deiktis_mazas = 0,smoker_in,gender_in,alcoholic_in,prepos_in,sexual_situation_in;
-					Log.e("this2",""+exams.get(i).get_name());
-					// get age range (split)
-					if(exams.get(i).get_age_range()!=null){
-					String  age_range=exams.get(i).get_age_range();
-					String [] age_r=age_range.split("-");
-					start_age=Integer.parseInt(age_r[0]);
-					end_age=Integer.parseInt(age_r[1]);
-					}
-					
-					//get deiktis mazas somatos (split)
-					if(exams.get(i).get_deiktis_mazas_range()!=null){
-					String  deiktis_mazas_range=exams.get(i).get_deiktis_mazas_range();
-					String [] deiktis_mazas=deiktis_mazas_range.split("-");
-					start_deiktis_mazas=Integer.parseInt(deiktis_mazas[0]);
-					end_deiktis_mazas=Integer.parseInt(deiktis_mazas[1]);
-					}
-					
-					
-					smoker_in=(exams.get(i).get_smoker());
-					gender_in=(exams.get(i).get_gender());
-					alcoholic_in=(exams.get(i).get_alcohol());
-					prepos_in=(exams.get(i).get_inheritance());
-					sexual_situation_in=(exams.get(i).get_SexualSituation());
-					
-					
-					if(deiktis_mazas_somatos>=start_deiktis_mazas && deiktis_mazas_somatos<=end_deiktis_mazas && age>=start_age && age<=end_age && (smoker_in==3 ||smoker_in==smoker) && (gender_in==2 || gender_in==gender) && (sexual_situation_in==2 || sexual_situation_in==sexual_situation) && (alcoholic_in==2 || alcoholic_in==alcoholic) && (prepos_in==2 || prepos_in==preposission))
+					if(exams.get(i)!=null)
 					{
-						selected_exams_array.add(exams.get(i));
+						//exams.get(i).id
+						int start_age = 0,end_age = 0,start_deiktis_mazas = 0,end_deiktis_mazas = 0,smoker_in,gender_in,alcoholic_in,prepos_in,sexual_situation_in;
+						Log.e("this2",""+exams.get(i).get_name());
+						// get age range (split)
+						if(exams.get(i).get_age_range()!=null){
+						String  age_range=exams.get(i).get_age_range();
+						String [] age_r=age_range.split("-");
+						start_age=Integer.parseInt(age_r[0]);
+						end_age=Integer.parseInt(age_r[1]);
+						}
 						
+						//get deiktis mazas somatos (split)
+						if(exams.get(i).get_deiktis_mazas_range()!=null){
+						String  deiktis_mazas_range=exams.get(i).get_deiktis_mazas_range();
+						String [] deiktis_mazas=deiktis_mazas_range.split("-");
+						start_deiktis_mazas=Integer.parseInt(deiktis_mazas[0]);
+						end_deiktis_mazas=Integer.parseInt(deiktis_mazas[1]);
+						}
+						
+						
+						smoker_in=(exams.get(i).get_smoker());
+						gender_in=(exams.get(i).get_gender());
+						alcoholic_in=(exams.get(i).get_alcohol());
+						prepos_in=(exams.get(i).get_inheritance());
+						sexual_situation_in=(exams.get(i).get_SexualSituation());
+						
+						
+						if(deiktis_mazas_somatos>=start_deiktis_mazas && deiktis_mazas_somatos<=end_deiktis_mazas && age>=start_age && age<=end_age && (smoker_in==3 ||smoker_in==smoker) && (gender_in==2 || gender_in==gender) && (sexual_situation_in==2 || sexual_situation_in==sexual_situation) && (alcoholic_in==2 || alcoholic_in==alcoholic) && (prepos_in==2 || prepos_in==preposission))
+						{
+							selected_exams_array.add(exams.get(i));
+							
+						}
 					}
-				}
-			} return selected_exams_array;
-		} 
-
+				} return selected_exams_array;
+			} 
 
 	
 	
@@ -281,8 +279,8 @@ public class Personal_settings extends Activity {
 
 	private void createAllObjects() {
 		// TODO Auto-generated method stub
-		checkSubmition = (Button) findViewById(R.id.Bsubmit);
-		recreate = (Button) findViewById(R.id.Brecreate);
+		checkSubmition = (ImageButton) findViewById(R.id.Bsubmit);
+		recreate = (ImageButton) findViewById(R.id.Brecreate);
 		displaySubmit = (TextView) findViewById(R.id.msgSubmit);
 		Tweight = (EditText) findViewById(R.id.CommandWeight);
 		Theight=(EditText) findViewById(R.id.CommandHeigh);

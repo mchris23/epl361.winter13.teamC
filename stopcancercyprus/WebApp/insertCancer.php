@@ -20,9 +20,10 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
     <form accept-charset="utf-8" action="" method="post" id="insertC">
         <p>Όνομα Καρκίνου:  <input name="cName" type="text" value="<?php newtext('cName')?>"/></p>
         <p>Περιγραφή: </p>
-        <p><textarea cols="40" rows="5" name="cDescr" wrap="virtual" value="<?php newtext('cDescr')?>"></textarea></p>
+        <p><textarea cols="40" rows="5" name="cDescr" wrap="virtual"><?php newtext('cDescr')?></textarea></p>
         <input type="button" onclick="clearForm()" value="Καθαρισμός">
-        <input name="submitCancer" type="submit" value="Αποθήκευση"  /></form>
+        <input name="submitCancer" type="submit" value="Αποθήκευση"  />
+    </form>
 </div>
 <script>
     function clearForm(){
@@ -30,7 +31,7 @@ if(!isset($_SESSION['user']) || $_SESSION['user']!=1){
     }
 </script>
 <?php
-if(isset($_POST['cName']) && isset($_POST['cDescr']) && (!isset($_POST['cUpdate']) || ($_POST['cUpdate'==0])))
+if(isset($_POST['cName']) && isset($_POST['cDescr']) && !isset($_SESSION['cUpdate']))
 {
     if($_POST['cName']!="" && $_POST['cDescr']!=""){
         $con = mysql_connect("localhost","stopcancercyprus","zx&w&tin");
@@ -59,9 +60,9 @@ if(isset($_POST['cName']) && isset($_POST['cDescr']) && (!isset($_POST['cUpdate'
     else
         echo '<script type="text/javascript">alert("Πρέπει να συμπληρώσετε όλα τα πεδία για να προχωρήσετε!");</script>';
 }
-elseif(isset($_POST['cName']) && isset($_POST['cDescr']) && isset($_POST['cUpdate']) && ($_POST['cUpdate'==1]))
+elseif(isset($_POST['cName']) && isset($_POST['cDescr']) && isset($_SESSION['cUpdate']) && ($_SESSION['cUpdate']==1))
 {
-    unset($_POST['cUpdate']);
+    unset($_SESSION['cUpdate']);
     if($_POST['cName']!="" && $_POST['cDescr']!=""){
         $con = mysql_connect("localhost","stopcancercyprus","zx&w&tin");
         if(!$con)
@@ -92,11 +93,12 @@ elseif(isset($_POST['cName']) && isset($_POST['cDescr']) && isset($_POST['cUpdat
 
 function newtext($name)
 {
-    if(isset($_POST['cUpdate']) && ($_POST['cUpdate']==1))
+    if(isset($_SESSION['cUpdate']) && ($_SESSION['cUpdate']==1))
         echo $_SESSION[$name];
     else
         echo "";
 }
+
 
 ?>
 </body>

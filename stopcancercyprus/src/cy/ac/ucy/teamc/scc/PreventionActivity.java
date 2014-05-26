@@ -28,23 +28,18 @@ public class PreventionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		Bundle b = getIntent().getExtras();
 		int id = b.getInt("position");
-		Log.e("position", ""+id);
 		
 		
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
 		allexams = db.getAllPrev();
 		int y=allexams.size();
-		Log.e("***allexams",""+allexams.size());
-		Log.e("***allexams1",""+allexams.get(0).get_id());
-		Log.e("***allexams2",""+allexams.get(y-1).get_id());
+		
 		
 		for(int i=0; i<allexams.size();i++){
 			
-			Log.e("***"+i,"**"+allexams.get(i).get_id());
-			Log.e("***id","**"+id);
+			
 			if(i==id)
 			{
-				Log.e("***allexamsin if","alll");
 				cNameDescr.add(allexams.get(i));
 		
 			}
@@ -63,11 +58,8 @@ public class PreventionActivity extends Activity {
         
         int checkExistence = getResources().getIdentifier(img_name, "drawable","cy.ac.ucy.teamc.scc");
         boolean result;
-        Log.e("IAM hereeeeeeeee 2","");
-        
-        
+       
         if ( checkExistence != 0 ) {  // the resource exists...
-        	Log.e("IAM hereeeeeeeee 3","");
         	result = true;
             final String image_id_str = String.valueOf(checkExistence);
             ImageButton Bimage = new ImageButton(this);

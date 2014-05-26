@@ -29,7 +29,7 @@
         <requestFocus />
         <ImageButton
              android:id="@+id/BpersonalInfo"
-            android:layout_width="250dp"  
+            android:layout_width="300dp"  
 			android:layout_height="90dp"  
 			android:scaleType="fitCenter"
 			android:adjustViewBounds="true"
@@ -52,7 +52,7 @@
       <requestFocus />
         <ImageButton
              android:id="@+id/Bnotification"
-            android:layout_width="250dp"  
+            android:layout_width="300dp"  
 			android:layout_height="90dp"  
 			android:scaleType="fitCenter"
 			android:adjustViewBounds="true"

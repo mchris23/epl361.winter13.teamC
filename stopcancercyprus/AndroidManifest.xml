@@ -4,6 +4,10 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
 
@@ -16,6 +20,15 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="cy.ac.ucy.teamc.scc.SecondActivity" />
+
+        <service android:name="cy.ac.ucy.teamc.scc.ScheduleService" />
+        <service android:name="cy.ac.ucy.teamc.scc.NotifyService" />
+
         <activity
             android:name="cy.ac.ucy.teamc.scc.Intro"
             android:label="@string/app_name" >
@@ -50,7 +63,7 @@
             android:name="cy.ac.ucy.teamc.scc.ActivityList"
             android:label="@string/app_name" >
         </activity>
-         <activity
+        <activity
             android:name="cy.ac.ucy.teamc.scc.ShowForFirstTime"
             android:label="@string/app_name" >
         </activity>
@@ -64,6 +77,10 @@
         </activity>
         <activity
             android:name="cy.ac.ucy.teamc.scc.Cancer"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.NotificationDetailsActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -157,6 +174,22 @@
         <activity
             android:name="cy.ac.ucy.teamc.scc.ShowNotForFirstTimeRelatedExams"
             android:label="@string/title_activity_show_not_for_first_time_related_exams" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.AskForRemeberExam"
+            android:label="@string/title_activity_ask_for_remeber_exam" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.ThreadSleeep"
+            android:label="@string/title_activity_thread_sleeep" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.AndroidThreadNotification"
+            android:label="@string/title_activity_android_thread_notification" >
+        </activity>
+        <activity
+            android:name="cy.ac.ucy.teamc.scc.Ralize_notification"
+            android:label="@string/title_activity_ralize_notification" >
         </activity>
     </application>
 
