@@ -74,6 +74,7 @@
                 android:weightSum="100" >
                 <DatePicker
         	android:id="@+id/dpResult"
+        	android:calendarViewShown="false"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content" />
 

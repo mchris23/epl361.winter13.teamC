@@ -1,23 +1,14 @@
 package cy.ac.ucy.teamc.scc;
 
-import java.sql.Date;
 import java.util.Calendar;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
+
+import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.graphics.Color;
-import android.widget.EditText;
 public class AskForRemeberExam extends ActivityNotification {
 
 	 static final int DATE_DIALOG_ID = 999;
@@ -30,7 +21,6 @@ public class AskForRemeberExam extends ActivityNotification {
 		private int day1;
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
-			Log.e("SecondActivity","SecondActivity");
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_ask_for_remeber_exam);
 			final String data=getIntent().getExtras().getString(NOTIFICATION_DATA);

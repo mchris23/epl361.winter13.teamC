@@ -4,18 +4,15 @@ package cy.ac.ucy.teamc.scc;
 import java.util.ArrayList;
 
 import android.R.color;
-import android.os.Build;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.util.Log;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -23,7 +20,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class Personal_information extends Activity {
 
@@ -36,6 +32,13 @@ public class Personal_information extends Activity {
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
 		exams=db.getAllPrevExams();
 		
+
+		
+	
+		
+		
+		
+		
 	ArrayList<Exam> list = new ArrayList<Exam>();
 	
 	
@@ -44,14 +47,24 @@ public class Personal_information extends Activity {
 	//the related exams of the exam
 			int input_exam;
 			int input_num_of_exmas=s_pref.getInt("num_of_exam",9999999);
-			Log.e("antoniaaainput_num_of_exmas", ""+input_num_of_exmas);
 			for(int i=0;i<input_num_of_exmas;i++)
 				{
 				
 				input_exam=s_pref.getInt("exam"+i,99999);
-				Exam current=exams.get(input_exam-1);
-				list.add(current);
-				Log.e("antonia2aaexam", ""+input_exam);
+
+				for(int J=0; J<exams.size();J++){
+					
+					
+					if(exams.get(J).id==input_exam)
+					{
+						
+						
+						Exam current=exams.get(J);
+						list.add(current);
+				
+					}
+				}
+				
 				
 				
 				
@@ -72,7 +85,6 @@ public class Personal_information extends Activity {
     	    String description =  list.get(i).get_description();
     	    String img_name = list.get(i).get_image_name();
     	    int freq =   list.get(i).get_frequency();
-        Log.e("freq"+name,""+freq);
         
         // add text view for the name of the exam
         EditText tv_name = new EditText(this);

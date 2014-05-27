@@ -2,13 +2,11 @@ package cy.ac.ucy.teamc.scc;
 
 import java.util.ArrayList;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
-import android.view.Menu;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 public class ShowForFirstTime extends Activity {
 	ArrayList<Exam> exams;

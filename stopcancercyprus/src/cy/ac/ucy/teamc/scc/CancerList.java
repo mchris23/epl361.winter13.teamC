@@ -13,15 +13,16 @@ import android.widget.ListView;
 
 public class CancerList extends ListActivity {
 	
-
-
+	ArrayList<String> listOfChoices;
+	ArrayList<Cancer> listCancers;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-		ArrayList<String> listOfChoices = db.getCancerNames();
+		listOfChoices = db.getCancerNames();
+		listCancers = db.getAllCancers();
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, listOfChoices));
 
@@ -36,7 +37,8 @@ public class CancerList extends ListActivity {
 						.forName("cy.ac.ucy.teamc.scc.CancerActivity");
 				Intent ourIntent = new Intent(CancerList.this, ourClass);
 				Bundle b = new Bundle();
-				b.putInt("position", position); //Your id
+				int idCancer = listCancers.get(position).id;
+				b.putInt("position", idCancer); //Your id
 				ourIntent.putExtras(b); //Put your id to your next Intent
 				startActivity(ourIntent);
 			} catch (ClassNotFoundException e) {

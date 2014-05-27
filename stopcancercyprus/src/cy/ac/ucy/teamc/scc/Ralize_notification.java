@@ -3,12 +3,9 @@ package cy.ac.ucy.teamc.scc;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -26,7 +23,6 @@ TextView text1;
 ToggleButton toggleButton;
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-	Log.e("inRalize_notification","Ralize_notification");
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.activity_ralize_notification);
 	
@@ -62,7 +58,6 @@ protected void onCreate(Bundle savedInstanceState) {
 								break;
 							}
 						}
-					Log.e("frequency",""+freq);	
 				if(freq!=0)
 				{
 					 Calendar today = Calendar.getInstance();
