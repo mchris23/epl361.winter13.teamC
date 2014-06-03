@@ -17,7 +17,9 @@ public class Intro extends Activity{
 		ourSong=MediaPlayer.create(Intro.this, R.raw.my_music2);
 		
 		DatabaseManager db = DatabaseManager.getHelper(getApplicationContext());
-		db.addData();
+		DatabaseUpdate customTask = new DatabaseUpdate();
+	    AsyncTaskExecutionHelper.executeParallel(customTask,getApplicationContext());
+		//db.addData();
 		
 		AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
 		//sound won't play if device is in silent mode

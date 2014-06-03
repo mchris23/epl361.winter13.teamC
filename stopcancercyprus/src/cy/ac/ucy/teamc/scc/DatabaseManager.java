@@ -263,10 +263,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		}
 	}
 
-	public void addData() {
+	public void addData(Object u) {
 		SQLiteDatabase db = instance.getWritableDatabase();
-		Object u = null;
-		u = new DatabaseUpdate().doInBackground((Object) c);
+		//Object u = null;
+		//u = new DatabaseUpdate().doInBackground((Object) c);
 		if (u == null)
 			return;
 		else {

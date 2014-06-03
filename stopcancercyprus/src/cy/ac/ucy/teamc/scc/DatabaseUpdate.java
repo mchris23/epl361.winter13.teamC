@@ -14,6 +14,8 @@ import android.os.AsyncTask;
 @SuppressWarnings("rawtypes")
 public class DatabaseUpdate extends AsyncTask {
 
+	private Context c;
+	
 	public JSONArray getInternetCancers(Context c) throws Exception {
 
 		String timeStamp = WriteTimestamp.readTime(c);
@@ -59,26 +61,32 @@ public class DatabaseUpdate extends AsyncTask {
 	@Override
 	protected Object doInBackground(Object... arg0) {
 		// TODO Auto-generated method stub
+		c = (Context) arg0[0];
 		JSONArray[] ret = new JSONArray[2];
 		ret[0] = null;
 		ret[1] = null;
 		try {
-			ret[0] = getInternetCancers((Context) arg0[0]);
+			ret[0] = getInternetCancers(c);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ret[0] = null;
 		}
 		try {
-			ret[1] = getInternetExams((Context) arg0[0]);
+			ret[1] = getInternetExams(c);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ret[1] = null;
 		}
 		if (ret[0] != null || ret[1] != null)
 			// write timestamp only if something was updated, in case of errors
-			WriteTimestamp.writeCurrentTime((Context) arg0[0]);
+			WriteTimestamp.writeCurrentTime(c);
 		
 		return ret;
+	}
+	
+	@Override
+	protected void onPostExecute(Object tables){
+		DatabaseManager.getHelper(c).addData(tables);
 	}
 
 }
