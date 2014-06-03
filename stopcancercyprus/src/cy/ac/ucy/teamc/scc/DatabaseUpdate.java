@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Timestamp;
 
 import org.json.JSONArray;
 
@@ -21,7 +20,7 @@ public class DatabaseUpdate extends AsyncTask {
 
 		String timeStamp = WriteTimestamp.readTime(c);
 		URL url = new URL(
-				"http://cproject.in.cs.ucy.ac.cy/stopcancercyprus/api/getCancers.php?udate="+timeStamp);
+				"http://apps.cs.ucy.ac.cy/stopcancercyprus/api/getCancers.php?udate="+timeStamp);
 		URLConnection urlConnection = url.openConnection();
 		InputStream o = urlConnection.getInputStream();
 		BufferedReader in = new BufferedReader(new InputStreamReader(o));
@@ -41,7 +40,7 @@ public class DatabaseUpdate extends AsyncTask {
 		String timeStamp = WriteTimestamp.readTime(c);
 
 		URL url = new URL(
-				"http://cproject.in.cs.ucy.ac.cy/stopcancercyprus/api/getExams.php?udate="+timeStamp);
+				"http://apps.cs.ucy.ac.cy/stopcancercyprus/api/getExams.php?udate="+timeStamp);
 		URLConnection urlConnection = url.openConnection();
 		InputStream o = urlConnection.getInputStream();
 		BufferedReader in = new BufferedReader(new InputStreamReader(o));
