@@ -14,13 +14,12 @@ import android.os.AsyncTask;
 @SuppressWarnings("rawtypes")
 public class DatabaseUpdate extends AsyncTask {
 
-	
-	
 	public JSONArray getInternetCancers(Context c) throws Exception {
 
 		String timeStamp = WriteTimestamp.readTime(c);
 		URL url = new URL(
-				"http://apps.cs.ucy.ac.cy/stopcancercyprus/api/getCancers.php?udate="+timeStamp);
+				"http://apps.cs.ucy.ac.cy/stopcancercyprus/api/getCancers.php?udate="
+						+ timeStamp);
 		URLConnection urlConnection = url.openConnection();
 		InputStream o = urlConnection.getInputStream();
 		BufferedReader in = new BufferedReader(new InputStreamReader(o));
@@ -35,12 +34,13 @@ public class DatabaseUpdate extends AsyncTask {
 		JSONArray jArray = new JSONArray(data);
 		return jArray;
 	}
-	
+
 	public JSONArray getInternetExams(Context c) throws Exception {
 		String timeStamp = WriteTimestamp.readTime(c);
 
 		URL url = new URL(
-				"http://apps.cs.ucy.ac.cy/stopcancercyprus/api/getExams.php?udate="+timeStamp);
+				"http://apps.cs.ucy.ac.cy/stopcancercyprus/api/getExams.php?udate="
+						+ timeStamp);
 		URLConnection urlConnection = url.openConnection();
 		InputStream o = urlConnection.getInputStream();
 		BufferedReader in = new BufferedReader(new InputStreamReader(o));
@@ -56,21 +56,28 @@ public class DatabaseUpdate extends AsyncTask {
 		return jArray;
 	}
 
-	
 	@Override
 	protected Object doInBackground(Object... arg0) {
 		// TODO Auto-generated method stub
 		JSONArray[] ret = new JSONArray[2];
-		ret[0]=null;
-		ret[1]=null;
+		ret[0] = null;
+		ret[1] = null;
 		try {
-			ret[0] = getInternetCancers((Context)arg0[0]);
-			ret[1] = getInternetExams((Context)arg0[0]);
-			WriteTimestamp.writeCurrentTime((Context)arg0[0]);
+			ret[0] = getInternetCancers((Context) arg0[0]);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			ret[0] = null;
 		}
+		try {
+			ret[1] = getInternetExams((Context) arg0[0]);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret[1] = null;
+		}
+		if (ret[0] != null || ret[1] != null)
+			// write timestamp only if something was updated, in case of errors
+			WriteTimestamp.writeCurrentTime((Context) arg0[0]);
+		
 		return ret;
 	}
 
