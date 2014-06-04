@@ -2,6 +2,7 @@ package cy.ac.ucy.teamc.scc;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.R.color;
 import android.annotation.SuppressLint;
@@ -9,6 +10,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,8 +33,52 @@ public class Personal_information extends Activity {
 	
 		DatabaseManager db =DatabaseManager.getHelper(getApplicationContext());
 		exams=db.getAllPrevExams();
+		int curyear = Calendar.getInstance().get(Calendar.YEAR);
 		
+		///
+	//check if the user has already gives his personal data
+		
+		SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		
+		//the related exams of the exam
+			
+				int input_num_of_exmas2=s_pref.getInt("num_of_exam",9999999);
+				
+				if(input_num_of_exmas2!=9999999)
+				{
+					Editor edit = s_pref.edit();
+					//delete the exams from the file
+					
+						for (int i = 0; i < input_num_of_exmas2; i++)
+							edit.remove("exam" + i);
+				}				
+					//call the inform user from personalinform
+						int year_of_birth=s_pref.getInt("year_of_birth",2014);
+						int smoker=s_pref.getInt("smoker", 3);
+						int Gender=s_pref.getInt("Gender", 0);
+						int alcoholic=s_pref.getInt("alcoholic", 0);
+						int Preposission=s_pref.getInt("Preposission", 0);
+						int SexualSituation=s_pref.getInt("SexualSituation", 0);
+						float maza_somatos=s_pref.getFloat("maza_somatos", 0);
+						
+						int age = curyear - year_of_birth;
+						ArrayList<Exam> selected_exams = new ArrayList<Exam>();
 
+						selected_exams = informUser(age, smoker, Gender,
+								maza_somatos, alcoholic, Preposission,
+								SexualSituation);
+						
+						Editor edit = s_pref.edit();
+						int num = selected_exams.size();
+						edit.putInt("num_of_exam", num);
+						if (!selected_exams.isEmpty())
+							for (int i = 0; i < selected_exams.size(); i++)
+								edit.putInt("exam" + i, selected_exams.get(i)
+										.get_id());
+
+						edit.commit();
+						
+						///
 		
 	
 		
@@ -42,7 +88,6 @@ public class Personal_information extends Activity {
 	ArrayList<Exam> list = new ArrayList<Exam>();
 	
 	
-	SharedPreferences s_pref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	
 	//the related exams of the exam
 			int input_exam;
@@ -103,8 +148,7 @@ public class Personal_information extends Activity {
         {String frequency =   Integer.toString(list.get(i).get_frequency());
 	     // add text view for the frequency of the exam
 	        EditText tv_freq = new EditText(this);
-	        tv_freq.setText("Συχνότητα διεξαγωγής της εξέτασης: κάθε "+frequency+" μήνες.");
-	        tv_freq.setBackgroundColor(color.holo_green_light);
+	        tv_freq.setText("Συχνότητα διεξαγωγής της εξέτασης: κάθε "+frequency+" μήνες."); tv_freq.setBackgroundColor(color.holo_green_light);
 	        tv_freq.setTextSize(10);
 	        tv_freq.setGravity(Gravity.CENTER);
 	        tv_freq.setClickable(false);
@@ -180,6 +224,55 @@ public class Personal_information extends Activity {
         
         }
 	}
+				// Inform personal the user about the exams that he/she should do
+				public ArrayList<Exam> informUser(int age, int smoker, int gender,
+						float deiktis_mazas_somatos, int alcoholic, int preposission,
+						int sexual_situation) {
+					ArrayList<Exam> selected_exams_array = new ArrayList<Exam>();
+
+					for (int i = 0; i < exams.size(); i++) {
+						if (exams.get(i) != null) {
+							// exams.get(i).id
+							int start_age = 0, end_age = 0, start_deiktis_mazas = 0, end_deiktis_mazas = 0, smoker_in = 0, gender_in = 0, alcoholic_in = 0, prepos_in = 0, sexual_situation_in = 0;
+							// get age range (split)
+							if (exams.get(i).get_age_range() != null) {
+								String age_range = exams.get(i).get_age_range();
+								String[] age_r = age_range.split("-");
+								start_age = Integer.parseInt(age_r[0]);
+								end_age = Integer.parseInt(age_r[1]);
+							}
+
+							// get deiktis mazas somatos (split)
+							if (exams.get(i).get_deiktis_mazas_range() != null) {
+								String deiktis_mazas_range = exams.get(i)
+										.get_deiktis_mazas_range();
+								String[] deiktis_mazas = deiktis_mazas_range.split("-");
+								start_deiktis_mazas = Integer.parseInt(deiktis_mazas[0]);
+								end_deiktis_mazas = Integer.parseInt(deiktis_mazas[1]);
+							}
+
+							smoker_in = (exams.get(i).get_smoker());
+							gender_in = (exams.get(i).get_gender());
+							alcoholic_in = (exams.get(i).get_alcohol());
+							prepos_in = (exams.get(i).get_inheritance());
+							sexual_situation_in = (exams.get(i).get_SexualSituation());
+
+							if (deiktis_mazas_somatos >= start_deiktis_mazas
+									&& deiktis_mazas_somatos <= end_deiktis_mazas
+									&& age >= start_age
+									&& age <= end_age
+									&& (smoker_in == 3 || smoker_in == smoker)
+									&& (gender_in == 2 || gender_in == gender)
+									&& (sexual_situation_in == 2 || sexual_situation_in == sexual_situation)
+									&& (alcoholic_in == 2 || alcoholic_in == alcoholic)
+									&& (prepos_in == 2 || prepos_in == preposission)) {
+								selected_exams_array.add(exams.get(i));
+
+							}
+						}
+					}
+					return selected_exams_array;
+				}
 
 	
 	@Override
